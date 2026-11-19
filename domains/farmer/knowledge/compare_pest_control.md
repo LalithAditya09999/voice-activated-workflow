@@ -2,7 +2,7 @@
 {"id": "compare_pest_control", "title": "Pest control: chemical pesticides vs organic methods — side by side",
  "approach": "compare",
  "tags": ["pesticide", "chemical spray", "insecticide", "organic pest control", "compare", "side effects", "residue", "resistance", "பூச்சிக்கொல்லி", "ரசாயன மருந்து", "இயற்கை பூச்சி விரட்டி", "பக்க விளைவு", "कीटनाशक", "जैविक कीट नियंत्रण", "नुकसान"],
- "source": "TNAU crop protection; NCIPM IPM packages; natural farming practice. Written for Saathi.",
+ "source": "TNAU crop protection; NCIPM IPM packages; natural farming practice. Written for Velan.",
  "verified": false,
  "summary": {
   "en": "Common practice: recommended chemical pesticides at the label dose, used only after pests cross the damage threshold, act fast and save a crop in an outbreak. But repeated or wrong spraying kills friendly insects, breeds resistant pests, leaves residues on vegetables and harms the person spraying. Organic practice: traps, neem extract, herbal repellents, bio-agents like Trichogramma, and mixed crops prevent outbreaks cheaply, but act slowly and need early action. Best practice combines them: prevent organically, and use a recommended chemical only as a last resort.",

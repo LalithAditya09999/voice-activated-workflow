@@ -2,7 +2,7 @@
 {"id": "nammalvar_teachings", "title": "Nammalvar's teachings — natural farming principles",
  "approach": "organic",
  "tags": ["nammalvar", "nammazhvar", "vanagam", "natural farming", "iyarkai velanmai", "organic", "principles", "நம்மாழ்வார்", "வானகம்", "இயற்கை வேளாண்மை", "நம்மாழ்வார் அய்யா", "नम्मालवार", "प्राकृतिक खेती"],
- "source": "Summary written for Saathi from public accounts of Dr. G. Nammalvar's work (Vanagam / Nammalvar Ecological Foundation, Kadavur, Karur district). Not his own words — confirm with Vanagam.",
+ "source": "Summary written for Velan from public accounts of Dr. G. Nammalvar's work (Vanagam / Nammalvar Ecological Foundation, Kadavur, Karur district). Not his own words — confirm with Vanagam.",
  "verified": false,
  "summary": {
   "en": "Dr. G. Nammalvar was a Tamil agricultural scientist who left government research to champion natural, poison-free farming. He taught farmers to feed the soil, not the plant: keep the soil covered, grow many crops together, keep native cows and country chickens, make inputs on the farm, and save native seeds. His centre Vanagam is at Surumanpatti, Kadavur, in Karur district.",
@@ -22,4 +22,4 @@
 7. **Harvest every drop of rain:** farm ponds, bunds, trenches, living fences and trees.
 8. **Shift gradually.** Convert part of the land first, learn, then expand — yields can dip in the first seasons while the soil recovers.
 
-**Learning from the source:** Vanagam (Nammalvar Ecological Foundation) runs residential trainings. His Tamil books, recorded talks and documentaries are published by others — Saathi only includes them with the rights holders' permission (see `scripts/ingest.py`).
+**Learning from the source:** Vanagam (Nammalvar Ecological Foundation) runs residential trainings. His Tamil books, recorded talks and documentaries are published by others — Velan only includes them with the rights holders' permission (see `scripts/ingest.py`).

@@ -1,6 +1,6 @@
-# Saathi — voice-first helper for farmers & citizens
+# Velan — voice-first helper for farmers & citizens
 
-Speak in Tamil, Hindi or English. Saathi explains the scheme, tells you which documents to bring,
+Speak in Tamil, Hindi or English. Velan explains the scheme, tells you which documents to bring,
 fills the application with you one question at a time, reads it back, and gives you a printable
 form, a reference number and a follow-up date.
 
@@ -63,7 +63,7 @@ Safety rules enforced by the engine, not just the prompt:
 
 ## Two paths, side by side: conventional and organic
 
-Saathi doesn't preach one way of farming. For nutrition, seeds, pests, poultry and livestock it
+Velan doesn't preach one way of farming. For nutrition, seeds, pests, poultry and livestock it
 gives the **common (conventional) practice** and the **organic / natural practice** (Nammalvar's
 methods) next to each other, each with its strengths **and its side effects**, and lets the
 farmer choose. If a farmer says "I only want organic" (or "just tell me the chemical dose"),
@@ -102,7 +102,7 @@ git-ignored so licensed material isn't pushed to a public repo by accident.
 
 1. `mkdir domains/<new>` with `domain.json`, `forms/*.json`, `knowledge/*.md`, optional `schemes.json`
    (copy the `farmer` pack's shape).
-2. `SAATHI_DOMAINS=<new>,citizen` in `.env`.
+2. `VELAN_DOMAINS=<new>,citizen` in `.env`.
 3. Add a test like `test_full_drip_application_in_tamil` for the main flow.
 
 No Python changes are needed for a new set of services, forms, eligibility rules or knowledge.

@@ -2,7 +2,7 @@
 {"id": "integrated_farming", "title": "Integrated farming: crops + cattle + goats + poultry + fish + trees",
  "approach": "organic",
  "tags": ["integrated farming", "ifs", "multi crop", "multi-tier", "farm pond", "livestock", "dairy", "goat", "fish", "agroforestry", "living fence", "nammalvar", "ஒருங்கிணைந்த பண்ணையம்", "பண்ணைக் குட்டை", "பல அடுக்கு", "கால்நடை", "उपयोगी खेती", "समेकित खेती"],
- "source": "TNAU Integrated Farming System models; natural farming practice (Nammalvar). Written for Saathi.",
+ "source": "TNAU Integrated Farming System models; natural farming practice (Nammalvar). Written for Velan.",
  "verified": false,
  "summary": {
   "en": "Integrated farming links everything: crop waste feeds cattle and goats, their dung and urine make manure and organic sprays, poultry clean pests, a farm pond stores rain and raises fish, and trees on bunds give fodder, fruit and timber. Income comes every day from milk and eggs, every month from goats and vegetables, and every season from crops, so one bad harvest doesn't ruin the family.",

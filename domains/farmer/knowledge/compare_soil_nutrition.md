@@ -2,7 +2,7 @@
 {"id": "compare_soil_nutrition", "title": "Feeding the crop: chemical fertiliser vs organic — side by side",
  "approach": "compare",
  "tags": ["fertiliser", "fertilizer", "chemical", "organic", "compare", "urea", "dap", "side effects", "soil damage", "integrated nutrient management", "transition", "உரம்", "ரசாயன உரம்", "இயற்கை உரம்", "ஒப்பீடு", "பக்க விளைவு", "மண் கெடுதல்", "रासायनिक खाद", "जैविक खाद", "नुकसान"],
- "source": "TNAU nutrient management; ICAR long-term fertiliser experiments; natural farming practice. Written for Saathi.",
+ "source": "TNAU nutrient management; ICAR long-term fertiliser experiments; natural farming practice. Written for Velan.",
  "verified": false,
  "summary": {
   "en": "Two ways, and you choose. Common practice: chemical fertilisers like urea, DAP and potash at the soil-test dose give fast, predictable yields, but overuse lowers soil organic matter, hardens and acidifies soil, pollutes groundwater and raises costs every year. Organic practice: compost, green manure, jeevamirtham and amirtha karaisal build living soil and cut costs, but yields can dip for the first 2–3 seasons and need more labour. Many farmers start in between: use the soil-test dose, replace part of it with organic manure, and shift step by step.",

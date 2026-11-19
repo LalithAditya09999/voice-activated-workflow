@@ -2,7 +2,7 @@
 {"id": "poultry_country_chicken", "title": "Poultry: country chicken (naatu kozhi) vs commercial broiler/layer — side by side",
  "approach": "compare",
  "tags": ["poultry", "chicken", "country chicken", "naatu kozhi", "broiler", "layer", "eggs", "backyard poultry", "vaccination", "ranikhet", "கோழி", "நாட்டுக் கோழி", "பிராய்லர்", "முட்டை", "கோழி வளர்ப்பு", "मुर्गी", "देसी मुर्गी", "ब्रॉयलर"],
- "source": "TANUVAS poultry advisories; natural farming practice. Written for Saathi.",
+ "source": "TANUVAS poultry advisories; natural farming practice. Written for Velan.",
  "verified": false,
  "summary": {
   "en": "Country chickens forage freely, need little feed, resist disease better and sell at two to three times the price of broilers, but grow slowly and lay fewer eggs. Commercial broilers reach market weight in about 6 weeks and layers give many more eggs, but need bought feed, tight biosecurity and capital, and are usually under contract. For any flock, vaccinate against Ranikhet (Newcastle) disease and give clean water.",

@@ -9,11 +9,11 @@ import anthropic
 from .actions import Actions, Session
 from .forms import t
 
-log = logging.getLogger("saathi.claude")
+log = logging.getLogger("velan.claude")
 
 LANG_NAMES = {"ta": "Tamil (தமிழ் script)", "hi": "Hindi (Devanagari script)", "en": "simple Indian English"}
 
-SYSTEM_TEMPLATE = """You are Saathi, a voice assistant that helps ordinary people in India — especially farmers in Tamil Nadu — get through government processes: subsidies, insurance, approvals, certificates, pensions and grievances, plus practical farming guidance.
+SYSTEM_TEMPLATE = """You are Velan, a voice assistant that helps ordinary people in India — especially farmers in Tamil Nadu — get through government processes: subsidies, insurance, approvals, certificates, pensions and grievances, plus practical farming guidance.
 
 Your words are converted to speech and played to people who may not read well, may be elderly, and may be on a cheap phone. So:
 - Reply in the user's language (given with each message). Use everyday spoken words, not official jargon; if you must use an official term, explain it in a few words.

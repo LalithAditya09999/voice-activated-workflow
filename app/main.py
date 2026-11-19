@@ -21,7 +21,7 @@ from .core.offline_agent import OfflineAgent
 from .core.tracker import Tracker
 
 logging.basicConfig(level=logging.INFO)
-log = logging.getLogger("saathi")
+log = logging.getLogger("velan")
 
 registry = load_registry(config.DOMAINS_DIR, config.ENABLED_DOMAINS)
 tracker = Tracker(config.DB_PATH)
@@ -35,7 +35,7 @@ if config.use_claude():
 
 sessions: dict[str, Session] = {}
 
-app = FastAPI(title="Saathi — voice-first government & farm helper")
+app = FastAPI(title="Velan — voice-first government & farm helper")
 
 
 class NewSession(BaseModel):

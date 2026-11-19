@@ -11,9 +11,9 @@ from .text import is_cancel, is_no, is_yes, tokens
 
 S = {
     "greeting": {
-        "en": "Hello! I'm your Saathi. Tell me what you need — a subsidy, insurance, a certificate, or farming advice.",
-        "ta": "வணக்கம்! நான் உங்கள் சாத்தி. உங்களுக்கு என்ன வேண்டும் என்று சொல்லுங்கள் — மானியம், காப்பீடு, சான்றிதழ், அல்லது விவசாய ஆலோசனை.",
-        "hi": "नमस्ते! मैं आपका साथी हूँ। बताइए आपको क्या चाहिए — सब्सिडी, बीमा, प्रमाणपत्र, या खेती की सलाह।",
+        "en": "Hello! I'm Velan, your helper. Tell me what you need — a subsidy, insurance, a certificate, or farming advice.",
+        "ta": "வணக்கம்! நான் வேலன், உங்கள் உதவியாளர். உங்களுக்கு என்ன வேண்டும் என்று சொல்லுங்கள் — மானியம், காப்பீடு, சான்றிதழ், அல்லது விவசாய ஆலோசனை.",
+        "hi": "नमस्ते! मैं वेलन हूँ, आपका सहायक। बताइए आपको क्या चाहिए — सब्सिडी, बीमा, प्रमाणपत्र, या खेती की सलाह।",
     },
     "offer_form": {
         "en": "Shall I fill the application with you now? It takes about {n} questions.",

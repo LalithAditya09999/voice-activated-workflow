@@ -2,7 +2,7 @@
 {"id": "compare_seeds", "title": "Seeds: native vs improved vs hybrid vs GM — side by side",
  "approach": "compare",
  "tags": ["seed", "hybrid", "hybrid seed", "gmo", "gm", "bt cotton", "genetically modified", "new variety", "improved variety", "hyv", "native seed", "side effects", "விதை", "கலப்பின விதை", "வீரிய ஒட்டு", "மரபணு மாற்றம்", "பிடி பருத்தி", "நாட்டு விதை", "बीज", "हाइब्रिड", "जीएम", "बीटी कपास"],
- "source": "Seeds Act / GEAC approvals; TNAU seed technology; traditional seed savers. Written for Saathi.",
+ "source": "Seeds Act / GEAC approvals; TNAU seed technology; traditional seed savers. Written for Velan.",
  "verified": false,
  "summary": {
   "en": "Native seeds can be saved and resown, cope well with local stress and fetch a premium, but often yield less. Improved varieties, like TNAU releases, give higher yield and can also be saved for a few seasons. Hybrid seeds give the highest yields but must be bought every season, because saved hybrid seed doesn't breed true, and they usually need more fertiliser and water. In India the only GM crop approved for farming is Bt cotton; any other GM seed being sold is illegal. Bt cotton still needs pink bollworm management, and the seed is costly.",

@@ -35,10 +35,10 @@ const UI = {
 };
 
 const state = {
-  lang: localGet("saathi.lang") || "ta",
+  lang: localGet("velan.lang") || "ta",
   sessionId: null,
   config: null,
-  speakReplies: localGet("saathi.speak") !== "0",
+  speakReplies: localGet("velan.speak") !== "0",
   listening: false,
   busy: false,
   audio: null,
@@ -83,7 +83,7 @@ function applyLang() {
 
 document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", async () => {
   state.lang = b.dataset.lang;
-  localSet("saathi.lang", state.lang);
+  localSet("velan.lang", state.lang);
   applyLang();
   stopSpeaking();
   await newSession();
@@ -269,7 +269,7 @@ async function speak(text) {
 $("#speakToggle").addEventListener("click", (e) => {
   state.speakReplies = !state.speakReplies;
   e.currentTarget.setAttribute("aria-pressed", String(state.speakReplies));
-  localSet("saathi.speak", state.speakReplies ? "1" : "0");
+  localSet("velan.speak", state.speakReplies ? "1" : "0");
   if (!state.speakReplies) stopSpeaking();
 });
 
