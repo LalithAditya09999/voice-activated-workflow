@@ -1,0 +1,20 @@
+[
+  {
+    "id": "nammalvar_talk_soil",
+    "title": "Nammalvar talk on soil health (transcript)",
+    "author": "G. Nammalvar",
+    "type": "video",
+    "language": "ta",
+    "url": "https://example.org/link-to-the-original-video",
+    "files": ["sources/raw/nammalvar_talk_soil.ta.vtt"],
+    "domain": "farmer",
+    "approach": "organic",
+    "tags": ["nammalvar", "நம்மாழ்வார்", "soil", "மண்"],
+    "permission": {
+      "granted_by": "Name of rights holder (e.g. Vanagam trust / publisher / channel owner)",
+      "date": "2026-11-25",
+      "scope": "Transcribe, summarise and quote in the Saathi app with attribution",
+      "reference": "Email / letter reference kept by the team"
+    }
+  }
+]

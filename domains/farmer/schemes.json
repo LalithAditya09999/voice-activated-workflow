@@ -1,0 +1,40 @@
+[
+  {"id": "pm_kisan", "service": "pm_kisan",
+   "name": {"en": "PM-KISAN", "ta": "பிஎம்-கிசான்", "hi": "पीएम-किसान"},
+   "benefit": {"en": "₹6,000 a year in three instalments to your bank account", "ta": "ஆண்டுக்கு ₹6,000, மூன்று தவணைகளில் வங்கிக் கணக்கில்", "hi": "साल में ₹6,000, तीन किस्तों में बैंक खाते में"},
+   "rules": [
+     {"field": "is_farmer", "op": "eq", "value": true, "why": {"en": "only for farmers", "ta": "விவசாயிகளுக்கு மட்டும்", "hi": "सिर्फ़ किसानों के लिए"}},
+     {"field": "owns_land", "op": "eq", "value": true, "why": {"en": "land must be in your name", "ta": "நிலம் உங்கள் பெயரில் இருக்க வேண்டும்", "hi": "ज़मीन आपके नाम पर होनी चाहिए"}},
+     {"field": "income_tax_payer", "op": "eq", "value": false, "why": {"en": "income-tax payers and government employees are excluded", "ta": "வருமான வரி செலுத்துவோர், அரசு ஊழியர்களுக்கு இல்லை", "hi": "आयकरदाता और सरकारी कर्मचारी पात्र नहीं"}}
+   ]},
+  {"id": "pmfby", "service": "crop_insurance",
+   "name": {"en": "Crop insurance (PMFBY)", "ta": "பயிர் காப்பீடு (PMFBY)", "hi": "फसल बीमा (PMFBY)"},
+   "benefit": {"en": "Low-premium insurance against crop loss from weather, pests and disease", "ta": "வானிலை, பூச்சி, நோயால் ஏற்படும் இழப்புக்கு குறைந்த பிரீமியம் காப்பீடு", "hi": "मौसम, कीट, रोग से नुकसान पर कम प्रीमियम बीमा"},
+   "rules": [{"field": "is_farmer", "op": "eq", "value": true, "why": {"en": "only for farmers", "ta": "விவசாயிகளுக்கு மட்டும்", "hi": "सिर्फ़ किसानों के लिए"}}]},
+  {"id": "micro_irrigation", "service": "drip_irrigation",
+   "name": {"en": "Drip / sprinkler subsidy", "ta": "சொட்டு / தெளிப்பு நீர் மானியம்", "hi": "ड्रिप / स्प्रिंकलर सब्सिडी"},
+   "benefit": {"en": "Large subsidy on drip or sprinkler systems (highest for small & marginal farmers)", "ta": "சொட்டு / தெளிப்பு அமைப்புக்கு பெரிய மானியம் (சிறு, குறு விவசாயிகளுக்கு அதிகம்)", "hi": "ड्रिप / स्प्रिंकलर पर बड़ी सब्सिडी (लघु व सीमांत किसानों को सबसे ज़्यादा)"},
+   "rules": [
+     {"field": "is_farmer", "op": "eq", "value": true, "why": {"en": "only for farmers", "ta": "விவசாயிகளுக்கு மட்டும்", "hi": "सिर्फ़ किसानों के लिए"}},
+     {"field": "has_drip", "op": "eq", "value": false, "why": {"en": "you already have drip (re-application is usually allowed only after several years)", "ta": "ஏற்கனவே சொட்டு நீர் உள்ளது (பல ஆண்டுகளுக்குப் பிறகே மீண்டும் விண்ணப்பிக்கலாம்)", "hi": "पहले से ड्रिप है (आम तौर पर कई साल बाद ही दोबारा आवेदन)"}},
+     {"field": "water_source", "op": "ne", "value": "rainfed", "why": {"en": "needs an assured water source", "ta": "நிச்சயமான நீர் ஆதாரம் தேவை", "hi": "पक्का पानी का स्रोत चाहिए"}}
+   ]},
+  {"id": "pm_kusum", "service": "solar_pump",
+   "name": {"en": "Solar pump (PM-KUSUM)", "ta": "சூரிய பம்ப் (பிஎம்-குசும்)", "hi": "सोलर पंप (पीएम-कुसुम)"},
+   "benefit": {"en": "Subsidised solar pump — no electricity bill, daytime irrigation", "ta": "மானியத்துடன் சூரிய பம்ப் — மின் கட்டணம் இல்லை, பகலில் பாசனம்", "hi": "सब्सिडी वाला सोलर पंप — बिजली बिल नहीं, दिन में सिंचाई"},
+   "rules": [
+     {"field": "is_farmer", "op": "eq", "value": true, "why": {"en": "only for farmers", "ta": "விவசாயிகளுக்கு மட்டும்", "hi": "सिर्फ़ किसानों के लिए"}},
+     {"field": "water_source", "op": "in", "value": ["borewell", "open_well"], "why": {"en": "needs a well or borewell", "ta": "கிணறு அல்லது போர்வெல் தேவை", "hi": "कुआँ या बोरवेल चाहिए"}}
+   ]},
+  {"id": "kcc", "service": "kcc",
+   "name": {"en": "Kisan Credit Card", "ta": "கிசான் கடன் அட்டை", "hi": "किसान क्रेडिट कार्ड"},
+   "benefit": {"en": "Low-interest crop loan; interest relief for repaying on time", "ta": "குறைந்த வட்டி பயிர்க் கடன்; சரியான நேரத்தில் செலுத்தினால் வட்டிச் சலுகை", "hi": "कम ब्याज पर फसल ऋण; समय पर चुकाने पर ब्याज में छूट"},
+   "rules": [
+     {"field": "is_farmer", "op": "eq", "value": true, "why": {"en": "only for farmers", "ta": "விவசாயிகளுக்கு மட்டும்", "hi": "सिर्फ़ किसानों के लिए"}},
+     {"field": "has_crop_loan", "op": "eq", "value": false, "why": {"en": "you already have a crop loan / KCC", "ta": "ஏற்கனவே பயிர்க் கடன் உள்ளது", "hi": "पहले से फसल ऋण / KCC है"}}
+   ]},
+  {"id": "soil_health_card", "service": "soil_health",
+   "name": {"en": "Free soil test (Soil Health Card)", "ta": "இலவச மண் பரிசோதனை (மண் வள அட்டை)", "hi": "मुफ़्त मिट्टी जाँच (मृदा स्वास्थ्य कार्ड)"},
+   "benefit": {"en": "Know exactly which fertiliser to use — saves money", "ta": "எந்த உரம் எவ்வளவு தேவை என்று தெரியும் — பணம் மிச்சம்", "hi": "कौन सी खाद कितनी डालनी है पता चलेगा — पैसे बचेंगे"},
+   "rules": [{"field": "is_farmer", "op": "eq", "value": true, "why": {"en": "only for farmers", "ta": "விவசாயிகளுக்கு மட்டும்", "hi": "सिर्फ़ किसानों के लिए"}}]}
+]

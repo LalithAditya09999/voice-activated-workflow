@@ -1,0 +1,30 @@
+{
+  "id": "drip_irrigation",
+  "title": {"en": "Micro-irrigation (drip/sprinkler) subsidy application", "ta": "நுண்ணீர் பாசன (சொட்டு/தெளிப்பு) மானிய விண்ணப்பம்", "hi": "सूक्ष्म सिंचाई (ड्रिप/स्प्रिंकलर) सब्सिडी आवेदन"},
+  "submit_to": {"en": "your block Horticulture / Agriculture office (or the TNHORTICULTURE MIMIS portal)", "ta": "உங்கள் வட்டார தோட்டக்கலை / வேளாண் அலுவலகம்", "hi": "आपके ब्लॉक का उद्यान / कृषि कार्यालय"},
+  "next_step": {"en": "An officer inspects the field; a registered drip company prepares the design and quotation.", "ta": "அலுவலர் வயலை ஆய்வு செய்வார்; பதிவு பெற்ற நிறுவனம் வடிவமைப்பு மற்றும் விலைப்பட்டியல் தயாரிக்கும்.", "hi": "अधिकारी खेत का निरीक्षण करेंगे; पंजीकृत कंपनी डिज़ाइन और कोटेशन बनाएगी।"},
+  "follow_up_days": 21,
+  "documents": [
+    {"en": "Chitta / Adangal (land record)", "ta": "சிட்டா / அடங்கல்", "hi": "भूमि रिकॉर्ड (चिट्टा / अडंगल)"},
+    {"en": "Aadhaar card", "ta": "ஆதார் அட்டை", "hi": "आधार कार्ड"},
+    {"en": "Bank passbook first page", "ta": "வங்கி கணக்குப் புத்தக முதல் பக்கம்", "hi": "बैंक पासबुक का पहला पन्ना"},
+    {"en": "Passport photo", "ta": "பாஸ்போர்ட் புகைப்படம்", "hi": "पासपोर्ट फोटो"},
+    {"en": "Small / marginal farmer certificate (from Tahsildar), if applicable", "ta": "சிறு / குறு விவசாயி சான்று (வட்டாட்சியர்), பொருந்தினால்", "hi": "लघु / सीमांत किसान प्रमाणपत्र (तहसीलदार), यदि लागू"},
+    {"en": "Soil & water test report", "ta": "மண் & நீர் பரிசோதனை அறிக்கை", "hi": "मिट्टी और पानी जाँच रिपोर्ट"}
+  ],
+  "fields": [
+    {"$ref": "name"},
+    {"$ref": "father_or_spouse"},
+    {"$ref": "phone"},
+    {"$ref": "aadhaar"},
+    {"$ref": "district"},
+    {"$ref": "taluk"},
+    {"$ref": "village"},
+    {"$ref": "survey_number"},
+    {"$ref": "land_acres", "id": "area_for_drip", "label": {"en": "Area for drip (acres)", "ta": "சொட்டுநீர் பரப்பு (ஏக்கர்)", "hi": "ड्रिप का क्षेत्र (एकड़)"},
+     "question": {"en": "On how many acres do you want drip or sprinkler?", "ta": "எத்தனை ஏக்கரில் சொட்டு அல்லது தெளிப்பு நீர் வேண்டும்?", "hi": "कितने एकड़ में ड्रिप या स्प्रिंकलर चाहिए?"}, "reuse": false},
+    {"$ref": "water_source"},
+    {"$ref": "crop"},
+    {"$ref": "farmer_category"}
+  ]
+}

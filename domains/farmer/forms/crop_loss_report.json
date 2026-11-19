@@ -1,0 +1,49 @@
+{
+  "id": "crop_loss_report",
+  "title": {"en": "Crop loss intimation (PMFBY insurance claim)", "ta": "பயிர் இழப்பு தகவல் (பயிர் காப்பீட்டுக் கோரிக்கை)", "hi": "फसल नुकसान सूचना (फसल बीमा दावा)"},
+  "submit_to": {"en": "the insurance company toll-free number / Crop Insurance app, your bank branch or the agriculture office — within 72 hours of the loss", "ta": "காப்பீட்டு நிறுவன இலவச எண் / Crop Insurance செயலி, உங்கள் வங்கி அல்லது வேளாண் அலுவலகம் — இழப்பு நடந்த 72 மணி நேரத்துக்குள்", "hi": "बीमा कंपनी का टोल-फ़्री नंबर / Crop Insurance ऐप, आपका बैंक या कृषि कार्यालय — नुकसान के 72 घंटे के भीतर"},
+  "deadline_note": {"en": "Report within 72 hours of the damage, or the claim can be rejected.", "ta": "சேதம் நடந்த 72 மணி நேரத்துக்குள் தெரிவிக்கவும், இல்லையெனில் கோரிக்கை நிராகரிக்கப்படலாம்.", "hi": "नुकसान के 72 घंटे के भीतर सूचना दें, वरना दावा खारिज हो सकता है।"},
+  "next_step": {"en": "A surveyor visits within a few days. Keep photos of the damaged field with date.", "ta": "சில நாட்களில் ஆய்வாளர் வருவார். சேதமடைந்த வயலின் தேதியுடன் கூடிய புகைப்படங்களை வைத்திருங்கள்.", "hi": "कुछ दिनों में सर्वेयर आएगा। खराब फसल की तारीख वाली फ़ोटो रखें।"},
+  "follow_up_days": 10,
+  "documents": [
+    {"en": "Insurance enrolment receipt / policy number (or crop loan account)", "ta": "காப்பீட்டு பதிவு ரசீது / பாலிசி எண் (அல்லது பயிர்க் கடன் கணக்கு)", "hi": "बीमा रसीद / पॉलिसी नंबर (या फसल ऋण खाता)"},
+    {"en": "Dated photos of the damaged crop", "ta": "சேதமடைந்த பயிரின் தேதியுடன் புகைப்படங்கள்", "hi": "खराब फसल की तारीख वाली फ़ोटो"},
+    {"en": "Adangal showing the sown crop", "ta": "விதைத்த பயிரைக் காட்டும் அடங்கல்", "hi": "बोई गई फसल का रिकॉर्ड"},
+    {"en": "Aadhaar and bank passbook", "ta": "ஆதார் மற்றும் வங்கிப் புத்தகம்", "hi": "आधार और बैंक पासबुक"}
+  ],
+  "fields": [
+    {"id": "loss_date", "type": "date", "past_only": true,
+     "label": {"en": "Date of damage", "ta": "சேதம் நடந்த தேதி", "hi": "नुकसान की तारीख"},
+     "question": {"en": "When did the damage happen?", "ta": "சேதம் எப்போது நடந்தது?", "hi": "नुकसान कब हुआ?"},
+     "aliases": ["date", "தேதி", "तारीख"]},
+    {"id": "loss_cause", "type": "choice",
+     "label": {"en": "Cause of loss", "ta": "இழப்புக்கான காரணம்", "hi": "नुकसान का कारण"},
+     "question": {"en": "What caused the damage?", "ta": "சேதம் எதனால் ஏற்பட்டது?", "hi": "नुकसान किस वजह से हुआ?"},
+     "options": [
+       {"value": "flood", "label": {"en": "Flood / heavy rain", "ta": "வெள்ளம் / கனமழை", "hi": "बाढ़ / भारी बारिश"}, "aliases": ["flood", "rain", "water", "வெள்ளம்", "மழை", "बाढ़", "बारिश"]},
+       {"value": "drought", "label": {"en": "Drought", "ta": "வறட்சி", "hi": "सूखा"}, "aliases": ["drought", "dry", "வறட்சி", "காய்ந்து", "सूखा"]},
+       {"value": "cyclone", "label": {"en": "Cyclone / strong wind", "ta": "புயல் / பலத்த காற்று", "hi": "चक्रवात / आंधी"}, "aliases": ["cyclone", "wind", "storm", "புயல்", "காற்று", "तूफ़ान", "आंधी"]},
+       {"value": "hailstorm", "label": {"en": "Hailstorm", "ta": "ஆலங்கட்டி மழை", "hi": "ओलावृष्टि"}, "aliases": ["hail", "ஆலங்கட்டி", "ओले"]},
+       {"value": "pest_disease", "label": {"en": "Pest / disease", "ta": "பூச்சி / நோய்", "hi": "कीट / रोग"}, "aliases": ["pest", "insect", "disease", "பூச்சி", "நோய்", "कीड़ा", "रोग"]},
+       {"value": "fire", "label": {"en": "Fire / lightning", "ta": "தீ / மின்னல்", "hi": "आग / बिजली"}, "aliases": ["fire", "lightning", "தீ", "மின்னல்", "आग"]}
+     ]},
+    {"$ref": "crop"},
+    {"$ref": "land_acres", "id": "area_affected", "reuse": false,
+     "label": {"en": "Area affected (acres)", "ta": "பாதிக்கப்பட்ட பரப்பு (ஏக்கர்)", "hi": "प्रभावित क्षेत्र (एकड़)"},
+     "question": {"en": "How many acres are damaged?", "ta": "எத்தனை ஏக்கர் சேதமடைந்தது?", "hi": "कितने एकड़ में नुकसान हुआ?"}},
+    {"id": "insured_via", "type": "choice",
+     "label": {"en": "Insured through", "ta": "காப்பீடு செய்த இடம்", "hi": "बीमा कहाँ से कराया"},
+     "question": {"en": "Where did you take the insurance?", "ta": "காப்பீட்டை எங்கே செய்தீர்கள்?", "hi": "आपने बीमा कहाँ से कराया?"},
+     "options": [
+       {"value": "bank_loan", "label": {"en": "With crop loan at bank", "ta": "வங்கி பயிர்க் கடனுடன்", "hi": "बैंक फसल ऋण के साथ"}, "aliases": ["bank", "loan", "வங்கி", "கடன்", "बैंक", "लोन"]},
+       {"value": "csc", "label": {"en": "e-Sevai / CSC centre", "ta": "இ-சேவை மையம்", "hi": "CSC केंद्र"}, "aliases": ["csc", "sevai", "esevai", "சேவை", "இ-சேவை"]},
+       {"value": "not_sure", "label": {"en": "Not sure", "ta": "தெரியவில்லை", "hi": "पता नहीं"}, "aliases": ["not sure", "don't know", "தெரியல", "தெரியவில்லை", "पता नहीं"]},
+       {"value": "not_insured", "label": {"en": "Not insured", "ta": "காப்பீடு இல்லை", "hi": "बीमा नहीं"}, "aliases": ["not insured", "no insurance", "காப்பீடு இல்லை", "बीमा नहीं"]}
+     ]},
+    {"$ref": "name"},
+    {"$ref": "phone"},
+    {"$ref": "district"},
+    {"$ref": "village"},
+    {"$ref": "survey_number"}
+  ]
+}

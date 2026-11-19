@@ -1,0 +1,16 @@
+[
+  {"id": "old_age_pension", "service": "old_age_pension",
+   "name": {"en": "Old-age pension", "ta": "முதியோர் ஓய்வூதியம்", "hi": "वृद्धावस्था पेंशन"},
+   "benefit": {"en": "Monthly pension for elderly people with low income", "ta": "குறைந்த வருமானமுள்ள முதியோருக்கு மாதாந்திர ஓய்வூதியம்", "hi": "कम आय वाले बुज़ुर्गों को मासिक पेंशन"},
+   "rules": [
+     {"field": "age", "op": "gte", "value": 60, "why": {"en": "you must be 60 or older", "ta": "60 வயது அல்லது அதற்கு மேல் இருக்க வேண்டும்", "hi": "उम्र 60 या उससे ज़्यादा होनी चाहिए"}},
+     {"field": "income_tax_payer", "op": "eq", "value": false, "why": {"en": "for low-income families only", "ta": "குறைந்த வருமானக் குடும்பங்களுக்கு மட்டும்", "hi": "सिर्फ़ कम आय वाले परिवारों के लिए"}}
+   ]},
+  {"id": "widow_pension", "service": "old_age_pension",
+   "name": {"en": "Widow / destitute woman pension", "ta": "விதவை / ஆதரவற்ற பெண் ஓய்வூதியம்", "hi": "विधवा / निराश्रित महिला पेंशन"},
+   "benefit": {"en": "Monthly pension", "ta": "மாதாந்திர ஓய்வூதியம்", "hi": "मासिक पेंशन"},
+   "rules": [
+     {"field": "widow", "op": "eq", "value": true, "why": {"en": "for widows / destitute women", "ta": "விதவை / ஆதரவற்ற பெண்களுக்கு", "hi": "विधवा / निराश्रित महिलाओं के लिए"}},
+     {"field": "income_tax_payer", "op": "eq", "value": false, "why": {"en": "for low-income families only", "ta": "குறைந்த வருமானக் குடும்பங்களுக்கு மட்டும்", "hi": "सिर्फ़ कम आय वाले परिवारों के लिए"}}
+   ]}
+]

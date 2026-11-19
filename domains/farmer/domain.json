@@ -1,0 +1,515 @@
+{
+  "id": "farmer",
+  "name": {
+    "en": "Farmer one-stop shop",
+    "ta": "விவசாயி ஒரே இடச் சேவை",
+    "hi": "किसान वन-स्टॉप सेवा"
+  },
+  "description": "Subsidies, approvals, insurance, credit and season-wise best practice for farmers (Tamil Nadu first).",
+  "services": [
+    {
+      "id": "drip_irrigation",
+      "title": {
+        "en": "Drip / sprinkler irrigation subsidy",
+        "ta": "சொட்டு / தெளிப்பு நீர் பாசன மானியம்",
+        "hi": "ड्रिप / स्प्रिंकलर सिंचाई सब्सिडी"
+      },
+      "keywords": [
+        "drip",
+        "sprinkler",
+        "micro irrigation",
+        "pmksy",
+        "சொட்டு",
+        "தெளிப்பு",
+        "நுண்ணீர்",
+        "ड्रिप",
+        "टपक",
+        "स्प्रिंकलर",
+        "फव्वारा",
+        "sottu"
+      ],
+      "form": "drip_irrigation",
+      "knowledge": [
+        "pmksy_micro_irrigation"
+      ]
+    },
+    {
+      "id": "pm_kisan",
+      "title": {
+        "en": "PM-KISAN income support",
+        "ta": "பிஎம்-கிசான் நிதி உதவி",
+        "hi": "पीएम-किसान सम्मान निधि"
+      },
+      "keywords": [
+        "pm kisan",
+        "pmkisan",
+        "kisan samman",
+        "6000",
+        "கிசான்",
+        "किसान सम्मान",
+        "पीएम किसान"
+      ],
+      "form": "pm_kisan_registration",
+      "knowledge": [
+        "pm_kisan"
+      ]
+    },
+    {
+      "id": "crop_insurance",
+      "title": {
+        "en": "Crop insurance & crop-loss claim (PMFBY)",
+        "ta": "பயிர் காப்பீடு & பயிர் இழப்பு கோரிக்கை",
+        "hi": "फसल बीमा और नुकसान दावा"
+      },
+      "keywords": [
+        "insurance",
+        "pmfby",
+        "crop loss",
+        "damaged",
+        "flood",
+        "claim",
+        "காப்பீடு",
+        "இன்சூரன்ஸ்",
+        "சேதம்",
+        "வெள்ளம்",
+        "நஷ்டம்",
+        "बीमा",
+        "नुकसान",
+        "बाढ़",
+        "ओले",
+        "fasal kharab",
+        "nuksan",
+        "nuksaan",
+        "barbaad",
+        "bima",
+        "kaappeedu"
+      ],
+      "form": "crop_loss_report",
+      "knowledge": [
+        "pmfby"
+      ]
+    },
+    {
+      "id": "solar_pump",
+      "title": {
+        "en": "Solar pump (PM-KUSUM)",
+        "ta": "சூரிய சக்தி பம்ப் (பிஎம்-குசும்)",
+        "hi": "सोलर पंप (पीएम-कुसुम)"
+      },
+      "keywords": [
+        "solar",
+        "kusum",
+        "சோலார்",
+        "சூரிய",
+        "सोलर",
+        "सौर",
+        "कुसुम",
+        "suriya"
+      ],
+      "form": "solar_pump_kusum",
+      "knowledge": [
+        "pm_kusum"
+      ]
+    },
+    {
+      "id": "farm_power",
+      "title": {
+        "en": "Farm electricity connection",
+        "ta": "விவசாய மின் இணைப்பு",
+        "hi": "खेती का बिजली कनेक्शन"
+      },
+      "keywords": [
+        "electricity",
+        "power connection",
+        "eb",
+        "motor connection",
+        "மின்",
+        "மின்சாரம்",
+        "கரண்ட்",
+        "இபி",
+        "बिजली",
+        "कनेक्शन"
+      ],
+      "form": "farm_power_connection",
+      "knowledge": [
+        "farm_power_connection"
+      ]
+    },
+    {
+      "id": "kcc",
+      "title": {
+        "en": "Kisan Credit Card (crop loan)",
+        "ta": "கிசான் கடன் அட்டை (பயிர்க் கடன்)",
+        "hi": "किसान क्रेडिट कार्ड"
+      },
+      "keywords": [
+        "kcc",
+        "credit card",
+        "crop loan",
+        "loan",
+        "கடன்",
+        "லோன்",
+        "क़र्ज़",
+        "कर्ज",
+        "लोन",
+        "ऋण",
+        "கிசான் கடன்",
+        "கடன் அட்டை",
+        "क्रेडिट कार्ड",
+        "किसान क्रेडिट"
+      ],
+      "form": null,
+      "knowledge": [
+        "kcc"
+      ]
+    },
+    {
+      "id": "soil_health",
+      "title": {
+        "en": "Soil Health Card & fertiliser dose",
+        "ta": "மண் வள அட்டை & உர அளவு",
+        "hi": "मृदा स्वास्थ्य कार्ड और खाद"
+      },
+      "keywords": [
+        "soil test",
+        "soil health",
+        "fertiliser",
+        "fertilizer",
+        "urea",
+        "மண் பரிசோதனை",
+        "மண் வள",
+        "உரம்",
+        "யூரியா",
+        "मिट्टी",
+        "खाद",
+        "यूरिया"
+      ],
+      "form": null,
+      "knowledge": [
+        "soil_health_card",
+        "compare_soil_nutrition"
+      ]
+    },
+    {
+      "id": "native_seeds",
+      "title": {
+        "en": "Native (traditional) seeds",
+        "ta": "பாரம்பரிய விதைகள்",
+        "hi": "देसी बीज"
+      },
+      "keywords": [
+        "native seed",
+        "traditional seed",
+        "seed",
+        "mappillai",
+        "kavuni",
+        "விதை",
+        "பாரம்பரிய",
+        "மாப்பிள்ளை",
+        "கவுனி",
+        "बीज",
+        "देसी",
+        "beej",
+        "vidhai",
+        "hybrid",
+        "gmo",
+        "gm seed",
+        "bt cotton",
+        "கலப்பின",
+        "மரபணு",
+        "हाइब्रिड"
+      ],
+      "form": null,
+      "knowledge": [
+        "native_paddy_varieties",
+        "seed_saving",
+        "compare_seeds"
+      ]
+    },
+    {
+      "id": "season_plan",
+      "title": {
+        "en": "What to plant this season",
+        "ta": "இந்தப் பருவத்தில் என்ன பயிரிடலாம்",
+        "hi": "इस मौसम में क्या बोएँ"
+      },
+      "keywords": [
+        "season",
+        "kuruvai",
+        "samba",
+        "thaladi",
+        "navarai",
+        "what to plant",
+        "பருவம்",
+        "குறுவை",
+        "சம்பா",
+        "தாளடி",
+        "நவரை",
+        "மौसम",
+        "मौसम",
+        "बुवाई"
+      ],
+      "form": null,
+      "knowledge": [
+        "tn_cropping_seasons",
+        "crop_rotation"
+      ]
+    },
+    {
+      "id": "organic_inputs",
+      "title": {
+        "en": "Organic manure & bio-inputs",
+        "ta": "இயற்கை உரம் & உயிர் இடுபொருட்கள்",
+        "hi": "जैविक खाद"
+      },
+      "keywords": [
+        "organic",
+        "panchagavya",
+        "jeevamirtham",
+        "jeevamrutham",
+        "compost",
+        "manure",
+        "இயற்கை",
+        "பஞ்சகவ்யா",
+        "ஜீவாமிர்தம்",
+        "எரு",
+        "மண்புழு",
+        "जैविक",
+        "जीवामृत",
+        "पंचगव्य",
+        "गोबर",
+        "amirtha",
+        "karaisal",
+        "meen amilam",
+        "அமிர்த",
+        "கரைசல்",
+        "மீன் அமில"
+      ],
+      "form": null,
+      "knowledge": [
+        "organic_inputs",
+        "nammalvar_preparations",
+        "compare_soil_nutrition"
+      ]
+    },
+    {
+      "id": "crop_protection",
+      "title": {
+        "en": "Pest & disease help",
+        "ta": "பூச்சி & நோய் கட்டுப்பாடு",
+        "hi": "कीट और रोग"
+      },
+      "keywords": [
+        "pest",
+        "insect",
+        "disease",
+        "worm",
+        "yellow leaves",
+        "பூச்சி",
+        "நோய்",
+        "புழு",
+        "இலை",
+        "கீட",
+        "कीड़ा",
+        "रोग",
+        "कीट",
+        "keeda",
+        "keede",
+        "kida",
+        "rog",
+        "poochi"
+      ],
+      "form": null,
+      "knowledge": [
+        "crop_protection_ipm",
+        "compare_pest_control"
+      ]
+    },
+    {
+      "id": "native_breeds",
+      "title": {
+        "en": "Native cattle, goat & sheep breeds",
+        "ta": "நாட்டு மாடு, ஆடு இனங்கள்",
+        "hi": "देसी पशु नस्लें"
+      },
+      "keywords": [
+        "cattle",
+        "cow",
+        "bull",
+        "goat",
+        "sheep",
+        "kangayam",
+        "breed",
+        "மாடு",
+        "காங்கேயம்",
+        "ஆடு",
+        "இனம்",
+        "நாட்டு",
+        "गाय",
+        "बकरी",
+        "नस्ल"
+      ],
+      "form": null,
+      "knowledge": [
+        "tn_native_breeds"
+      ]
+    },
+    {
+      "id": "grain_storage",
+      "title": {
+        "en": "Grain storage & pledge loan",
+        "ta": "தானியக் கிடங்கு & அடமானக் கடன்",
+        "hi": "अनाज भंडारण और गिरवी ऋण"
+      },
+      "keywords": [
+        "storage",
+        "warehouse",
+        "godown",
+        "pledge",
+        "price",
+        "கிடங்கு",
+        "குடோன்",
+        "சேமிப்பு",
+        "விலை",
+        "गोदाम",
+        "भंडारण",
+        "भाव"
+      ],
+      "form": null,
+      "knowledge": [
+        "grain_storage_pledge"
+      ]
+    },
+    {
+      "id": "nammalvar",
+      "title": {
+        "en": "Nammalvar's natural farming",
+        "ta": "நம்மாழ்வார் இயற்கை வேளாண்மை",
+        "hi": "नम्मालवार की प्राकृतिक खेती"
+      },
+      "keywords": [
+        "nammalvar",
+        "nammazhvar",
+        "vanagam",
+        "natural farming",
+        "iyarkai",
+        "நம்மாழ்வார்",
+        "வானகம்",
+        "இயற்கை வேளாண்மை",
+        "नम्मालवार",
+        "प्राकृतिक खेती"
+      ],
+      "form": null,
+      "knowledge": [
+        "nammalvar_teachings",
+        "nammalvar_preparations",
+        "integrated_farming"
+      ]
+    },
+    {
+      "id": "compare_methods",
+      "title": {
+        "en": "Chemical vs organic — compare",
+        "ta": "ரசாயனம் vs இயற்கை — ஒப்பீடு",
+        "hi": "रासायनिक बनाम जैविक — तुलना"
+      },
+      "keywords": [
+        "compare",
+        "chemical vs organic",
+        "which is better",
+        "side effects",
+        "ஒப்பீடு",
+        "எது நல்லது",
+        "பக்க விளைவு",
+        "ரசாயன",
+        "तुलना",
+        "कौन सा बेहतर",
+        "नुकसान"
+      ],
+      "form": null,
+      "knowledge": [
+        "compare_soil_nutrition",
+        "compare_pest_control",
+        "compare_seeds"
+      ]
+    },
+    {
+      "id": "poultry",
+      "title": {
+        "en": "Poultry (country chicken & broiler)",
+        "ta": "கோழி வளர்ப்பு",
+        "hi": "मुर्गी पालन"
+      },
+      "keywords": [
+        "poultry",
+        "chicken",
+        "hen",
+        "eggs",
+        "broiler",
+        "naatu kozhi",
+        "கோழி",
+        "முட்டை",
+        "பிராய்லர்",
+        "मुर्गी",
+        "अंडे"
+      ],
+      "form": null,
+      "knowledge": [
+        "poultry_country_chicken"
+      ]
+    },
+    {
+      "id": "integrated_farming",
+      "title": {
+        "en": "Integrated farming (crops + animals + pond)",
+        "ta": "ஒருங்கிணைந்த பண்ணையம்",
+        "hi": "समेकित खेती"
+      },
+      "keywords": [
+        "integrated",
+        "farm pond",
+        "ifs",
+        "dairy",
+        "goat farming",
+        "fish",
+        "ஒருங்கிணைந்த",
+        "பண்ணைக் குட்டை",
+        "ஆடு வளர்ப்பு",
+        "மீன் வளர்ப்பு",
+        "समेकित",
+        "तालाब"
+      ],
+      "form": null,
+      "knowledge": [
+        "integrated_farming"
+      ]
+    }
+  ],
+  "examples": {
+    "drip_irrigation": {
+      "en": "I want drip irrigation for 2 acres",
+      "ta": "எனக்கு 2 ஏக்கருக்கு சொட்டு நீர் பாசனம் வேண்டும்",
+      "hi": "मुझे 2 एकड़ के लिए ड्रिप चाहिए"
+    },
+    "crop_insurance": {
+      "en": "Rain destroyed my paddy yesterday",
+      "ta": "நேற்று மழையில் என் நெல் சேதமானது",
+      "hi": "कल बारिश से मेरी फसल खराब हो गई"
+    },
+    "season_plan": {
+      "en": "What should I plant in Samba season?",
+      "ta": "சம்பா பருவத்தில் என்ன பயிரிடலாம்?",
+      "hi": "इस मौसम में क्या बोऊँ?"
+    },
+    "compare_methods": {
+      "en": "Chemical fertiliser or organic — which is better for my paddy?",
+      "ta": "என் நெல்லுக்கு ரசாயன உரமா இயற்கை உரமா, எது நல்லது?",
+      "hi": "मेरे धान के लिए रासायनिक खाद या जैविक, कौन सा बेहतर है?"
+    },
+    "nammalvar": {
+      "en": "How do I make Nammalvar's amirtha karaisal?",
+      "ta": "நம்மாழ்வார் அமிர்தக் கரைசல் எப்படி தயாரிப்பது?",
+      "hi": "नम्मालवार का अमृत घोल कैसे बनाएँ?"
+    }
+  }
+}

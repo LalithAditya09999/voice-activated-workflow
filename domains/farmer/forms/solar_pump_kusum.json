@@ -1,0 +1,33 @@
+{
+  "id": "solar_pump_kusum",
+  "title": {"en": "Standalone solar pump application (PM-KUSUM Component B)", "ta": "தனி சூரிய சக்தி பம்ப் விண்ணப்பம் (பிஎம்-குசும்)", "hi": "स्टैंडअलोन सोलर पंप आवेदन (पीएम-कुसुम)"},
+  "submit_to": {"en": "the state implementing agency — in Tamil Nadu, the Agricultural Engineering Department (district office / online portal)", "ta": "தமிழ்நாடு வேளாண் பொறியியல் துறை (மாவட்ட அலுவலகம் / இணையதளம்)", "hi": "राज्य की कार्यान्वयन एजेंसी (तमिलनाडु में कृषि अभियांत्रिकी विभाग)"},
+  "next_step": {"en": "After approval you pay the farmer share; the empanelled vendor installs the pump.", "ta": "ஒப்புதலுக்குப் பிறகு விவசாயி பங்கை செலுத்தவும்; பதிவு பெற்ற நிறுவனம் பம்பை நிறுவும்.", "hi": "मंज़ूरी के बाद किसान अंश जमा करें; पंजीकृत विक्रेता पंप लगाएगा।"},
+  "follow_up_days": 30,
+  "documents": [
+    {"en": "Chitta / Adangal", "ta": "சிட்டா / அடங்கல்", "hi": "भूमि रिकॉर्ड"},
+    {"en": "Aadhaar card", "ta": "ஆதார் அட்டை", "hi": "आधार कार्ड"},
+    {"en": "Bank passbook", "ta": "வங்கிப் புத்தகம்", "hi": "बैंक पासबुक"},
+    {"en": "Photo of the well / borewell", "ta": "கிணறு / போர்வெல் புகைப்படம்", "hi": "कुएँ / बोरवेल की फ़ोटो"},
+    {"en": "Passport photo", "ta": "பாஸ்போர்ட் புகைப்படம்", "hi": "पासपोर्ट फोटो"}
+  ],
+  "fields": [
+    {"$ref": "name"},
+    {"$ref": "phone"},
+    {"$ref": "aadhaar"},
+    {"$ref": "district"},
+    {"$ref": "taluk"},
+    {"$ref": "village"},
+    {"$ref": "survey_number"},
+    {"$ref": "land_acres"},
+    {"$ref": "water_source"},
+    {"id": "has_grid_connection", "type": "yesno",
+     "label": {"en": "Already has EB farm connection", "ta": "ஏற்கனவே விவசாய மின் இணைப்பு உள்ளது", "hi": "पहले से बिजली कनेक्शन है"},
+     "question": {"en": "Do you already have an electricity connection for your pump?", "ta": "உங்கள் பம்பிற்கு ஏற்கனவே மின் இணைப்பு உள்ளதா?", "hi": "क्या आपके पंप के लिए पहले से बिजली कनेक्शन है?"},
+     "aliases": ["connection", "இணைப்பு", "कनेक्शन"]},
+    {"id": "pump_hp", "type": "number", "min": 1, "max": 15,
+     "label": {"en": "Pump capacity wanted (HP)", "ta": "தேவையான பம்ப் திறன் (HP)", "hi": "पंप क्षमता (HP)"},
+     "question": {"en": "What pump size do you need, in horsepower? For example 3, 5 or 7.5.", "ta": "எத்தனை குதிரைத்திறன் (HP) பம்ப் வேண்டும்? உதா. 3, 5 அல்லது 7.5.", "hi": "कितने हॉर्सपावर (HP) का पंप चाहिए? जैसे 3, 5 या 7.5।"},
+     "aliases": ["hp", "horsepower", "குதிரைத்திறன்", "हॉर्सपावर"]}
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "pm_kisan_registration",
+  "title": {"en": "PM-KISAN new farmer registration", "ta": "பிஎம்-கிசான் புதிய விவசாயி பதிவு", "hi": "पीएम-किसान नया किसान पंजीकरण"},
+  "submit_to": {"en": "the PM-KISAN portal (self-registration) or your nearest CSC / e-Sevai centre; land is verified by the VAO / revenue office", "ta": "பிஎம்-கிசான் இணையதளம் அல்லது அருகிலுள்ள இ-சேவை மையம்; நிலம் கிராம நிர்வாக அலுவலரால் சரிபார்க்கப்படும்", "hi": "पीएम-किसान पोर्टल या नज़दीकी CSC केंद्र; ज़मीन का सत्यापन राजस्व विभाग करेगा"},
+  "next_step": {"en": "Complete e-KYC (OTP or biometric) and make sure your bank account is Aadhaar-seeded.", "ta": "இ-கேஒய்சி (OTP அல்லது கைரேகை) முடித்து, வங்கிக் கணக்கு ஆதாருடன் இணைக்கப்பட்டுள்ளதா என்று உறுதி செய்யுங்கள்.", "hi": "ई-केवाईसी (OTP या बायोमेट्रिक) पूरा करें और बैंक खाता आधार से जुड़ा हो यह पक्का करें।"},
+  "follow_up_days": 30,
+  "documents": [
+    {"en": "Aadhaar card", "ta": "ஆதார் அட்டை", "hi": "आधार कार्ड"},
+    {"en": "Patta / land record in your name", "ta": "உங்கள் பெயரில் பட்டா", "hi": "आपके नाम पर ज़मीन का रिकॉर्ड"},
+    {"en": "Bank passbook (Aadhaar-seeded account)", "ta": "ஆதார் இணைந்த வங்கிக் கணக்குப் புத்தகம்", "hi": "आधार से जुड़ा बैंक पासबुक"},
+    {"en": "Mobile number linked to Aadhaar", "ta": "ஆதாருடன் இணைந்த மொபைல் எண்", "hi": "आधार से जुड़ा मोबाइल नंबर"}
+  ],
+  "fields": [
+    {"$ref": "name"},
+    {"$ref": "father_or_spouse"},
+    {"$ref": "phone"},
+    {"$ref": "aadhaar"},
+    {"$ref": "district"},
+    {"$ref": "taluk"},
+    {"$ref": "village"},
+    {"$ref": "survey_number"},
+    {"$ref": "land_acres"},
+    {"id": "bank_aadhaar_seeded", "type": "yesno",
+     "label": {"en": "Bank account linked to Aadhaar", "ta": "வங்கிக் கணக்கு ஆதாருடன் இணைப்பு", "hi": "बैंक खाता आधार से जुड़ा"},
+     "question": {"en": "Is your bank account linked to your Aadhaar?", "ta": "உங்கள் வங்கிக் கணக்கு ஆதாருடன் இணைக்கப்பட்டுள்ளதா?", "hi": "क्या आपका बैंक खाता आधार से जुड़ा है?"},
+     "aliases": ["bank", "வங்கி", "बैंक"]}
+  ]
+}

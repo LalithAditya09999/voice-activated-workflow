@@ -1,0 +1,19 @@
+{
+  "id": "citizen",
+  "name": {"en": "Citizen services", "ta": "குடிமக்கள் சேவைகள்", "hi": "नागरिक सेवाएँ"},
+  "description": "Certificates, pensions, grievances and RTI for everyone.",
+  "services": [
+    {"id": "income_certificate", "title": {"en": "Income certificate", "ta": "வருமானச் சான்றிதழ்", "hi": "आय प्रमाणपत्र"},
+     "keywords": ["income certificate", "income", "வருமானச் சான்று", "வருமானச் சான்றிதழ்", "வருமான", "आय प्रमाणपत्र", "आय"],
+     "form": "income_certificate", "knowledge": ["income_certificate"]},
+    {"id": "old_age_pension", "title": {"en": "Old-age / widow pension", "ta": "முதியோர் / விதவை ஓய்வூதியம்", "hi": "वृद्धावस्था / विधवा पेंशन"},
+     "keywords": ["pension", "old age", "widow", "ஓய்வூதியம்", "பென்ஷன்", "முதியோர்", "விதவை", "पेंशन", "बुढ़ापा", "विधवा"],
+     "form": "old_age_pension", "knowledge": ["social_security_pension"]},
+    {"id": "grievance", "title": {"en": "File a complaint / grievance", "ta": "புகார் / குறை தீர்ப்பு மனு", "hi": "शिकायत दर्ज करें"},
+     "keywords": ["complaint", "grievance", "problem", "not working", "no water", "bribe", "புகார்", "குறை", "மனு", "லஞ்சம்", "शिकायत", "समस्या", "रिश्वत"],
+     "form": "grievance", "knowledge": ["grievance_rti"]},
+    {"id": "rti", "title": {"en": "Right to Information (RTI) request", "ta": "தகவல் அறியும் உரிமை மனு", "hi": "सूचना का अधिकार (RTI)"},
+     "keywords": ["rti", "right to information", "தகவல் அறியும்", "आरटीआई", "सूचना का अधिकार"],
+     "form": null, "knowledge": ["grievance_rti"]}
+  ]
+}

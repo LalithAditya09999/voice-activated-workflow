@@ -1,0 +1,9 @@
+{
+  "name": "Saathi — voice helper for farmers & citizens",
+  "short_name": "Saathi",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f4ea",
+  "theme_color": "#1f6f43",
+  "icons": [{"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}]
+}

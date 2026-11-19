@@ -1,0 +1,28 @@
+{
+  "id": "farm_power_connection",
+  "title": {"en": "New agricultural service (farm pump) electricity connection", "ta": "புதிய விவசாய மின் இணைப்பு விண்ணப்பம்", "hi": "नया कृषि पंप बिजली कनेक्शन"},
+  "submit_to": {"en": "your local electricity distribution section office (in Tamil Nadu, TNPDCL / TANGEDCO) or its online portal", "ta": "உங்கள் பகுதி மின்வாரியப் பிரிவு அலுவலகம் (TNPDCL / TANGEDCO) அல்லது இணையதளம்", "hi": "आपका स्थानीय बिजली वितरण कार्यालय या ऑनलाइन पोर्टल"},
+  "next_step": {"en": "You get a registration number and a place in the seniority list. Ask the section office about any faster (self-financing) scheme open this year.", "ta": "பதிவு எண் மற்றும் முன்னுரிமைப் பட்டியலில் இடம் கிடைக்கும். இந்த ஆண்டு திறந்துள்ள விரைவு (சுயநிதி) திட்டம் பற்றி அலுவலகத்தில் கேளுங்கள்.", "hi": "आपको पंजीकरण नंबर और वरीयता सूची में स्थान मिलेगा। इस साल की किसी तेज़ (स्व-वित्त) योजना के बारे में कार्यालय में पूछें।"},
+  "follow_up_days": 45,
+  "documents": [
+    {"en": "Chitta / Adangal / patta", "ta": "சிட்டா / அடங்கல் / பட்டா", "hi": "भूमि रिकॉर्ड"},
+    {"en": "Village map (FMB sketch) showing well location", "ta": "கிணறு இருப்பிடத்துடன் புல வரைபடம் (FMB)", "hi": "कुएँ की जगह वाला खेत का नक्शा"},
+    {"en": "Well ownership certificate from VAO", "ta": "கிராம நிர்வாக அலுவலரின் கிணறு உரிமைச் சான்று", "hi": "कुएँ के स्वामित्व का प्रमाणपत्र"},
+    {"en": "Aadhaar card", "ta": "ஆதார் அட்டை", "hi": "आधार कार्ड"}
+  ],
+  "fields": [
+    {"$ref": "name"},
+    {"$ref": "father_or_spouse"},
+    {"$ref": "phone"},
+    {"$ref": "district"},
+    {"$ref": "taluk"},
+    {"$ref": "village"},
+    {"$ref": "survey_number"},
+    {"$ref": "land_acres"},
+    {"$ref": "water_source"},
+    {"id": "motor_hp", "type": "number", "min": 1, "max": 20,
+     "label": {"en": "Motor capacity (HP)", "ta": "மோட்டார் திறன் (HP)", "hi": "मोटर क्षमता (HP)"},
+     "question": {"en": "What is the horsepower of the motor you will use?", "ta": "நீங்கள் பயன்படுத்தும் மோட்டார் எத்தனை குதிரைத்திறன் (HP)?", "hi": "आप कितने हॉर्सपावर की मोटर लगाएँगे?"},
+     "aliases": ["motor", "hp", "மோட்டார்", "मोटर"]}
+  ]
+}

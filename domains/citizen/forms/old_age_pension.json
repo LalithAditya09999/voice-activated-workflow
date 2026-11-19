@@ -1,0 +1,41 @@
+{
+  "id": "old_age_pension",
+  "title": {"en": "Social security pension application (old age / widow / destitute)", "ta": "சமூகப் பாதுகாப்பு ஓய்வூதிய விண்ணப்பம் (முதியோர் / விதவை / ஆதரவற்றோர்)", "hi": "सामाजिक सुरक्षा पेंशन आवेदन (वृद्ध / विधवा / निराश्रित)"},
+  "submit_to": {"en": "the Tahsildar (Social Security Scheme) through an e-Sevai centre or the taluk office", "ta": "இ-சேவை மையம் அல்லது வட்டாட்சியர் அலுவலகம் மூலம் சமூகப் பாதுகாப்புத் திட்ட வட்டாட்சியர்", "hi": "ई-सेवा केंद्र या तहसील कार्यालय के माध्यम से तहसीलदार (सामाजिक सुरक्षा योजना)"},
+  "next_step": {"en": "Revenue officials will visit for verification. Pension is paid monthly to the bank account once sanctioned.", "ta": "வருவாய் அலுவலர்கள் சரிபார்க்க வருவார்கள். அனுமதி கிடைத்ததும் ஓய்வூதியம் மாதந்தோறும் வங்கிக் கணக்கில் வரும்.", "hi": "राजस्व अधिकारी सत्यापन के लिए आएँगे। मंज़ूरी के बाद पेंशन हर महीने बैंक खाते में आएगी।"},
+  "follow_up_days": 30,
+  "documents": [
+    {"en": "Aadhaar card", "ta": "ஆதார் அட்டை", "hi": "आधार कार्ड"},
+    {"en": "Age proof (birth certificate, school certificate or doctor's certificate)", "ta": "வயதுச் சான்று (பிறப்புச் சான்றிதழ், பள்ளிச் சான்றிதழ் அல்லது மருத்துவர் சான்று)", "hi": "उम्र का प्रमाण"},
+    {"en": "Ration card", "ta": "குடும்ப அட்டை", "hi": "राशन कार्ड"},
+    {"en": "Husband's death certificate (for widow pension)", "ta": "கணவரின் இறப்புச் சான்றிதழ் (விதவை ஓய்வூதியத்துக்கு)", "hi": "पति का मृत्यु प्रमाणपत्र (विधवा पेंशन के लिए)"},
+    {"en": "Bank passbook", "ta": "வங்கிப் புத்தகம்", "hi": "बैंक पासबुक"},
+    {"en": "Passport photo", "ta": "பாஸ்போர்ட் புகைப்படம்", "hi": "पासपोर्ट फोटो"}
+  ],
+  "fields": [
+    {"id": "pension_type", "type": "choice",
+     "label": {"en": "Pension type", "ta": "ஓய்வூதிய வகை", "hi": "पेंशन का प्रकार"},
+     "question": {"en": "Which pension do you need?", "ta": "எந்த ஓய்வூதியம் வேண்டும்?", "hi": "कौन सी पेंशन चाहिए?"},
+     "options": [
+       {"value": "old_age", "label": {"en": "Old age", "ta": "முதியோர்", "hi": "वृद्धावस्था"}, "aliases": ["old", "age", "elderly", "முதியோர்", "வயதான", "बुढ़ापा", "वृद्ध"]},
+       {"value": "widow", "label": {"en": "Widow", "ta": "விதவை", "hi": "विधवा"}, "aliases": ["widow", "husband died", "விதவை", "கணவர் இறந்த", "विधवा"]},
+       {"value": "disability", "label": {"en": "Disability", "ta": "மாற்றுத்திறனாளி", "hi": "दिव्यांग"}, "aliases": ["disability", "disabled", "மாற்றுத்திறன்", "ஊனம்", "दिव्यांग", "विकलांग"]},
+       {"value": "destitute", "label": {"en": "Destitute / deserted", "ta": "ஆதரவற்றோர்", "hi": "निराश्रित"}, "aliases": ["destitute", "deserted", "ஆதரவற்ற", "निराश्रित"]}
+     ]},
+    {"$ref": "name"},
+    {"$ref": "father_or_spouse"},
+    {"id": "age", "type": "number", "min": 18, "max": 115,
+     "label": {"en": "Age", "ta": "வயது", "hi": "उम्र"},
+     "question": {"en": "What is the applicant's age?", "ta": "விண்ணப்பதாரரின் வயது என்ன?", "hi": "आवेदक की उम्र क्या है?"},
+     "aliases": ["age", "வயது", "उम्र"]},
+    {"$ref": "phone"},
+    {"$ref": "aadhaar"},
+    {"$ref": "district"},
+    {"$ref": "taluk"},
+    {"$ref": "village"},
+    {"id": "has_family_support", "type": "yesno",
+     "label": {"en": "Has earning family support", "ta": "சம்பாதிக்கும் குடும்ப ஆதரவு உள்ளது", "hi": "कमाने वाला परिवारिक सहारा है"},
+     "question": {"en": "Is there a son or family member who earns and supports the applicant?", "ta": "விண்ணப்பதாரரைக் கவனிக்கும், சம்பாதிக்கும் மகன் அல்லது குடும்ப உறுப்பினர் இருக்கிறார்களா?", "hi": "क्या कोई कमाने वाला बेटा या परिवार का सदस्य आवेदक का सहारा है?"},
+     "aliases": ["support", "son", "ஆதரவு", "மகன்", "सहारा", "बेटा"]}
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "grievance",
+  "title": {"en": "Public grievance petition", "ta": "பொது குறை தீர்ப்பு மனு", "hi": "लोक शिकायत आवेदन"},
+  "submit_to": {"en": "the Tamil Nadu CM Helpline (dial 1100 / online portal) for state matters, or CPGRAMS (pgportal.gov.in) for central government matters", "ta": "மாநில விஷயங்களுக்கு முதல்வர் உதவி மையம் (1100 / இணையதளம்); மத்திய அரசு விஷயங்களுக்கு CPGRAMS", "hi": "राज्य के मामलों के लिए मुख्यमंत्री हेल्पलाइन (1100 / पोर्टल), केंद्र सरकार के मामलों के लिए CPGRAMS"},
+  "next_step": {"en": "Keep the grievance number. If there's no action in 30 days, I can help you escalate or file an RTI asking for the status.", "ta": "மனு எண்ணை வைத்திருங்கள். 30 நாட்களில் நடவடிக்கை இல்லையெனில், மேல்முறையீடு அல்லது தகவல் அறியும் மனு செய்ய உதவுகிறேன்.", "hi": "शिकायत नंबर संभालकर रखें। 30 दिन में कार्रवाई न हो तो मैं आगे बढ़ाने या RTI दायर करने में मदद करूँगा।"},
+  "follow_up_days": 30,
+  "documents": [
+    {"en": "Any earlier petition / receipt numbers", "ta": "முந்தைய மனு / ரசீது எண்கள்", "hi": "पहले की शिकायत / रसीद नंबर"},
+    {"en": "Photos or documents showing the problem", "ta": "பிரச்சினையைக் காட்டும் புகைப்படங்கள் அல்லது ஆவணங்கள்", "hi": "समस्या दिखाने वाली फ़ोटो या दस्तावेज़"}
+  ],
+  "fields": [
+    {"id": "department", "type": "choice",
+     "label": {"en": "Department", "ta": "துறை", "hi": "विभाग"},
+     "question": {"en": "What is the problem about?", "ta": "பிரச்சினை எதைப் பற்றியது?", "hi": "समस्या किस बारे में है?"},
+     "options": [
+       {"value": "water", "label": {"en": "Drinking water", "ta": "குடிநீர்", "hi": "पीने का पानी"}, "aliases": ["water", "தண்ணீர்", "குடிநீர்", "पानी"]},
+       {"value": "electricity", "label": {"en": "Electricity", "ta": "மின்சாரம்", "hi": "बिजली"}, "aliases": ["electricity", "power", "current", "மின்", "கரண்ட்", "बिजली"]},
+       {"value": "roads", "label": {"en": "Roads / streetlights", "ta": "சாலை / தெருவிளக்கு", "hi": "सड़क / स्ट्रीट लाइट"}, "aliases": ["road", "streetlight", "சாலை", "ரோடு", "விளக்கு", "सड़क"]},
+       {"value": "ration", "label": {"en": "Ration / PDS", "ta": "ரேஷன்", "hi": "राशन"}, "aliases": ["ration", "pds", "ரேஷன்", "நியாய விலை", "राशन"]},
+       {"value": "land_revenue", "label": {"en": "Land / patta / revenue", "ta": "நிலம் / பட்டா / வருவாய்", "hi": "ज़मीन / राजस्व"}, "aliases": ["land", "patta", "நிலம்", "பட்டா", "ज़मीन"]},
+       {"value": "agriculture", "label": {"en": "Agriculture / subsidy", "ta": "வேளாண்மை / மானியம்", "hi": "कृषि / सब्सिडी"}, "aliases": ["agriculture", "subsidy", "farm", "வேளாண்", "மானியம்", "விவசாய", "कृषि", "सब्सिडी"]},
+       {"value": "pension", "label": {"en": "Pension", "ta": "ஓய்வூதியம்", "hi": "पेंशन"}, "aliases": ["pension", "ஓய்வூதியம்", "பென்ஷன்", "पेंशन"]},
+       {"value": "other", "label": {"en": "Other", "ta": "மற்றவை", "hi": "अन्य"}, "aliases": ["other", "மற்ற", "अन्य"]}
+     ]},
+    {"id": "description", "type": "text", "min_length": 10,
+     "label": {"en": "Complaint details", "ta": "புகார் விவரம்", "hi": "शिकायत का विवरण"},
+     "question": {"en": "Please describe the problem — what happened, since when, and what you want done.", "ta": "பிரச்சினையை விவரியுங்கள் — என்ன நடந்தது, எப்போதிலிருந்து, என்ன செய்ய வேண்டும்.", "hi": "समस्या बताइए — क्या हुआ, कब से, और आप क्या चाहते हैं।"},
+     "aliases": ["details", "description", "விவரம்", "विवरण"]},
+    {"id": "since_when", "type": "text", "min_length": 2,
+     "label": {"en": "Since when", "ta": "எப்போதிலிருந்து", "hi": "कब से"},
+     "question": {"en": "Since when has this been happening?", "ta": "இது எப்போதிலிருந்து நடக்கிறது?", "hi": "यह कब से हो रहा है?"}},
+    {"$ref": "name"},
+    {"$ref": "phone"},
+    {"$ref": "district"},
+    {"$ref": "village"}
+  ]
+}
