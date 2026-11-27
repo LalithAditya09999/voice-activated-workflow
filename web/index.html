@@ -51,7 +51,6 @@
       </div>
     </header>
 
-    <div class="kolam-band" aria-hidden="true"></div>
 
     <section id="task" class="task" hidden></section>
 
@@ -78,6 +77,7 @@
           <p id="replyText" class="reply-text"></p>
           <p id="sources" class="sources" hidden></p>
         </article>
+        <div id="after" class="cards"></div>
         <div id="confirm" class="confirm" hidden></div>
       </div>
     </main>
@@ -116,7 +116,10 @@
         <button class="close" data-close="history" aria-label="Close">✕</button>
       </div>
       <div id="historyList" class="history-list"></div>
-      <button id="newChat" class="btn ghost wide" data-i18n="newChat">Start again</button>
+      <div class="sheet-actions">
+        <button id="myAppsBtn" class="btn ghost" data-i18n="myApps">My applications</button>
+        <button id="newChat" class="btn ghost" data-i18n="newChat">Start again</button>
+      </div>
     </div>
   </aside>
 

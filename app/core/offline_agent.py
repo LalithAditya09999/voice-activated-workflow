@@ -146,7 +146,10 @@ class OfflineAgent:
             # urgent services skip the background so the spoken reply stays short
             parts += info["summary"]
         if info["documents"]:
-            parts.append(s_("documents", s.lang, docs=", ".join(info["documents"])))
+            sentence = s_("documents", s.lang, docs=", ".join(info["documents"]))
+            parts.append(sentence)
+            # the screen shows the list as a checklist card instead of a long sentence
+            s.emit("documents", {"sentence": sentence, "items": info["documents"]})
         if info["form_id"]:
             n = len([f for f in self.a.reg.forms[info["form_id"]]["fields"] if not f.get("ask_if")])
             parts.append(s_("offer_form", s.lang, n=n))

@@ -3,11 +3,11 @@
 /* ---------------- words on screen, in three languages ---------------- */
 const UI = {
   helloTitle: { en: "Vanakkam!", ta: "வணக்கம்!", hi: "नमस्ते!" },
-  helloSub: { en: "Tap the mic and tell me what you need, in your own words.", ta: "மைக்கைத் தொட்டு, உங்களுக்கு என்ன வேண்டும் என்று உங்கள் வார்த்தைகளில் சொல்லுங்கள்.", hi: "माइक दबाइए और अपने शब्दों में बताइए कि आपको क्या चाहिए।" },
-  tap: { en: "Tap the mic and speak", ta: "மைக்கைத் தொட்டுப் பேசுங்கள்", hi: "माइक दबाकर बोलिए" },
-  listening: { en: "Listening… tap again when you finish", ta: "கேட்கிறேன்… முடிந்ததும் மீண்டும் தொடுங்கள்", hi: "सुन रहा हूँ… बोलकर फिर दबाइए" },
+  helloSub: { en: "What do you need today?", ta: "இன்று என்ன உதவி வேண்டும்?", hi: "आज क्या मदद चाहिए?" },
+  tap: { en: "Tap to speak", ta: "தொட்டுப் பேசுங்கள்", hi: "दबाकर बोलिए" },
+  listening: { en: "Listening…", ta: "கேட்கிறேன்…", hi: "सुन रहा हूँ…" },
   thinking: { en: "Working on it", ta: "பார்க்கிறேன்", hi: "देख रहा हूँ" },
-  speaking: { en: "Speaking… tap the mic to interrupt", ta: "பேசுகிறேன்… இடைமறிக்க மைக்கைத் தொடுங்கள்", hi: "बोल रहा हूँ… रोकने के लिए माइक दबाएँ" },
+  speaking: { en: "Speaking…", ta: "பேசுகிறேன்…", hi: "बोल रहा हूँ…" },
   noMic: { en: "Voice input isn't available in this browser. Please type instead.", ta: "இந்த உலாவியில் குரல் உள்ளீடு இல்லை. தட்டச்சு செய்யுங்கள்.", hi: "इस ब्राउज़र में आवाज़ इनपुट नहीं है। कृपया टाइप करें।" },
   heardNothing: { en: "Sorry, I didn't catch that. Please say it again.", ta: "மன்னிக்கவும், சரியாகக் கேட்கவில்லை. மீண்டும் சொல்லுங்கள்.", hi: "माफ़ कीजिए, ठीक से सुनाई नहीं दिया। फिर से बोलिए।" },
   typeHere: { en: "Type here…", ta: "இங்கே தட்டச்சு செய்யுங்கள்…", hi: "यहाँ लिखें…" },
@@ -38,28 +38,35 @@ const UI = {
   apply: { en: "Apply", ta: "விண்ணப்பி", hi: "आवेदन करें" },
   applyFor: { en: "I want to apply for", ta: "நான் விண்ணப்பிக்க வேண்டும்:", hi: "मुझे आवेदन करना है:" },
   findSchemes: { en: "Which schemes can I get?", ta: "எனக்கு எந்தத் திட்டங்கள் கிடைக்கும்?", hi: "मुझे कौन सी योजनाएँ मिल सकती हैं?" },
-  findSchemesSub: { en: "9 quick questions, every benefit you can claim", ta: "9 சிறு கேள்விகள் — நீங்கள் பெறக்கூடிய எல்லாப் பலன்களும்", hi: "9 छोटे सवाल — आपको मिलने वाले सारे लाभ" },
+  findSchemesSub: { en: "Find out in 9 questions", ta: "9 கேள்விகளில் தெரிந்துகொள்ளுங்கள்", hi: "9 सवालों में जानिए" },
   myApps: { en: "My applications", ta: "என் விண்ணப்பங்கள்", hi: "मेरे आवेदन" },
   sources: { en: "From", ta: "ஆதாரம்", hi: "स्रोत" },
   unverified: { en: "confirm at the office", ta: "அலுவலகத்தில் உறுதி செய்யவும்", hi: "कार्यालय में पुष्टि करें" },
   voiceOn: { en: "🔊 Voice on", ta: "🔊 குரல் ஆன்", hi: "🔊 आवाज़ चालू" },
   voiceOff: { en: "🔇 Voice off", ta: "🔇 குரல் ஆஃப்", hi: "🔇 आवाज़ बंद" },
-  basicMode: { en: "Basic mode · tap for details", ta: "அடிப்படை முறை · விவரம் அறிய தொடுங்கள்", hi: "बेसिक मोड · विवरण के लिए दबाएँ" },
+  basicMode: { en: "Basic mode", ta: "அடிப்படை முறை", hi: "बेसिक मोड" },
+  doneShort: { en: "Done! Your application is ready.", ta: "முடிந்தது! உங்கள் விண்ணப்பம் தயார்.", hi: "हो गया! आपका आवेदन तैयार है।" },
+  checkDetails: { en: "Are these details correct?", ta: "இந்த விவரங்கள் சரியா?", hi: "क्या ये जानकारी सही है?" },
+  schemesFound: { en: "Here are the schemes for you.", ta: "உங்களுக்கான திட்டங்கள் இதோ.", hi: "ये रहीं आपके लिए योजनाएँ।" },
+  bring: { en: "Bring these", ta: "கொண்டு வர வேண்டியவை", hi: "ये साथ लाएँ" },
+  more: { en: "Read more", ta: "மேலும் படிக்க", hi: "और पढ़ें" },
+  less: { en: "Show less", ta: "குறைவாகக் காட்டு", hi: "कम दिखाएँ" },
   keyNotSet: { en: "AI key not set: the main services work fully; free-form questions are understood better with the key.", ta: "AI சாவி அமைக்கப்படவில்லை: முக்கிய சேவைகள் முழுமையாக வேலை செய்யும்; சாவியுடன் இயல்பான பேச்சை இன்னும் நன்றாகப் புரிந்துகொள்ளும்.", hi: "AI कुंजी सेट नहीं है: मुख्य सेवाएँ पूरी तरह काम करती हैं; कुंजी के साथ खुली बातचीत बेहतर समझी जाती है।" },
   speechKeyNotSet: { en: "Speech key not set: using this phone's own voice recognition.", ta: "பேச்சு சாவி அமைக்கப்படவில்லை: இந்த போனின் குரல் அறிதல் பயன்படுத்தப்படுகிறது.", hi: "स्पीच कुंजी सेट नहीं है: फ़ोन की अपनी आवाज़ पहचान इस्तेमाल हो रही है।" },
 };
 
-/* the home tiles: service id → picture; titles and example sentences come from the server */
+/* the home tiles: a short label to read, and a sentence that starts the request */
 const TILES = [
-  { id: "crop_insurance", ico: "🌾" },
-  { id: "drip_irrigation", ico: "💧" },
-  { id: "solar_pump", ico: "☀️" },
-  { id: "pm_kisan", ico: "🪙" },
-  { id: "compare_methods", ico: "🌿" },
-  { id: "nammalvar", ico: "🪔" },
-  { id: "old_age_pension", ico: "🙏" },
-  { id: "grievance", ico: "📣" },
+  { ico: "🌾", label: { ta: "பயிர் சேதம்", en: "Crop damage", hi: "फसल नुकसान" }, say: { ta: "நேற்று மழையில் என் நெல் சேதமானது", en: "Rain destroyed my paddy yesterday", hi: "कल बारिश से मेरी फसल खराब हो गई" } },
+  { ico: "💧", label: { ta: "சொட்டு நீர்", en: "Drip irrigation", hi: "ड्रिप सिंचाई" }, say: { ta: "சொட்டு நீர் பாசனம் வேண்டும்", en: "I want drip irrigation", hi: "मुझे ड्रिप सिंचाई चाहिए" } },
+  { ico: "☀️", label: { ta: "சோலார் பம்ப்", en: "Solar pump", hi: "सोलर पंप" }, say: { ta: "சோலார் பம்ப் வேண்டும்", en: "I want a solar pump", hi: "मुझे सोलर पंप चाहिए" } },
+  { ico: "🪙", label: { ta: "பிஎம்-கிசான்", en: "PM-KISAN", hi: "पीएम-किसान" }, say: { ta: "பிஎம் கிசான்", en: "PM Kisan", hi: "पीएम किसान" } },
+  { ico: "🌿", label: { ta: "இயற்கை / ரசாயனம்", en: "Organic or chemical", hi: "जैविक या रासायनिक" }, say: { ta: "ரசாயன உரமா இயற்கை உரமா, எது நல்லது?", en: "Chemical or organic fertiliser, which is better?", hi: "रासायनिक या जैविक खाद, कौन सा बेहतर है?" } },
+  { ico: "🪔", label: { ta: "நம்மாழ்வார் முறை", en: "Nammalvar’s way", hi: "नम्मालवार विधि" }, say: { ta: "நம்மாழ்வார் இயற்கை வேளாண்மை", en: "Nammalvar natural farming", hi: "नम्मालवार प्राकृतिक खेती" } },
+  { ico: "🙏", label: { ta: "ஓய்வூதியம்", en: "Pension", hi: "पेंशन" }, say: { ta: "முதியோர் ஓய்வூதியம்", en: "Old age pension", hi: "वृद्धावस्था पेंशन" } },
+  { ico: "📣", label: { ta: "புகார்", en: "Complaint", hi: "शिकायत" }, say: { ta: "புகார் கொடுக்க வேண்டும்", en: "I want to file a complaint", hi: "मुझे शिकायत करनी है" } },
 ];
+const pick = (o) => o[state.lang] || o.en;
 
 const state = {
   lang: localGet("velan.lang") || "ta",
@@ -132,22 +139,13 @@ async function loadServices() {
 
 function renderTiles() {
   const box = $("#tiles");
-  box.replaceChildren();
-  const byId = Object.fromEntries(state.services.map((s) => [s.id, s]));
-  box.append(el("button", { class: "tile wide", onclick: () => sendText(tr("findSchemes")) },
-    el("span", { class: "ico", "aria-hidden": "true" }, "✨"),
-    el("span", {}, el("span", { class: "t-name" }, tr("findSchemes")), el("br"), el("span", { class: "t-say" }, tr("findSchemesSub")))));
-  for (const t of TILES) {
-    const s = byId[t.id];
-    if (!s) continue;
-    const say = s.example || s.title;
-    box.append(el("button", { class: "tile", onclick: () => sendText(say) },
+  box.replaceChildren(
+    el("button", { class: "tile wide", onclick: () => sendText(tr("findSchemes")) },
+      el("span", { class: "ico", "aria-hidden": "true" }, "✨"),
+      el("span", { class: "t-text" }, el("span", { class: "t-name" }, tr("findSchemes")), el("span", { class: "t-say" }, tr("findSchemesSub")))),
+    ...TILES.map((t) => el("button", { class: "tile", onclick: () => sendText(pick(t.say)) },
       el("span", { class: "ico", "aria-hidden": "true" }, t.ico),
-      el("span", { class: "t-name" }, s.title),
-      s.example ? el("span", { class: "t-say" }, `“${s.example}”`) : null));
-  }
-  box.append(el("button", { class: "tile wide", onclick: () => sendText(tr("myApps")) },
-    el("span", { class: "ico", "aria-hidden": "true" }, "📋"), el("span", { class: "t-name" }, tr("myApps"))));
+      el("span", { class: "t-name" }, pick(t.label)))));
 }
 
 function showHome(on) {
@@ -156,10 +154,26 @@ function showHome(on) {
 }
 
 /* ---------------- the stage ---------------- */
-function showReply(text, { thinking = false } = {}) {
+function sentences(text) {
+  return text.match(/[^.!?।]+[.!?।]+["”’)]*\s*|[^.!?।]+$/g)?.map((x) => x.trim()).filter(Boolean) || [text];
+}
+
+function showReply(text, { thinking = false, full = null } = {}) {
   const reply = $(".reply");
   reply.classList.toggle("thinking", thinking);
-  $("#replyText").textContent = text;
+  const box = $("#replyText");
+  box.replaceChildren();
+  const parts = sentences(text);
+  if (parts.length <= 2 || thinking) {
+    box.textContent = text;
+  } else {
+    // keep the screen light: two sentences, the rest behind "Read more"
+    const shortText = parts.slice(0, 2).join(" ");
+    const more = el("button", { class: "more" }, tr("more"));
+    let open = false;
+    more.onclick = () => { open = !open; box.firstChild.textContent = open ? text : shortText; more.textContent = open ? tr("less") : tr("more"); };
+    box.append(document.createTextNode(shortText), more);
+  }
   // restart the arrival animation
   reply.style.animation = "none"; void reply.offsetWidth; reply.style.animation = "";
 }
@@ -221,23 +235,35 @@ function renderFormSheet() {
 function openFormSheet() { renderFormSheet(); $("#formSheet").hidden = false; }
 
 function applicationCard(a) {
-  return el("div", { class: "card done-card" },
-    el("h3", {}, `✅ ${tr("prepared")}: ${a.title}`),
-    el("p", { class: "ref-label" }, tr("reference")),
-    el("p", { class: "ref" }, a.id),
+  const extra = el("details", { class: "extra" },
+    el("summary", {}, tr("more")),
     a.deadline_note ? el("p", { class: "deadline" }, "⏱ " + a.deadline_note) : null,
     el("p", {}, el("b", {}, tr("takeTo") + ": "), a.submit_to),
-    a.next_step ? el("p", {}, a.next_step) : null,
-    el("p", {}, el("b", {}, tr("followUp") + ": "), a.follow_up_on),
-    el("a", { class: "btn wide", href: a.print_url, target: "_blank", rel: "noopener" }, "🖨 " + tr("print")));
+    a.next_step ? el("p", {}, a.next_step) : null);
+  return el("div", { class: "card done-card" },
+    el("p", { class: "ref-label" }, "✅ " + tr("prepared") + " · " + tr("reference")),
+    el("p", { class: "ref" }, a.id),
+    el("p", { class: "follow" }, `${tr("followUp")}: ${a.follow_up_on}`),
+    el("a", { class: "btn wide", href: a.print_url, target: "_blank", rel: "noopener" }, "🖨 " + tr("print")),
+    extra);
+}
+
+function documentsCard(items) {
+  return el("div", { class: "card light" }, el("h3", {}, "📄 " + tr("bring")),
+    el("ul", { class: "checks" }, items.map((d) => el("li", {}, d))));
+}
+
+function reviewCard(form) {
+  return el("div", { class: "card light" },
+    el("ul", { class: "review" }, form.fields.filter((f) => f.value != null).map((f) =>
+      el("li", {}, el("span", {}, f.label), el("b", {}, f.value)))));
 }
 
 function eligibilityCard(results) {
   return el("div", { class: "card" }, el("h3", {}, "✨ " + tr("schemes")),
     el("ul", { class: "elig" }, results.map((r) => el("li", {},
       el("div", {}, el("span", { class: `tag ${r.status}` }, tr(r.status)), el("b", {}, r.name)),
-      el("div", {}, r.benefit),
-      r.reasons.length ? el("div", { class: "why" }, r.reasons.join("; ")) : null,
+      r.status !== "not_eligible" ? el("div", { class: "why" }, r.benefit) : el("div", { class: "why" }, r.reasons[0] || ""),
       r.status === "eligible" && r.service ? el("button", { class: "btn ghost", style: "margin-top:8px;min-height:44px", onclick: () => sendText(`${tr("applyFor")} ${r.name}`) }, tr("apply")) : null))));
 }
 
@@ -264,6 +290,7 @@ async function newSession() {
   renderTask(null);
   renderConfirm(null);
   $("#cards").replaceChildren();
+  $("#after").replaceChildren();
   showSaid("");
   showReply(res.greeting);
   renderSources(null);
@@ -279,6 +306,7 @@ async function sendText(text) {
   showSaid(text);
   remember("user", text);
   $("#cards").replaceChildren();
+  $("#after").replaceChildren();
   renderConfirm(null);
   renderSources(null);
   showReply(tr("thinking"), { thinking: true });
@@ -288,8 +316,14 @@ async function sendText(text) {
   try {
     const res = await api("/api/chat", { session_id: state.sessionId, text, lang: state.lang });
     renderTask(res.form);
-    showReply(res.reply);
-    state.lastReply = res.reply;
+    const evs = (type) => res.events.filter((ev) => ev.type === type);
+    let display = res.reply;
+    for (const d of evs("documents")) display = display.replace(d.data.sentence, "").replace(/\s{2,}/g, " ").trim();
+    if (evs("application").length) display = tr("doneShort");
+    else if (res.form?.awaiting_confirmation) display = tr("checkDetails");
+    else if (evs("eligibility").length) display = tr("schemesFound");
+    showReply(display);
+    state.lastReply = res.reply;   // the full reply is what gets spoken
     remember("bot", res.reply);
     renderSources(res.events.filter((ev) => ev.type === "sources").pop()?.data);
     const cards = $("#cards");
@@ -298,8 +332,10 @@ async function sendText(text) {
       if (ev.type === "application") { card = applicationCard(ev.data); remember("bot", `✅ ${ev.data.id} · ${ev.data.title}`); }
       else if (ev.type === "eligibility") card = eligibilityCard(ev.data);
       else if (ev.type === "applications") card = applicationsCard(ev.data);
+      else if (ev.type === "documents") { $("#after").append(documentsCard(ev.data.items)); continue; }
       if (card) cards.append(card);
     }
+    if (res.form?.awaiting_confirmation) $("#after").append(reviewCard(res.form));
     renderConfirm(res.form);
     window.scrollTo({ top: 0, behavior: "smooth" });
     speak(res.reply);
@@ -469,6 +505,7 @@ $("#textForm").addEventListener("submit", (e) => {
   inp.value = "";
 });
 $("#historyBtn").addEventListener("click", () => { renderHistory(); $("#history").hidden = false; });
+$("#myAppsBtn").addEventListener("click", () => { $("#history").hidden = true; sendText(tr("myApps")); });
 $("#newChat").addEventListener("click", async () => { $("#history").hidden = true; stopSpeaking(); await newSession(); });
 document.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", () => { $("#" + b.dataset.close).hidden = true; }));
 document.querySelectorAll(".sheet").forEach((s) => s.addEventListener("click", (e) => { if (e.target === s) s.hidden = true; }));
