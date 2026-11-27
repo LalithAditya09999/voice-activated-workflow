@@ -1,5 +1,5 @@
 // Caches the app shell so it opens instantly on weak networks. API calls always go to the network.
-const CACHE = "velan-v2";
+const CACHE = "velan-v3";
 const SHELL = ["/", "/index.html", "/style.css", "/app.js", "/icon.svg", "/manifest.json"];
 self.addEventListener("install", (e) => e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL))));
 self.addEventListener("activate", (e) => e.waitUntil(

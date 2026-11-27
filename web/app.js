@@ -1,25 +1,35 @@
 "use strict";
 
+/* ---------------- words on screen, in three languages ---------------- */
 const UI = {
-  tagline: { en: "Speak. We'll handle the paperwork.", ta: "பேசுங்கள். ஆவண வேலையை நாங்கள் பார்க்கிறோம்.", hi: "बोलिए। कागज़ी काम हम संभालेंगे।" },
+  helloTitle: { en: "Vanakkam!", ta: "வணக்கம்!", hi: "नमस्ते!" },
+  helloSub: { en: "Tap the mic and tell me what you need, in your own words.", ta: "மைக்கைத் தொட்டு, உங்களுக்கு என்ன வேண்டும் என்று உங்கள் வார்த்தைகளில் சொல்லுங்கள்.", hi: "माइक दबाइए और अपने शब्दों में बताइए कि आपको क्या चाहिए।" },
   tap: { en: "Tap the mic and speak", ta: "மைக்கைத் தொட்டுப் பேசுங்கள்", hi: "माइक दबाकर बोलिए" },
-  listening: { en: "Listening…", ta: "கேட்கிறேன்…", hi: "सुन रहा हूँ…" },
-  thinking: { en: "Working on it…", ta: "பார்க்கிறேன்…", hi: "देख रहा हूँ…" },
+  listening: { en: "Listening… tap again when you finish", ta: "கேட்கிறேன்… முடிந்ததும் மீண்டும் தொடுங்கள்", hi: "सुन रहा हूँ… बोलकर फिर दबाइए" },
+  thinking: { en: "Working on it", ta: "பார்க்கிறேன்", hi: "देख रहा हूँ" },
   speaking: { en: "Speaking… tap the mic to interrupt", ta: "பேசுகிறேன்… இடைமறிக்க மைக்கைத் தொடுங்கள்", hi: "बोल रहा हूँ… रोकने के लिए माइक दबाएँ" },
-  noMic: { en: "Voice input isn't available in this browser — type instead.", ta: "இந்த உலாவியில் குரல் உள்ளீடு இல்லை — தட்டச்சு செய்யுங்கள்.", hi: "इस ब्राउज़र में आवाज़ इनपुट नहीं है — टाइप करें।" },
-  heardNothing: { en: "I didn't catch that — tap and try again.", ta: "சரியாகக் கேட்கவில்லை — மீண்டும் முயலுங்கள்.", hi: "सुनाई नहीं दिया — फिर से कोशिश करें।" },
-  type: { en: "Type here…", ta: "இங்கே தட்டச்சு செய்யுங்கள்…", hi: "यहाँ लिखें…" },
+  noMic: { en: "Voice input isn't available in this browser. Please type instead.", ta: "இந்த உலாவியில் குரல் உள்ளீடு இல்லை. தட்டச்சு செய்யுங்கள்.", hi: "इस ब्राउज़र में आवाज़ इनपुट नहीं है। कृपया टाइप करें।" },
+  heardNothing: { en: "Sorry, I didn't catch that. Please say it again.", ta: "மன்னிக்கவும், சரியாகக் கேட்கவில்லை. மீண்டும் சொல்லுங்கள்.", hi: "माफ़ कीजिए, ठीक से सुनाई नहीं दिया। फिर से बोलिए।" },
+  typeHere: { en: "Type here…", ta: "இங்கே தட்டச்சு செய்யுங்கள்…", hi: "यहाँ लिखें…" },
   send: { en: "Send", ta: "அனுப்பு", hi: "भेजें" },
-  form: { en: "Application", ta: "விண்ணப்பம்", hi: "आवेदन" },
+  history: { en: "Conversation", ta: "உரையாடல்", hi: "बातचीत" },
+  historyShort: { en: "History", ta: "வரலாறு", hi: "इतिहास" },
+  typeShort: { en: "Type", ta: "எழுது", hi: "लिखें" },
+  speak: { en: "Speak", ta: "பேசு", hi: "बोलें" },
+  replay: { en: "Play again", ta: "மீண்டும் கேள்", hi: "फिर सुनें" },
+  newChat: { en: "Start again", ta: "புதிதாகத் தொடங்கு", hi: "फिर से शुरू करें" },
+  youSaid: { en: "You said", ta: "நீங்கள் சொன்னது", hi: "आपने कहा" },
+  details: { en: "Details", ta: "விவரம்", hi: "विवरण" },
+  next: { en: "Next", ta: "அடுத்து", hi: "अगला" },
   docs: { en: "Keep these documents ready", ta: "இந்த ஆவணங்களைத் தயாராக வைத்திருங்கள்", hi: "ये दस्तावेज़ तैयार रखें" },
   correct: { en: "Yes, correct", ta: "ஆமாம், சரி", hi: "हाँ, सही है" },
   change: { en: "Change something", ta: "மாற்ற வேண்டும்", hi: "कुछ बदलना है" },
   yesWord: { en: "yes", ta: "ஆமாம்", hi: "हाँ" },
   noWord: { en: "no", ta: "இல்லை", hi: "नहीं" },
-  prepared: { en: "Application prepared", ta: "விண்ணப்பம் தயார்", hi: "आवेदन तैयार" },
+  prepared: { en: "Application ready", ta: "விண்ணப்பம் தயார்", hi: "आवेदन तैयार" },
   reference: { en: "Reference number", ta: "குறிப்பு எண்", hi: "संदर्भ नंबर" },
   takeTo: { en: "Take it to", ta: "கொண்டு செல்ல வேண்டிய இடம்", hi: "कहाँ ले जाएँ" },
-  followUp: { en: "Follow-up reminder", ta: "நினைவூட்டல் தேதி", hi: "याद दिलाने की तारीख" },
+  followUp: { en: "Follow-up on", ta: "நினைவூட்டல் தேதி", hi: "याद दिलाने की तारीख" },
   print: { en: "Open printable form", ta: "அச்சிடும் படிவம்", hi: "प्रिंट फ़ॉर्म खोलें" },
   schemes: { en: "Schemes for you", ta: "உங்களுக்கான திட்டங்கள்", hi: "आपके लिए योजनाएँ" },
   eligible: { en: "Eligible", ta: "தகுதி உண்டு", hi: "पात्र" },
@@ -28,43 +38,62 @@ const UI = {
   apply: { en: "Apply", ta: "விண்ணப்பி", hi: "आवेदन करें" },
   applyFor: { en: "I want to apply for", ta: "நான் விண்ணப்பிக்க வேண்டும்:", hi: "मुझे आवेदन करना है:" },
   findSchemes: { en: "Which schemes can I get?", ta: "எனக்கு எந்தத் திட்டங்கள் கிடைக்கும்?", hi: "मुझे कौन सी योजनाएँ मिल सकती हैं?" },
+  findSchemesSub: { en: "9 quick questions, every benefit you can claim", ta: "9 சிறு கேள்விகள் — நீங்கள் பெறக்கூடிய எல்லாப் பலன்களும்", hi: "9 छोटे सवाल — आपको मिलने वाले सारे लाभ" },
   myApps: { en: "My applications", ta: "என் விண்ணப்பங்கள்", hi: "मेरे आवेदन" },
   sources: { en: "From", ta: "ஆதாரம்", hi: "स्रोत" },
-  unverified: { en: "verify at office", ta: "அலுவலகத்தில் உறுதி செய்யவும்", hi: "कार्यालय में पुष्टि करें" },
-  offline: { en: "offline mode", ta: "ஆஃப்லைன்", hi: "ऑफ़लाइन" },
-  keyNotSet: { en: "Basic mode: AI key not set. The main services still work; free-form questions are understood better with the key.", ta: "அடிப்படை முறை: AI சாவி அமைக்கப்படவில்லை. முக்கிய சேவைகள் வேலை செய்யும்; சாவியுடன் இயல்பான பேச்சை இன்னும் நன்றாகப் புரிந்துகொள்ளும்.", hi: "बेसिक मोड: AI कुंजी सेट नहीं है। मुख्य सेवाएँ काम करती हैं; कुंजी के साथ खुली बातचीत बेहतर समझी जाती है।" },
+  unverified: { en: "confirm at the office", ta: "அலுவலகத்தில் உறுதி செய்யவும்", hi: "कार्यालय में पुष्टि करें" },
+  voiceOn: { en: "🔊 Voice on", ta: "🔊 குரல் ஆன்", hi: "🔊 आवाज़ चालू" },
+  voiceOff: { en: "🔇 Voice off", ta: "🔇 குரல் ஆஃப்", hi: "🔇 आवाज़ बंद" },
+  basicMode: { en: "Basic mode · tap for details", ta: "அடிப்படை முறை · விவரம் அறிய தொடுங்கள்", hi: "बेसिक मोड · विवरण के लिए दबाएँ" },
+  keyNotSet: { en: "AI key not set: the main services work fully; free-form questions are understood better with the key.", ta: "AI சாவி அமைக்கப்படவில்லை: முக்கிய சேவைகள் முழுமையாக வேலை செய்யும்; சாவியுடன் இயல்பான பேச்சை இன்னும் நன்றாகப் புரிந்துகொள்ளும்.", hi: "AI कुंजी सेट नहीं है: मुख्य सेवाएँ पूरी तरह काम करती हैं; कुंजी के साथ खुली बातचीत बेहतर समझी जाती है।" },
   speechKeyNotSet: { en: "Speech key not set: using this phone's own voice recognition.", ta: "பேச்சு சாவி அமைக்கப்படவில்லை: இந்த போனின் குரல் அறிதல் பயன்படுத்தப்படுகிறது.", hi: "स्पीच कुंजी सेट नहीं है: फ़ोन की अपनी आवाज़ पहचान इस्तेमाल हो रही है।" },
 };
+
+/* the home tiles: service id → picture; titles and example sentences come from the server */
+const TILES = [
+  { id: "crop_insurance", ico: "🌾" },
+  { id: "drip_irrigation", ico: "💧" },
+  { id: "solar_pump", ico: "☀️" },
+  { id: "pm_kisan", ico: "🪙" },
+  { id: "compare_methods", ico: "🌿" },
+  { id: "nammalvar", ico: "🪔" },
+  { id: "old_age_pension", ico: "🙏" },
+  { id: "grievance", ico: "📣" },
+];
 
 const state = {
   lang: localGet("velan.lang") || "ta",
   sessionId: null,
   config: null,
+  services: [],
   speakReplies: localGet("velan.speak") !== "0",
   listening: false,
   busy: false,
   audio: null,
+  lastReply: "",
+  form: null,
+  history: [],
 };
 
 const $ = (sel) => document.querySelector(sel);
-const chat = $("#chat");
-const panels = $("#panels");
+const app = $(".app");
 const micBtn = $("#mic");
-const statusEl = $("#status");
+const live = $("#live");
 
 function localGet(k) { try { return localStorage.getItem(k); } catch { return null; } }
 function localSet(k, v) { try { localStorage.setItem(k, v); } catch { /* private mode */ } }
 function tr(key) { const v = UI[key]; return v ? (v[state.lang] || v.en) : key; }
 function bcp47() { return state.config?.languages?.[state.lang]?.bcp47 || "ta-IN"; }
-function setStatus(key, raw) { statusEl.textContent = raw ?? tr(key); }
+function setLive(key, raw) { live.textContent = raw ?? tr(key); }
 function el(tag, attrs = {}, ...kids) {
   const n = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) {
+    if (v == null) continue;
     if (k === "class") n.className = v;
     else if (k.startsWith("on")) n.addEventListener(k.slice(2), v);
     else n.setAttribute(k, v);
   }
-  for (const kid of kids.flat()) if (kid != null) n.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
+  for (const kid of kids.flat()) if (kid != null && kid !== false) n.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
   return n;
 }
 
@@ -74,174 +103,216 @@ async function api(path, body) {
   return res.json();
 }
 
-// ---------------- language ----------------
-function renderModeNote() {
-  const note = $("#modeNote");
-  if (!note || !state.config) return;
-  const lines = [];
-  if (state.config.agent === "offline") lines.push(tr("keyNotSet"));
-  if (!state.config.server_speech) lines.push(tr("speechKeyNotSet"));
-  note.textContent = lines.join(" ");
-  note.hidden = !lines.length;
-}
-
+/* ---------------- language ---------------- */
 function applyLang() {
   document.documentElement.lang = state.lang;
   document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === state.lang)));
   document.querySelectorAll("[data-i18n]").forEach((n) => { n.textContent = tr(n.dataset.i18n); });
   document.querySelectorAll("[data-i18n-ph]").forEach((n) => { n.placeholder = tr(n.dataset.i18nPh); });
-  renderChips();
-  renderModeNote();
+  document.querySelectorAll("[data-i18n-aria]").forEach((n) => { n.setAttribute("aria-label", tr(n.dataset.i18nAria)); });
+  renderSpeakToggle();
+  renderModeChip();
 }
 
 document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", async () => {
+  if (b.dataset.lang === state.lang) return;
   state.lang = b.dataset.lang;
   localSet("velan.lang", state.lang);
   applyLang();
   stopSpeaking();
+  await loadServices();
   await newSession();
 }));
 
-// ---------------- chat rendering ----------------
-function addMsg(text, who) {
-  const m = el("div", { class: `msg ${who}` }, text);
-  if (who === "bot") {
-    m.append(el("button", { class: "replay", title: "Play", "aria-label": "Play", onclick: () => speak(text) }, "🔈"));
-  }
-  chat.append(m);
-  m.scrollIntoView({ behavior: "smooth", block: "end" });
-  return m;
+/* ---------------- home ---------------- */
+async function loadServices() {
+  try { state.services = await api(`/api/services?lang=${state.lang}`); } catch { state.services = []; }
+  renderTiles();
 }
 
-async function renderChips() {
-  const box = $("#chips");
+function renderTiles() {
+  const box = $("#tiles");
   box.replaceChildren();
-  const send = (txt) => () => sendText(txt);
-  box.append(el("button", { class: "chip", onclick: send(tr("findSchemes")) }, "✨ " + tr("findSchemes")));
-  box.append(el("button", { class: "chip", onclick: send(tr("myApps")) }, "📋 " + tr("myApps")));
-  try {
-    const services = await api(`/api/services?lang=${state.lang}`);
-    for (const s of services.filter((s) => s.example)) box.append(el("button", { class: "chip", onclick: send(s.example) }, "🎙️ " + s.example));
-  } catch { /* chips are optional */ }
+  const byId = Object.fromEntries(state.services.map((s) => [s.id, s]));
+  box.append(el("button", { class: "tile wide", onclick: () => sendText(tr("findSchemes")) },
+    el("span", { class: "ico", "aria-hidden": "true" }, "✨"),
+    el("span", {}, el("span", { class: "t-name" }, tr("findSchemes")), el("br"), el("span", { class: "t-say" }, tr("findSchemesSub")))));
+  for (const t of TILES) {
+    const s = byId[t.id];
+    if (!s) continue;
+    const say = s.example || s.title;
+    box.append(el("button", { class: "tile", onclick: () => sendText(say) },
+      el("span", { class: "ico", "aria-hidden": "true" }, t.ico),
+      el("span", { class: "t-name" }, s.title),
+      s.example ? el("span", { class: "t-say" }, `“${s.example}”`) : null));
+  }
+  box.append(el("button", { class: "tile wide", onclick: () => sendText(tr("myApps")) },
+    el("span", { class: "ico", "aria-hidden": "true" }, "📋"), el("span", { class: "t-name" }, tr("myApps"))));
 }
 
-function renderForm(form) {
-  const old = $("#formCard");
-  if (!form) { old?.remove(); return; }
-  const pct = form.progress.total ? Math.round((100 * form.progress.done) / form.progress.total) : 0;
+function showHome(on) {
+  $("#home").hidden = !on;
+  $("#talk").hidden = on;
+}
+
+/* ---------------- the stage ---------------- */
+function showReply(text, { thinking = false } = {}) {
+  const reply = $(".reply");
+  reply.classList.toggle("thinking", thinking);
+  $("#replyText").textContent = text;
+  // restart the arrival animation
+  reply.style.animation = "none"; void reply.offsetWidth; reply.style.animation = "";
+}
+
+function showSaid(text) {
+  const said = $("#said");
+  said.hidden = !text;
+  said.textContent = text || "";
+  said.dataset.label = tr("youSaid");
+}
+
+function renderSources(srcs) {
+  const box = $("#sources");
+  if (!srcs?.length) { box.hidden = true; return; }
+  box.hidden = false;
+  box.textContent = `${tr("sources")}: ` + srcs.map((s) => s.title + (s.verified ? "" : ` (${tr("unverified")})`)).join(" · ");
+}
+
+function renderConfirm(form) {
+  const box = $("#confirm");
+  box.replaceChildren();
+  box.hidden = !form?.awaiting_confirmation;
+  if (box.hidden) return;
+  box.append(
+    el("button", { class: "btn", onclick: () => sendText(tr("yesWord")) }, "✓ " + tr("correct")),
+    el("button", { class: "btn ghost", onclick: () => sendText(tr("noWord")) }, tr("change")));
+}
+
+function renderTask(form) {
+  state.form = form;
+  const bar = $("#task");
+  if (!form) { bar.hidden = true; bar.replaceChildren(); return; }
+  bar.hidden = false;
   const current = form.fields.find((f) => f.current);
-  const details = el("details", { class: "formbar", id: "formCard" },
-    el("summary", {}, el("span", {}, `📝 ${form.title}`), el("span", { class: "count" }, `${form.progress.done}/${form.progress.total} ▾`)),
-  );
-  // keep it open when reviewing, or if the user had opened it
-  if (form.awaiting_confirmation || old?.open) details.open = true;
+  const total = form.progress.total || 1;
+  const steps = el("div", { class: "steps", role: "progressbar", "aria-valuemin": 0, "aria-valuemax": total, "aria-valuenow": form.progress.done });
+  for (let i = 0; i < Math.min(total, 16); i++) {
+    const at = Math.floor((i * total) / Math.min(total, 16));
+    steps.append(el("i", { class: at < form.progress.done ? "done" : (at === form.progress.done && !form.awaiting_confirmation ? "now" : "") }));
+  }
   const parts = [
-    el("div", { class: "progress", role: "progressbar", "aria-valuenow": pct, "aria-valuemin": 0, "aria-valuemax": 100 }, el("span", { style: `width:${pct}%` })),
+    el("div", { class: "task-title" }, form.title),
+    el("button", { class: "task-open", onclick: openFormSheet }, `${form.progress.done}/${form.progress.total} · ${tr("details")}`),
+    steps,
   ];
-  // confirm buttons first so they're always on screen during the read-back
-  if (form.awaiting_confirmation) {
-    parts.push(el("div", { class: "confirm-row" },
-      el("button", { class: "btn", onclick: () => sendText(tr("yesWord")) }, "✓ " + tr("correct")),
-      el("button", { class: "btn ghost", onclick: () => sendText(tr("noWord")) }, tr("change"))));
-  }
-  if (current) parts.push(el("div", { class: "now" }, "➜ " + current.label));
-  parts.push(el("ul", { class: "fields" }, form.fields.map((f) =>
-    el("li", { class: `${f.value == null ? "empty" : ""} ${f.current ? "current" : ""}` }, el("span", {}, f.label), el("span", { class: "v" }, f.value ?? "…")))));
-  if (form.documents?.length) {
-    parts.push(el("div", { class: "sources", style: "margin-top:10px" }, tr("docs")), el("ul", { class: "docs" }, form.documents.map((d) => el("li", {}, d))));
-  }
-  details.append(...parts);
-  old ? old.replaceWith(details) : panels.append(details);
+  if (current) parts.push(el("div", { class: "task-now" }, `${tr("next")}: ${current.label}`));
+  bar.replaceChildren(...parts);
+  if (!$("#formSheet").hidden) renderFormSheet();
 }
 
-function addCard(card) {
-  chat.append(card);
-  requestAnimationFrame(() => card.scrollIntoView({ block: "start" }));
+function renderFormSheet() {
+  const form = state.form;
+  if (!form) return;
+  $("#formTitle").textContent = form.title;
+  $("#fieldList").replaceChildren(...form.fields.map((f) =>
+    el("li", { class: `${f.value == null ? "empty" : ""} ${f.current ? "current" : ""}` }, el("span", {}, f.label), el("span", { class: "v" }, f.value ?? "…"))));
+  $("#docList").replaceChildren(...(form.documents || []).map((d) => el("li", {}, d)));
 }
+function openFormSheet() { renderFormSheet(); $("#formSheet").hidden = false; }
 
-function renderApplication(a) {
-  const card = el("div", { class: "card" },
+function applicationCard(a) {
+  return el("div", { class: "card done-card" },
     el("h3", {}, `✅ ${tr("prepared")}: ${a.title}`),
-    el("div", { class: "sources" }, tr("reference")),
-    el("div", { class: "app-id" }, a.id),
+    el("p", { class: "ref-label" }, tr("reference")),
+    el("p", { class: "ref" }, a.id),
     a.deadline_note ? el("p", { class: "deadline" }, "⏱ " + a.deadline_note) : null,
     el("p", {}, el("b", {}, tr("takeTo") + ": "), a.submit_to),
     a.next_step ? el("p", {}, a.next_step) : null,
     el("p", {}, el("b", {}, tr("followUp") + ": "), a.follow_up_on),
-    el("a", { class: "btn", href: a.print_url, target: "_blank", rel: "noopener" }, "🖨 " + tr("print")),
-  );
-  addCard(card);
+    el("a", { class: "btn wide", href: a.print_url, target: "_blank", rel: "noopener" }, "🖨 " + tr("print")));
 }
 
-function renderEligibility(results) {
-  const card = el("div", { class: "card" }, el("h3", {}, "✨ " + tr("schemes")));
-  card.append(el("ul", { class: "elig" }, results.map((r) => el("li", {},
-    el("div", {}, el("span", { class: `tag ${r.status}` }, tr(r.status)), el("b", {}, r.name)),
-    el("div", {}, r.benefit),
-    r.reasons.length ? el("div", { class: "why" }, r.reasons.join("; ")) : null,
-    r.status === "eligible" && r.service ? el("button", { class: "btn ghost", style: "margin-top:8px", onclick: () => sendText(`${tr("applyFor")} ${r.name}`) }, tr("apply")) : null,
-  ))));
-  addCard(card);
+function eligibilityCard(results) {
+  return el("div", { class: "card" }, el("h3", {}, "✨ " + tr("schemes")),
+    el("ul", { class: "elig" }, results.map((r) => el("li", {},
+      el("div", {}, el("span", { class: `tag ${r.status}` }, tr(r.status)), el("b", {}, r.name)),
+      el("div", {}, r.benefit),
+      r.reasons.length ? el("div", { class: "why" }, r.reasons.join("; ")) : null,
+      r.status === "eligible" && r.service ? el("button", { class: "btn ghost", style: "margin-top:8px;min-height:44px", onclick: () => sendText(`${tr("applyFor")} ${r.name}`) }, tr("apply")) : null))));
 }
 
-function renderApplications(apps) {
-  if (!apps.length) return;
-  const card = el("div", { class: "card" }, el("h3", {}, "📋 " + tr("myApps")),
-    el("ul", { class: "fields" }, apps.map((a) => el("li", {},
-      el("span", {}, `${a.title}`),
-      el("a", { class: "v", href: `/api/applications/${a.id}/print`, target: "_blank", rel: "noopener" }, `${a.id}${a.overdue ? " ⚠️" : ""}`)))));
-  addCard(card);
+function applicationsCard(apps) {
+  if (!apps.length) return null;
+  return el("div", { class: "card" }, el("h3", {}, "📋 " + tr("myApps")),
+    el("ul", { class: "mini-list" }, apps.map((a) => el("li", {},
+      el("span", {}, a.title),
+      el("a", { href: `/api/applications/${a.id}/print`, target: "_blank", rel: "noopener" }, `${a.id}${a.overdue ? " ⚠️" : ""}`)))));
 }
 
-function renderSources(srcs, msgEl) {
-  if (!srcs?.length || !msgEl) return;
-  const names = srcs.map((s) => s.title + (s.verified ? "" : ` (${tr("unverified")})`)).join(" · ");
-  msgEl.after(el("div", { class: "sources" }, `${tr("sources")}: ${names}`));
+/* ---------------- history ---------------- */
+function remember(who, text) { state.history.push({ who, text }); }
+function renderHistory() {
+  $("#historyList").replaceChildren(...state.history.map((m) => el("div", { class: `h-msg ${m.who}` }, m.text)));
 }
 
-// ---------------- conversation ----------------
+/* ---------------- conversation ---------------- */
 async function newSession() {
-  chat.replaceChildren();
-  panels.replaceChildren();
   const res = await api("/api/session", { lang: state.lang });
   state.sessionId = res.session_id;
-  addMsg(res.greeting, "bot");
+  state.history = [{ who: "bot", text: res.greeting }];
+  state.lastReply = res.greeting;
+  renderTask(null);
+  renderConfirm(null);
+  $("#cards").replaceChildren();
+  showSaid("");
+  showReply(res.greeting);
+  renderSources(null);
+  showHome(true);
+  setLive("tap");
 }
 
 async function sendText(text) {
   text = (text || "").trim();
   if (!text || state.busy) return;
   stopSpeaking();
-  addMsg(text, "user");
+  showHome(false);
+  showSaid(text);
+  remember("user", text);
+  $("#cards").replaceChildren();
+  renderConfirm(null);
+  renderSources(null);
+  showReply(tr("thinking"), { thinking: true });
   state.busy = true;
-  micBtn.classList.add("busy");
-  setStatus("thinking");
-  const pending = addMsg(tr("thinking"), "bot thinking");
+  app.classList.add("busy");
+  setLive("thinking");
   try {
     const res = await api("/api/chat", { session_id: state.sessionId, text, lang: state.lang });
-    pending.remove();
-    renderForm(res.form);
-    const m = addMsg(res.reply, "bot");
-    const sources = res.events.filter((ev) => ev.type === "sources").pop();
-    renderSources(sources?.data, m);
+    renderTask(res.form);
+    showReply(res.reply);
+    state.lastReply = res.reply;
+    remember("bot", res.reply);
+    renderSources(res.events.filter((ev) => ev.type === "sources").pop()?.data);
+    const cards = $("#cards");
     for (const ev of res.events) {
-      if (ev.type === "application") renderApplication(ev.data);
-      else if (ev.type === "eligibility") renderEligibility(ev.data);
-      else if (ev.type === "applications") renderApplications(ev.data);
+      let card = null;
+      if (ev.type === "application") { card = applicationCard(ev.data); remember("bot", `✅ ${ev.data.id} · ${ev.data.title}`); }
+      else if (ev.type === "eligibility") card = eligibilityCard(ev.data);
+      else if (ev.type === "applications") card = applicationsCard(ev.data);
+      if (card) cards.append(card);
     }
+    renderConfirm(res.form);
+    window.scrollTo({ top: 0, behavior: "smooth" });
     speak(res.reply);
   } catch (err) {
-    pending.remove();
     if (String(err).startsWith("Error: 404")) { await newSession(); }
-    else addMsg("⚠️ " + err.message, "bot");
-    setStatus("tap");
+    else { showReply("⚠️ " + err.message); setLive("tap"); }
   } finally {
     state.busy = false;
-    micBtn.classList.remove("busy");
+    app.classList.remove("busy");
   }
 }
 
-// ---------------- speech out ----------------
+/* ---------------- speech out ---------------- */
 function stopSpeaking() {
   if ("speechSynthesis" in window) speechSynthesis.cancel();
   if (state.audio) { state.audio.pause(); state.audio = null; }
@@ -254,39 +325,44 @@ function pickVoice() {
 }
 
 async function speak(text) {
-  if (!state.speakReplies || !text) { setStatus("tap"); return; }
+  if (!state.speakReplies || !text) { setLive("tap"); return; }
   stopSpeaking();
-  setStatus("speaking");
+  setLive("speaking");
   if (state.config?.server_speech) {
     try {
       const res = await fetch("/api/tts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text, lang: state.lang }) });
       if (res.ok) {
-        const url = URL.createObjectURL(await res.blob());
-        state.audio = new Audio(url);
-        state.audio.onended = () => setStatus("tap");
+        state.audio = new Audio(URL.createObjectURL(await res.blob()));
+        state.audio.onended = () => setLive("tap");
         await state.audio.play();
         return;
       }
-    } catch { /* fall back to browser voice */ }
+    } catch { /* fall back to the browser's voice */ }
   }
-  if (!("speechSynthesis" in window)) { setStatus("tap"); return; }
+  if (!("speechSynthesis" in window)) { setLive("tap"); return; }
   const u = new SpeechSynthesisUtterance(text);
   u.lang = bcp47();
   const v = pickVoice();
   if (v) u.voice = v;
   u.rate = 0.95;
-  u.onend = () => setStatus("tap");
+  u.onend = () => setLive("tap");
   speechSynthesis.speak(u);
 }
 
-$("#speakToggle").addEventListener("click", (e) => {
+function renderSpeakToggle() {
+  const b = $("#speakToggle");
+  b.setAttribute("aria-pressed", String(state.speakReplies));
+  b.textContent = state.speakReplies ? tr("voiceOn") : tr("voiceOff");
+}
+$("#speakToggle").addEventListener("click", () => {
   state.speakReplies = !state.speakReplies;
-  e.currentTarget.setAttribute("aria-pressed", String(state.speakReplies));
   localSet("velan.speak", state.speakReplies ? "1" : "0");
+  renderSpeakToggle();
   if (!state.speakReplies) stopSpeaking();
 });
+$("#replay").addEventListener("click", () => { const prev = state.speakReplies; state.speakReplies = true; speak(state.lastReply); state.speakReplies = prev; });
 
-// ---------------- speech in ----------------
+/* ---------------- speech in ---------------- */
 const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 let recognizer = null;
 let recorder = null;
@@ -308,7 +384,7 @@ function startBrowserRecognition() {
         if (r[0].confidence > 0 && r[0].confidence < 0.35) lowConfidence = true;
       } else interim += r[0].transcript;
     }
-    setStatus(null, interim || finalText || tr("listening"));
+    setLive(null, interim || finalText || tr("listening"));
   };
   recognizer.onerror = () => { stopListening(); didNotCatch(); };
   recognizer.onend = () => {
@@ -330,7 +406,7 @@ async function startServerRecording() {
     const fd = new FormData();
     fd.append("audio", new Blob(chunks, { type: recorder.mimeType }), "speech.webm");
     fd.append("lang", state.lang);
-    setStatus("thinking");
+    setLive("thinking");
     try {
       const res = await fetch("/api/stt", { method: "POST", body: fd });
       const { text } = await res.json();
@@ -341,44 +417,47 @@ async function startServerRecording() {
 }
 
 function didNotCatch() {
-  addMsg(tr("heardNothing"), "bot");
+  showHome(false);
+  showReply(tr("heardNothing"));
+  state.lastReply = tr("heardNothing");
   speak(tr("heardNothing"));
 }
 
 function stopListening() {
   state.listening = false;
-  micBtn.classList.remove("listening");
+  app.classList.remove("listening");
 }
 
 micBtn.addEventListener("click", async () => {
   stopSpeaking();
   if (state.busy) return;
   if (state.listening) {
-    // second tap ends the utterance
+    // the second tap ends the utterance
     if (recognizer) recognizer.stop();
     if (recorder && recorder.state === "recording") recorder.stop();
     return;
   }
   const canServer = state.config?.server_speech && navigator.mediaDevices && window.MediaRecorder;
   if (!Recognition && !canServer) {
-    setStatus("noMic");
+    setLive("noMic");
     $("#textForm").hidden = false;
     return;
   }
   state.listening = true;
-  micBtn.classList.add("listening");
-  setStatus("listening");
+  app.classList.add("listening");
+  setLive("listening");
   try {
-    // prefer server STT (better on code-mixed Indic speech) when configured
+    // server speech-to-text handles code-mixed Indian speech better, when configured
     if (canServer) await startServerRecording(); else startBrowserRecognition();
   } catch {
     stopListening();
-    setStatus("noMic");
+    setLive("noMic");
     $("#textForm").hidden = false;
   }
 });
 
-$("#kbToggle").addEventListener("click", () => {
+/* ---------------- typing, sheets, notices ---------------- */
+$("#kbBtn").addEventListener("click", () => {
   const f = $("#textForm");
   f.hidden = !f.hidden;
   if (!f.hidden) $("#textInput").focus();
@@ -389,14 +468,29 @@ $("#textForm").addEventListener("submit", (e) => {
   sendText(inp.value);
   inp.value = "";
 });
+$("#historyBtn").addEventListener("click", () => { renderHistory(); $("#history").hidden = false; });
+$("#newChat").addEventListener("click", async () => { $("#history").hidden = true; stopSpeaking(); await newSession(); });
+document.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", () => { $("#" + b.dataset.close).hidden = true; }));
+document.querySelectorAll(".sheet").forEach((s) => s.addEventListener("click", (e) => { if (e.target === s) s.hidden = true; }));
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") document.querySelectorAll(".sheet").forEach((s) => { s.hidden = true; }); });
 
-// ---------------- boot ----------------
+function renderModeChip() {
+  const chip = $("#modeChip");
+  if (!state.config) return;
+  const lines = [];
+  if (state.config.agent === "offline") lines.push(tr("keyNotSet"));
+  if (!state.config.server_speech) lines.push(tr("speechKeyNotSet"));
+  chip.hidden = !lines.length;
+  chip.textContent = chip.classList.contains("open") ? lines.join(" ") : "ⓘ " + tr("basicMode");
+  chip.onclick = () => { chip.classList.toggle("open"); renderModeChip(); };
+}
+
+/* ---------------- start ---------------- */
 (async function boot() {
-  $("#speakToggle").setAttribute("aria-pressed", String(state.speakReplies));
   if ("speechSynthesis" in window) speechSynthesis.getVoices();
   state.config = await api("/api/config");
-  renderModeNote();
   applyLang();
+  await loadServices();
   await newSession();
   if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
 })();
