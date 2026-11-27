@@ -17,6 +17,7 @@ from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from .semantic import CharNgramIndex
 from .text import normalize, tokens
 
 # trailing Tamil / Devanagari vowel signs and virama: உரம் / உரமா / உரமும் share the stem உரம
@@ -46,8 +47,14 @@ class KnowledgeDoc:
     source: str = ""
     verified: bool = False
 
+    last_checked: str = ""
+
     def text_for_search(self) -> str:
         return " ".join([self.title, " ".join(self.tags), " ".join(self.summary.values()), self.body])
+
+    def text_for_ml(self) -> str:
+        # title and tags weigh more: they are what people ask about
+        return " ".join([self.title] * 3 + self.tags * 2 + list(self.summary.values()) + [self.body])
 
 
 @dataclass
@@ -69,6 +76,7 @@ class Registry:
     schemes: list[dict] = field(default_factory=list)
     _idf: dict[str, float] = field(default_factory=dict)
     _doc_tf: dict[str, Counter] = field(default_factory=dict)
+    _ml: CharNgramIndex | None = None
 
     # ---------- knowledge search (BM25-lite, works across scripts) ----------
     def _index(self) -> None:
@@ -82,8 +90,20 @@ class Registry:
             df.update(set(tf))
         n = max(len(self.knowledge), 1)
         self._idf = {t: math.log(1 + (n - c + 0.5) / (c + 0.5)) for t, c in df.items()}
+        self._ml = CharNgramIndex().fit({d.id: d.text_for_ml() for d in self.knowledge.values()})
 
     def search(self, query: str, k: int = 3) -> list[tuple[KnowledgeDoc, float]]:
+        """Hybrid retrieval: keyword (BM25-style) + character n-gram ML, each scaled to its best
+        hit and averaged. Keyword wins on exact terms; the ML half catches misspellings,
+        romanised Tamil/Hindi, joined words and inflections. See tests/search_eval.json."""
+        kw = {d.id: s for d, s in self.keyword_search(query, k=len(self.knowledge))}
+        ml = self._ml.query(query) if self._ml else {}
+        top_kw, top_ml = max(kw.values(), default=0) or 1, max(ml.values(), default=0) or 1
+        scores = {i: 0.5 * kw.get(i, 0) / top_kw + 0.5 * ml.get(i, 0) / top_ml for i in set(kw) | set(ml)}
+        ranked = sorted(scores.items(), key=lambda x: x[1], reverse=True)
+        return [(self.knowledge[i], sc) for i, sc in ranked[:k] if sc > 0.05]
+
+    def keyword_search(self, query: str, k: int = 3) -> list[tuple[KnowledgeDoc, float]]:
         q = [t for t in search_tokens(query) if len(t) > 1]
         scored = []
         for doc_id, tf in self._doc_tf.items():
@@ -144,6 +164,7 @@ def _parse_md(path: Path, domain: str) -> KnowledgeDoc:
         body=body,
         source=meta.get("source", ""),
         verified=bool(meta.get("verified", False)),
+        last_checked=meta.get("last_checked", ""),
     )
 
 

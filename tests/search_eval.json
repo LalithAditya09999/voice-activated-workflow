@@ -1,0 +1,257 @@
+[
+ {
+  "q": "drip irrigation subsidy for small farmer",
+  "expect": "pmksy_micro_irrigation",
+  "set": "clear"
+ },
+ {
+  "q": "சொட்டு நீருக்கு மானியம் எவ்வளவு கிடைக்கும்",
+  "expect": "pmksy_micro_irrigation",
+  "set": "clear"
+ },
+ {
+  "q": "ड्रिप लगवाने पर कितनी सब्सिडी मिलती है",
+  "expect": "pmksy_micro_irrigation",
+  "set": "clear"
+ },
+ {
+  "q": "why did my pm kisan money stop coming",
+  "expect": "pm_kisan",
+  "set": "clear"
+ },
+ {
+  "q": "கிசான் பணம் ஏன் வரவில்லை",
+  "expect": "pm_kisan",
+  "set": "clear"
+ },
+ {
+  "q": "kisan samman nidhi ki kist nahi aayi",
+  "expect": "pm_kisan",
+  "set": "clear"
+ },
+ {
+  "q": "how much premium do I pay for crop insurance",
+  "expect": "pmfby",
+  "set": "clear"
+ },
+ {
+  "q": "பயிர் காப்பீட்டுக்கு எவ்வளவு பிரீமியம்",
+  "expect": "pmfby",
+  "set": "clear"
+ },
+ {
+  "q": "solar motor for my borewell subsidy",
+  "expect": "pm_kusum",
+  "set": "clear"
+ },
+ {
+  "q": "சோலார் மோட்டார் போட உதவி கிடைக்குமா",
+  "expect": "pm_kusum",
+  "set": "clear"
+ },
+ {
+  "q": "how long to wait for free current connection for motor",
+  "expect": "farm_power_connection",
+  "set": "clear"
+ },
+ {
+  "q": "விவசாய மின் இணைப்பு எப்போது கிடைக்கும்",
+  "expect": "farm_power_connection",
+  "set": "clear"
+ },
+ {
+  "q": "low interest loan for farming",
+  "expect": "kcc",
+  "set": "clear"
+ },
+ {
+  "q": "பயிர்க் கடன் வட்டி எவ்வளவு",
+  "expect": "kcc",
+  "set": "clear"
+ },
+ {
+  "q": "how to test my soil and how much urea",
+  "expect": "soil_health_card",
+  "set": "clear"
+ },
+ {
+  "q": "மண் பரிசோதனை எங்கே செய்யலாம்",
+  "expect": "soil_health_card",
+  "set": "clear"
+ },
+ {
+  "q": "when is kuruvai season",
+  "expect": "tn_cropping_seasons",
+  "set": "clear"
+ },
+ {
+  "q": "சம்பா பட்டம் எப்போது தொடங்கும்",
+  "expect": "tn_cropping_seasons",
+  "set": "clear"
+ },
+ {
+  "q": "traditional red rice variety seeds",
+  "expect": "native_paddy_varieties",
+  "set": "clear"
+ },
+ {
+  "q": "மாப்பிள்ளை சம்பா விதை எங்கே கிடைக்கும்",
+  "expect": "native_paddy_varieties",
+  "set": "clear"
+ },
+ {
+  "q": "how to make jeevamrutham at home",
+  "expect": "organic_inputs",
+  "set": "clear"
+ },
+ {
+  "q": "பஞ்சகவ்யா தயாரிக்கும் முறை",
+  "expect": "organic_inputs",
+  "set": "clear"
+ },
+ {
+  "q": "nammazhvar amudha karaisal recipe",
+  "expect": "nammalvar_preparations",
+  "set": "clear"
+ },
+ {
+  "q": "is hybrid seed better than native seed",
+  "expect": "compare_seeds",
+  "set": "clear"
+ },
+ {
+  "q": "side effects of using too much fertilizer on soil",
+  "expect": "compare_soil_nutrition",
+  "set": "clear"
+ },
+ {
+  "q": "worms eating my brinjal what to spray",
+  "expect": "crop_protection_ipm",
+  "set": "clear"
+ },
+ {
+  "q": "naatu kozhi valarpu laabam",
+  "expect": "poultry_country_chicken",
+  "set": "clear"
+ },
+ {
+  "q": "காங்கேயம் மாடு எங்கே வாங்கலாம்",
+  "expect": "tn_native_breeds",
+  "set": "clear"
+ },
+ {
+  "q": "store paddy and take loan instead of selling at low price",
+  "expect": "grain_storage_pledge",
+  "set": "clear"
+ },
+ {
+  "q": "how to get income certificate for scholarship",
+  "expect": "income_certificate",
+  "set": "clear"
+ },
+ {
+  "q": "அம்மாவுக்கு முதியோர் உதவித்தொகை",
+  "expect": "social_security_pension",
+  "set": "clear"
+ },
+ {
+  "q": "no water in our street who do I complain to",
+  "expect": "grievance_rti",
+  "set": "clear"
+ },
+ {
+  "q": "drip irigation subsdy",
+  "expect": "pmksy_micro_irrigation",
+  "set": "hard"
+ },
+ {
+  "q": "jeevamirdham seivathu eppadi",
+  "expect": "organic_inputs",
+  "set": "hard"
+ },
+ {
+  "q": "panchakavya spray",
+  "expect": "organic_inputs",
+  "set": "hard"
+ },
+ {
+  "q": "pmkisan ekyc pending",
+  "expect": "pm_kisan",
+  "set": "hard"
+ },
+ {
+  "q": "fasal bima premium kitna",
+  "expect": "pmfby",
+  "set": "hard"
+ },
+ {
+  "q": "kusum yojana solar",
+  "expect": "pm_kusum",
+  "set": "hard"
+ },
+ {
+  "q": "mappillai samba vithai",
+  "expect": "native_paddy_varieties",
+  "set": "hard"
+ },
+ {
+  "q": "kangeyam kaalai",
+  "expect": "tn_native_breeds",
+  "set": "hard"
+ },
+ {
+  "q": "சொட்டுநீர்பாசனம்",
+  "expect": "pmksy_micro_irrigation",
+  "set": "hard"
+ },
+ {
+  "q": "மண்வளஅட்டை",
+  "expect": "soil_health_card",
+  "set": "hard"
+ },
+ {
+  "q": "நம்மாழ்வாரின் கரைசல்கள்",
+  "expect": "nammalvar_preparations",
+  "set": "hard"
+ },
+ {
+  "q": "உரங்களால் மண்ணுக்கு என்ன கெடுதல்",
+  "expect": "compare_soil_nutrition",
+  "set": "hard"
+ },
+ {
+  "q": "வருமானச்சான்றிதழ்",
+  "expect": "income_certificate",
+  "set": "hard"
+ },
+ {
+  "q": "பூச்சிகளை இயற்கையாக விரட்டுவது எப்படி",
+  "expect": "compare_pest_control",
+  "set": "hard"
+ },
+ {
+  "q": "naatukozhi thaduppoosi",
+  "expect": "poultry_country_chicken",
+  "set": "hard"
+ },
+ {
+  "q": "kisaan credit kard",
+  "expect": "kcc",
+  "set": "hard"
+ },
+ {
+  "q": "Chemical fertiliser or organic — which is better for my paddy?",
+  "expect": "compare_soil_nutrition",
+  "set": "clear"
+ },
+ {
+  "q": "என் நெல்லுக்கு ரசாயன உரமா இயற்கை உரமா, எது நல்லது?",
+  "expect": "compare_soil_nutrition",
+  "set": "clear"
+ },
+ {
+  "q": "रासायनिक या जैविक खाद, कौन सा बेहतर है?",
+  "expect": "compare_soil_nutrition",
+  "set": "clear"
+ }
+]
