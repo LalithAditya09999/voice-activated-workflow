@@ -1,0 +1,101 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Velan demo stage</title>
+<style>
+  :root { --paper:#F5F0E6; --paper2:#FBF8F1; --ink:#153C25; --deep:#00321C; --sage:#5E6D63; --turmeric:#D9952B; --kumkum:#B23A2A; --line:rgba(21,60,37,.10); }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--paper); color: var(--ink);
+    font-family: "Public Sans", "Noto Sans Tamil", "Noto Sans", system-ui, sans-serif; }
+  .bg { position: absolute; inset: 0; z-index: 0; }
+  .bg svg { width: 100%; height: 100%; color: var(--line); }
+  .glow { position: absolute; inset: 0; background: radial-gradient(40% 50% at 85% 20%, rgba(217,149,43,.18), transparent 70%), radial-gradient(45% 50% at 10% 90%, rgba(47,107,69,.10), transparent 70%); }
+
+  /* walkthrough layout: captions left, phone right */
+  .stage { position: absolute; inset: 0; z-index: 1; display: grid; grid-template-columns: 1fr 520px; gap: 80px; align-items: center; padding: 0 150px 0 150px; }
+  .cap { display: flex; flex-direction: column; gap: 26px; }
+  .step { font-size: 22px; letter-spacing: .2em; text-transform: uppercase; color: var(--turmeric); font-weight: 600; }
+  .en { font-size: 58px; line-height: 1.12; font-weight: 500; letter-spacing: -.02em; max-width: 900px; }
+  .en .soft { color: var(--sage); }
+  .ta { font-size: 34px; line-height: 1.4; color: var(--ink); font-weight: 500; max-width: 880px; padding-left: 22px; border-left: 4px solid var(--turmeric); }
+  .ta small { display: block; font-size: 22px; color: var(--sage); font-weight: 400; margin-top: 6px; }
+  .cap > * { transition: opacity .5s, transform .6s cubic-bezier(.16,1,.3,1); }
+  .cap.swap > * { opacity: 0; transform: translateY(14px); }
+
+  .phone { position: relative; width: 456px; height: 940px; border-radius: 56px; background: #101a13; padding: 14px;
+    box-shadow: 0 60px 120px -60px rgba(21,60,37,.65), 0 0 0 2px #2a3a2e inset; justify-self: center; }
+  .phone iframe { width: 428px; height: 912px; border: 0; border-radius: 44px; background: var(--paper); display: block; }
+  .tag { position: absolute; right: 36px; bottom: 30px; z-index: 3; font-size: 18px; color: var(--sage); background: rgba(251,248,241,.85); border: 1px solid var(--line); padding: 6px 14px; border-radius: 999px; }
+
+  /* full-screen cards */
+  .card { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; justify-content: center; padding: 0 200px; gap: 34px;
+    background: var(--paper); opacity: 0; transition: opacity .7s; pointer-events: none; }
+  .card.on { opacity: 1; }
+  .card.dark { background: radial-gradient(50% 60% at 80% 20%, rgba(217,149,43,.25), transparent 70%), var(--deep); color: #F5F0E6; }
+  .card h1 { font-size: 84px; line-height: 1.08; font-weight: 500; letter-spacing: -.025em; max-width: 1400px; }
+  .card h1 .soft { color: #A9B8AC; }
+  .card.light h1 .soft { color: var(--sage); }
+  .card p { font-size: 34px; line-height: 1.4; max-width: 1250px; color: inherit; opacity: .85; }
+  .card .kicker { font-size: 24px; letter-spacing: .2em; text-transform: uppercase; color: var(--turmeric); font-weight: 600; opacity: 1; }
+  .big { font-size: 180px; font-weight: 600; color: var(--turmeric); line-height: 1; letter-spacing: -.03em; }
+  .term { background: #0f1712; color: #D8E3D4; border-radius: 18px; padding: 34px 40px; font: 28px/1.55 "DejaVu Sans Mono", ui-monospace, monospace; max-width: 1300px; box-shadow: 0 40px 80px -40px rgba(0,0,0,.6); }
+  .term .g { color: #6FCB95; } .term .y { color: #F0B54A; }
+  .print { position: absolute; z-index: 4; right: 120px; top: 90px; width: 760px; height: 900px; border-radius: 18px; overflow: hidden; background: #fff;
+    box-shadow: 0 60px 120px -60px rgba(0,0,0,.6); opacity: 0; pointer-events: none; transform: translateY(30px); transition: opacity .6s, transform .8s cubic-bezier(.16,1,.3,1); }
+  .print.on { opacity: 1; transform: none; }
+  .print iframe { width: 1140px; height: 1350px; border: 0; transform: scale(.666); transform-origin: 0 0; }
+  .end-mark { width: 120px; height: 120px; color: var(--turmeric); }
+</style></head>
+<body>
+<div class="bg"><svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice"><defs><pattern id="p" width="72" height="72" patternUnits="userSpaceOnUse"><circle cx="36" cy="36" r="1.7" fill="currentColor"/><path d="M36 8C51 21 51 51 36 64C21 51 21 21 36 8ZM8 36C21 21 51 21 64 36C51 51 21 51 8 36Z" fill="none" stroke="currentColor" stroke-width="1"/></pattern></defs><rect width="1920" height="1080" fill="url(#p)"/></svg><div class="glow"></div></div>
+
+<div class="stage">
+  <div class="cap" id="cap">
+    <div class="step" id="step"></div>
+    <div class="en" id="en"></div>
+    <div class="ta" id="ta" hidden></div>
+  </div>
+  <div class="phone"><iframe id="app" src="http://localhost:3000/" title="Velan app"></iframe></div>
+</div>
+<div class="tag" id="tag" hidden>Walkthrough of the real app · voice input simulated</div>
+<div class="print" id="print"><iframe id="printFrame" title="Printable form"></iframe></div>
+
+<div class="card dark" id="c-title">
+  <p class="kicker">Every season in Tamil Nadu</p>
+  <h1>Rain damaged Murugan’s paddy yesterday.<br><span class="soft">He has 72 hours to claim insurance.<br>He can’t read the form.</span></h1>
+</div>
+<div class="card light" id="c-problem">
+  <div class="big">86%</div>
+  <h1>of India’s farms are under 2 hectares.<br><span class="soft">Benefits are lost to paperwork, not eligibility.</span></h1>
+</div>
+<div class="card light" id="c-intro">
+  <p class="kicker">Velan · வேலன்</p>
+  <h1>One microphone.<br><span class="soft">Tamil, Hindi or English. No reading, no typing.</span></h1>
+</div>
+<div class="card dark" id="c-docker">
+  <p class="kicker">Runs anywhere</p>
+  <div class="term"><span class="y">$</span> docker compose up<br>✔ Container velan-1 <span class="g">Started</span><br>Uvicorn running on <span class="g">http://0.0.0.0:3000</span><br><span style="opacity:.7">AI key not set → basic offline mode. Still works.</span></div>
+  <p>One command. No API keys. Works offline. Built hands-free with Wispr Flow.</p>
+</div>
+<div class="card dark" id="c-end">
+  <svg class="end-mark" viewBox="0 0 48 48" aria-hidden="true"><g fill="currentColor"><circle cx="12" cy="12" r="2.4"/><circle cx="24" cy="12" r="2.4"/><circle cx="36" cy="12" r="2.4"/><circle cx="12" cy="24" r="2.4"/><circle cx="24" cy="24" r="2.4"/><circle cx="36" cy="24" r="2.4"/><circle cx="12" cy="36" r="2.4"/><circle cx="24" cy="36" r="2.4"/><circle cx="36" cy="36" r="2.4"/></g><path d="M24 4c6 4 6 12 0 16-6-4-6-12 0-16zM24 28c6 4 6 12 0 16-6-4-6-12 0-16zM4 24c4-6 12-6 16 0-4 6-12 6-16 0zM28 24c4-6 12-6 16 0-4 6-12 6-16 0z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+  <h1>Velan · வேலன்<br><span class="soft">Speak, and it gets done.</span></h1>
+  <p>Pilot: 2,000 farm families in Theni and Madurai.<br>github.com/LalithAditya09999/voice-activated-workflow</p>
+</div>
+
+<script>
+  function showCard(id) { document.querySelectorAll('.card').forEach(c => c.classList.toggle('on', c.id === id)); }
+  function setCap(step, en, ta, taGloss) {
+    const cap = document.getElementById('cap');
+    cap.classList.add('swap');
+    setTimeout(() => {
+      document.getElementById('step').textContent = step || '';
+      document.getElementById('en').innerHTML = en || '';
+      const t = document.getElementById('ta');
+      t.hidden = !ta;
+      t.innerHTML = ta ? `${ta}${taGloss ? `<small>${taGloss}</small>` : ''}` : '';
+      cap.classList.remove('swap');
+    }, 350);
+  }
+  function showPrint(url) { const p = document.getElementById('print'); if (url) { document.getElementById('printFrame').src = url; p.classList.add('on'); } else p.classList.remove('on'); }
+  function tag(on) { document.getElementById('tag').hidden = !on; }
+</script>
+</body></html>
