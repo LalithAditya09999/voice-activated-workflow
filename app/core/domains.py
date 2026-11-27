@@ -24,9 +24,21 @@ from .text import normalize, tokens
 _INDIC_SIGNS = set(chr(c) for c in [*range(0x0BBE, 0x0BCE), *range(0x093E, 0x094E), 0x0902, 0x0903])
 
 
+# common Tamil case and plural endings, longest first: தென்னைக்கு / தென்னையில் / தென்னைகள் → தென்னை
+_TA_SUFFIXES = sorted([
+    "களுக்கு", "களுடன்", "களில்", "களின்", "களை", "கள்", "க்கான", "க்கு", "யிலிருந்து", "யில்", "யின்",
+    "யுடன்", "யால்", "இல்", "ில்", "ின்", "ுடன்", "ோடு", "ால்", "ுக்கு", "யை",
+], key=len, reverse=True)
+
+
 def stem(tok: str) -> str:
     if tok.isascii():
         return tok
+    if "\u0B80" <= tok[0] <= "\u0BFF":
+        for suf in _TA_SUFFIXES:
+            if tok.endswith(suf) and len(tok) - len(suf) >= 3:
+                tok = tok[: -len(suf)]
+                break
     while len(tok) > 2 and tok[-1] in _INDIC_SIGNS:
         tok = tok[:-1]
     return tok
@@ -126,7 +138,7 @@ class Registry:
     def match_service(self, text: str) -> Service | None:
         low = normalize(text).lower()
         toks = set(tokens(text))
-        best, best_score = None, 0
+        scores: dict[str, int] = {}
         for svc in self.services.values():
             score = 0
             for kw in svc.keywords:
@@ -139,9 +151,16 @@ class Registry:
                     score += 2 * (kw_l in low)
                 else:
                     score += 2 * (kw_l in toks) + (any(t.startswith(kw_l) for t in toks) and kw_l not in toks)
-            if score > best_score:
-                best, best_score = svc, score
-        return best if best_score >= 2 else None
+            scores[svc.id] = score
+        best_score = max(scores.values(), default=0)
+        if best_score < 2:
+            return None
+        tied = [sid for sid, sc in scores.items() if sc == best_score]
+        if len(tied) == 1:
+            return self.services[tied[0]]
+        # several services match equally: let the hybrid search decide which one's articles fit the whole question
+        rank = {d.id: sc for d, sc in self.search(text, k=len(self.knowledge))}
+        return max((self.services[sid] for sid in tied), key=lambda svc: max((rank.get(k, 0) for k in svc.knowledge), default=0))
 
 
 _FRONT_RE = re.compile(r"^---\n(.*?)\n---\n(.*)$", re.S)

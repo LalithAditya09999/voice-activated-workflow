@@ -1,6 +1,55 @@
 {
   "_note": "Official pages each article depends on; see domains/farmer/sources.json.",
-  "social_security_pension": [{"name": "NSAP", "url": "https://nsap.nic.in/"}],
-  "grievance_rti": [{"name": "CPGRAMS", "url": "https://pgportal.gov.in/"}, {"name": "RTI portal", "url": "https://rtionline.gov.in/"}],
-  "income_certificate": [{"name": "TN e-Sevai", "url": "https://www.tnesevai.tn.gov.in/"}]
+  "social_security_pension": [
+    {
+      "name": "NSAP",
+      "url": "https://nsap.nic.in/"
+    }
+  ],
+  "grievance_rti": [
+    {
+      "name": "CPGRAMS",
+      "url": "https://pgportal.gov.in/"
+    },
+    {
+      "name": "RTI portal",
+      "url": "https://rtionline.gov.in/"
+    }
+  ],
+  "income_certificate": [
+    {
+      "name": "TN e-Sevai",
+      "url": "https://www.tnesevai.tn.gov.in/"
+    }
+  ],
+  "ration_card": [
+    {
+      "name": "TNPDS",
+      "url": "https://www.tnpds.gov.in/"
+    }
+  ],
+  "birth_death_certificate": [
+    {
+      "name": "Civil Registration System",
+      "url": "https://crsorgi.gov.in/"
+    }
+  ],
+  "patta_transfer": [
+    {
+      "name": "TN e-Services (land)",
+      "url": "https://eservices.tn.gov.in/"
+    }
+  ],
+  "community_certificate": [
+    {
+      "name": "TN e-Sevai",
+      "url": "https://www.tnesevai.tn.gov.in/"
+    }
+  ],
+  "legal_heir_certificate": [
+    {
+      "name": "TN e-Sevai",
+      "url": "https://www.tnesevai.tn.gov.in/"
+    }
+  ]
 }

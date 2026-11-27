@@ -25,4 +25,4 @@ def test_hybrid_beats_or_matches_keyword_search():
         assert h >= k
     clear = [e for e in EVAL if e["set"] == "clear"]
     hard = [e for e in EVAL if e["set"] == "hard"]
-    assert score(hybrid, clear) >= 33 and score(hybrid, hard) >= 14
+    assert score(hybrid, clear) >= 63 and score(hybrid, hard) >= 20

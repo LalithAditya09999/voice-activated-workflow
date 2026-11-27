@@ -502,6 +502,233 @@
       "knowledge": [
         "integrated_farming"
       ]
+    },
+    {
+      "id": "coconut",
+      "title": {
+        "en": "Coconut care",
+        "ta": "தென்னை பராமரிப்பு",
+        "hi": "नारियल की देखभाल"
+      },
+      "keywords": [
+        "coconut",
+        "thennai",
+        "தென்னை",
+        "தேங்காய்",
+        "नारियल"
+      ],
+      "form": null,
+      "knowledge": [
+        "coconut_cultivation"
+      ]
+    },
+    {
+      "id": "banana",
+      "title": {
+        "en": "Banana care",
+        "ta": "வாழை பராமரிப்பு",
+        "hi": "केले की देखभाल"
+      },
+      "keywords": [
+        "banana",
+        "vazhai",
+        "வாழை",
+        "केला",
+        "केले"
+      ],
+      "form": null,
+      "knowledge": [
+        "banana_cultivation"
+      ]
+    },
+    {
+      "id": "grapes",
+      "title": {
+        "en": "Grapes care",
+        "ta": "திராட்சை பராமரிப்பு",
+        "hi": "अंगूर की देखभाल"
+      },
+      "keywords": [
+        "grape",
+        "grapes",
+        "thratchai",
+        "திராட்சை",
+        "अंगूर"
+      ],
+      "form": null,
+      "knowledge": [
+        "grapes_cumbum"
+      ]
+    },
+    {
+      "id": "paddy_sri",
+      "title": {
+        "en": "Paddy by SRI",
+        "ta": "திருந்திய நெல் சாகுபடி",
+        "hi": "श्री विधि धान"
+      },
+      "keywords": [
+        "sri",
+        "paddy",
+        "nel",
+        "நெல் சாகுபடி",
+        "நெல் நடவு",
+        "ஒற்றை நாற்று",
+        "धान"
+      ],
+      "form": null,
+      "knowledge": [
+        "paddy_sri"
+      ]
+    },
+    {
+      "id": "vegetables",
+      "title": {
+        "en": "Tomato and brinjal",
+        "ta": "தக்காளி, கத்தரி",
+        "hi": "टमाटर और बैंगन"
+      },
+      "keywords": [
+        "tomato",
+        "brinjal",
+        "vegetable",
+        "thakkali",
+        "kathirikai",
+        "தக்காளி",
+        "கத்தரி",
+        "காய்கறி",
+        "टमाटर",
+        "बैंगन",
+        "सब्ज़ी"
+      ],
+      "form": null,
+      "knowledge": [
+        "vegetables_tomato_brinjal"
+      ]
+    },
+    {
+      "id": "millets",
+      "title": {
+        "en": "Millets",
+        "ta": "சிறுதானியங்கள்",
+        "hi": "मोटे अनाज"
+      },
+      "keywords": [
+        "millet",
+        "millets",
+        "ragi",
+        "kambu",
+        "cumbu",
+        "cholam",
+        "சிறுதானியம்",
+        "கேழ்வரகு",
+        "கம்பு",
+        "சோளம்",
+        "रागी",
+        "बाजरा"
+      ],
+      "form": null,
+      "knowledge": [
+        "millets_rainfed"
+      ]
+    },
+    {
+      "id": "dairy",
+      "title": {
+        "en": "Dairy cows",
+        "ta": "பால் மாடு",
+        "hi": "दुधारू गाय"
+      },
+      "keywords": [
+        "dairy",
+        "milk",
+        "cow",
+        "mastitis",
+        "பால் மாடு",
+        "பசு",
+        "மடிநோய்",
+        "கோமாரி",
+        "गाय",
+        "दूध"
+      ],
+      "form": null,
+      "knowledge": [
+        "dairy_cattle_care"
+      ]
+    },
+    {
+      "id": "goats",
+      "title": {
+        "en": "Goat farming",
+        "ta": "ஆடு வளர்ப்பு",
+        "hi": "बकरी पालन"
+      },
+      "keywords": [
+        "goat",
+        "goats",
+        "aadu",
+        "ஆடு வளர்ப்பு",
+        "வெள்ளாடு",
+        "बकरी",
+        "बकरी पालन",
+        "goat farming",
+        "aadu valarpu"
+      ],
+      "form": null,
+      "knowledge": [
+        "goat_farming"
+      ]
+    },
+    {
+      "id": "selling",
+      "title": {
+        "en": "Selling produce",
+        "ta": "விளைபொருள் விற்பனை",
+        "hi": "उपज बेचना"
+      },
+      "keywords": [
+        "sell",
+        "selling",
+        "market",
+        "uzhavar sandhai",
+        "enam",
+        "msp",
+        "உழவர் சந்தை",
+        "விற்க",
+        "விற்பனை",
+        "கொள்முதல்",
+        "मंडी",
+        "बेचना"
+      ],
+      "form": null,
+      "knowledge": [
+        "selling_produce",
+        "grain_storage_pledge"
+      ]
+    },
+    {
+      "id": "machinery",
+      "title": {
+        "en": "Farm machinery",
+        "ta": "வேளாண் இயந்திரங்கள்",
+        "hi": "कृषि मशीनें"
+      },
+      "keywords": [
+        "machine",
+        "machinery",
+        "tractor",
+        "power tiller",
+        "harvester",
+        "இயந்திரம்",
+        "டிராக்டர்",
+        "பவர் டில்லர்",
+        "ट्रैक्टर",
+        "मशीन"
+      ],
+      "form": null,
+      "knowledge": [
+        "farm_machinery_subsidy"
+      ]
     }
   ],
   "examples": {

@@ -253,5 +253,185 @@
   "q": "रासायनिक या जैविक खाद, कौन सा बेहतर है?",
   "expect": "compare_soil_nutrition",
   "set": "clear"
+ },
+ {
+  "q": "how much fertiliser for coconut tree",
+  "expect": "coconut_cultivation",
+  "set": "clear"
+ },
+ {
+  "q": "தென்னையில் காண்டாமிருக வண்டு",
+  "expect": "coconut_cultivation",
+  "set": "clear"
+ },
+ {
+  "q": "thennai maram uram",
+  "expect": "coconut_cultivation",
+  "set": "hard"
+ },
+ {
+  "q": "banana bunchy top disease",
+  "expect": "banana_cultivation",
+  "set": "clear"
+ },
+ {
+  "q": "வாழையில் வாடல் நோய்",
+  "expect": "banana_cultivation",
+  "set": "clear"
+ },
+ {
+  "q": "vazhai thisu kandru",
+  "expect": "banana_cultivation",
+  "set": "hard"
+ },
+ {
+  "q": "grape pruning and mildew",
+  "expect": "grapes_cumbum",
+  "set": "clear"
+ },
+ {
+  "q": "கம்பம் பன்னீர் திராட்சை",
+  "expect": "grapes_cumbum",
+  "set": "clear"
+ },
+ {
+  "q": "single seedling paddy method",
+  "expect": "paddy_sri",
+  "set": "clear"
+ },
+ {
+  "q": "ஒற்றை நாற்று நடவு முறை",
+  "expect": "paddy_sri",
+  "set": "clear"
+ },
+ {
+  "q": "sri nel sagupadi",
+  "expect": "paddy_sri",
+  "set": "hard"
+ },
+ {
+  "q": "brinjal shoot borer control",
+  "expect": "vegetables_tomato_brinjal",
+  "set": "clear"
+ },
+ {
+  "q": "தக்காளி இலைச் சுருள்",
+  "expect": "vegetables_tomato_brinjal",
+  "set": "clear"
+ },
+ {
+  "q": "ragi and cumbu for dry land",
+  "expect": "millets_rainfed",
+  "set": "clear"
+ },
+ {
+  "q": "சிறுதானியம் விதைப்பது எப்போது",
+  "expect": "millets_rainfed",
+  "set": "clear"
+ },
+ {
+  "q": "cow mastitis and fmd vaccine",
+  "expect": "dairy_cattle_care",
+  "set": "clear"
+ },
+ {
+  "q": "பசுவுக்கு கோமாரி தடுப்பூசி",
+  "expect": "dairy_cattle_care",
+  "set": "clear"
+ },
+ {
+  "q": "gai ko thanela rog",
+  "expect": "dairy_cattle_care",
+  "set": "hard"
+ },
+ {
+  "q": "goat deworming ppr vaccine",
+  "expect": "goat_farming",
+  "set": "clear"
+ },
+ {
+  "q": "ஆடு வளர்ப்பு கொட்டகை",
+  "expect": "goat_farming",
+  "set": "clear"
+ },
+ {
+  "q": "where to sell vegetables without commission",
+  "expect": "selling_produce",
+  "set": "clear"
+ },
+ {
+  "q": "உழவர் சந்தையில் விற்க",
+  "expect": "selling_produce",
+  "set": "clear"
+ },
+ {
+  "q": "subsidy for power tiller",
+  "expect": "farm_machinery_subsidy",
+  "set": "clear"
+ },
+ {
+  "q": "டிராக்டர் வாடகைக்கு",
+  "expect": "farm_machinery_subsidy",
+  "set": "clear"
+ },
+ {
+  "q": "change patta to my name after buying land",
+  "expect": "patta_transfer",
+  "set": "clear"
+ },
+ {
+  "q": "பட்டா பெயர் மாற்றம்",
+  "expect": "patta_transfer",
+  "set": "clear"
+ },
+ {
+  "q": "patta peyar matram",
+  "expect": "patta_transfer",
+  "set": "hard"
+ },
+ {
+  "q": "add my baby to ration card",
+  "expect": "ration_card",
+  "set": "clear"
+ },
+ {
+  "q": "குடும்ப அட்டையில் பெயர் சேர்க்க",
+  "expect": "ration_card",
+  "set": "clear"
+ },
+ {
+  "q": "caste certificate for college admission",
+  "expect": "community_certificate",
+  "set": "clear"
+ },
+ {
+  "q": "சாதிச் சான்றிதழ் விண்ணப்பம்",
+  "expect": "community_certificate",
+  "set": "clear"
+ },
+ {
+  "q": "register birth late",
+  "expect": "birth_death_certificate",
+  "set": "clear"
+ },
+ {
+  "q": "இறப்புச் சான்றிதழ் வாங்குவது",
+  "expect": "birth_death_certificate",
+  "set": "clear"
+ },
+ {
+  "q": "legal heir certificate after father died",
+  "expect": "legal_heir_certificate",
+  "set": "clear"
+ },
+ {
+  "q": "வாரிசுச் சான்றிதழ்",
+  "expect": "legal_heir_certificate",
+  "set": "clear"
+ },
+ {
+  "q": "varisu certificate",
+  "expect": "legal_heir_certificate",
+  "set": "hard"
  }
 ]

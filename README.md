@@ -162,9 +162,22 @@ approving each change.
 
 **Search** combines keyword matching with a machine-learning retriever (character n-gram TF-IDF,
 `app/core/semantic.py`) that copes with misspellings, Tamil and Hindi written in English letters,
-and word endings. `tests/search_eval.json` holds 51 realistic questions:
+and word endings (including Tamil case endings such as -க்கு, -இல், -கள்). `tests/search_eval.json` holds
+87 realistic questions:
 
-| | Clear questions | Hard questions |
-|---|---|---|
-| Combined search | 33 of 35 | 14 of 16 |
-| Keyword search alone | 33 of 35 | 13 of 16 |
+| | Clear questions | Hard questions | Overall |
+|---|---|---|---|
+| Combined search | 63 of 65 | 20 of 22 | 83 of 87 (95%) |
+| Keyword search alone | 60 of 65 | 19 of 22 | 79 of 87 (91%) |
+
+When two services match a question equally, the combined search decides which one fits the whole
+question (so "தென்னைக்கு எவ்வளவு உரம்" goes to coconut care, not the general soil test).
+
+## Knowledge base
+
+38 articles: 17 subsidy, credit and insurance articles; season, seed, organic and pest guides; crop
+guides for coconut, banana, Cumbum grapes, paddy (SRI), tomato and brinjal, and millets; dairy,
+goats, poultry and native breeds; selling produce and farm machinery; and citizen services (income,
+community, birth and death, legal heir certificates, patta transfer, ration card, pensions,
+grievances and RTI). Every article is marked `verified: false` until someone checks it against its
+official source.

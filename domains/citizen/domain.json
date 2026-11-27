@@ -1,19 +1,201 @@
 {
   "id": "citizen",
-  "name": {"en": "Citizen services", "ta": "குடிமக்கள் சேவைகள்", "hi": "नागरिक सेवाएँ"},
+  "name": {
+    "en": "Citizen services",
+    "ta": "குடிமக்கள் சேவைகள்",
+    "hi": "नागरिक सेवाएँ"
+  },
   "description": "Certificates, pensions, grievances and RTI for everyone.",
   "services": [
-    {"id": "income_certificate", "title": {"en": "Income certificate", "ta": "வருமானச் சான்றிதழ்", "hi": "आय प्रमाणपत्र"},
-     "keywords": ["income certificate", "income", "வருமானச் சான்று", "வருமானச் சான்றிதழ்", "வருமான", "आय प्रमाणपत्र", "आय"],
-     "form": "income_certificate", "knowledge": ["income_certificate"]},
-    {"id": "old_age_pension", "title": {"en": "Old-age / widow pension", "ta": "முதியோர் / விதவை ஓய்வூதியம்", "hi": "वृद्धावस्था / विधवा पेंशन"},
-     "keywords": ["pension", "old age", "widow", "ஓய்வூதியம்", "பென்ஷன்", "முதியோர்", "விதவை", "पेंशन", "बुढ़ापा", "विधवा"],
-     "form": "old_age_pension", "knowledge": ["social_security_pension"]},
-    {"id": "grievance", "title": {"en": "File a complaint / grievance", "ta": "புகார் / குறை தீர்ப்பு மனு", "hi": "शिकायत दर्ज करें"},
-     "keywords": ["complaint", "grievance", "problem", "not working", "no water", "bribe", "புகார்", "குறை", "மனு", "லஞ்சம்", "शिकायत", "समस्या", "रिश्वत"],
-     "form": "grievance", "knowledge": ["grievance_rti"]},
-    {"id": "rti", "title": {"en": "Right to Information (RTI) request", "ta": "தகவல் அறியும் உரிமை மனு", "hi": "सूचना का अधिकार (RTI)"},
-     "keywords": ["rti", "right to information", "தகவல் அறியும்", "आरटीआई", "सूचना का अधिकार"],
-     "form": null, "knowledge": ["grievance_rti"]}
+    {
+      "id": "income_certificate",
+      "title": {
+        "en": "Income certificate",
+        "ta": "வருமானச் சான்றிதழ்",
+        "hi": "आय प्रमाणपत्र"
+      },
+      "keywords": [
+        "income certificate",
+        "income",
+        "வருமானச் சான்று",
+        "வருமானச் சான்றிதழ்",
+        "வருமான",
+        "आय प्रमाणपत्र",
+        "आय"
+      ],
+      "form": "income_certificate",
+      "knowledge": [
+        "income_certificate"
+      ]
+    },
+    {
+      "id": "old_age_pension",
+      "title": {
+        "en": "Old-age / widow pension",
+        "ta": "முதியோர் / விதவை ஓய்வூதியம்",
+        "hi": "वृद्धावस्था / विधवा पेंशन"
+      },
+      "keywords": [
+        "pension",
+        "old age",
+        "widow",
+        "ஓய்வூதியம்",
+        "பென்ஷன்",
+        "முதியோர்",
+        "விதவை",
+        "पेंशन",
+        "बुढ़ापा",
+        "विधवा"
+      ],
+      "form": "old_age_pension",
+      "knowledge": [
+        "social_security_pension"
+      ]
+    },
+    {
+      "id": "grievance",
+      "title": {
+        "en": "File a complaint / grievance",
+        "ta": "புகார் / குறை தீர்ப்பு மனு",
+        "hi": "शिकायत दर्ज करें"
+      },
+      "keywords": [
+        "complaint",
+        "grievance",
+        "problem",
+        "not working",
+        "no water",
+        "bribe",
+        "புகார்",
+        "குறை",
+        "மனு",
+        "லஞ்சம்",
+        "शिकायत",
+        "समस्या",
+        "रिश्वत"
+      ],
+      "form": "grievance",
+      "knowledge": [
+        "grievance_rti"
+      ]
+    },
+    {
+      "id": "rti",
+      "title": {
+        "en": "Right to Information (RTI) request",
+        "ta": "தகவல் அறியும் உரிமை மனு",
+        "hi": "सूचना का अधिकार (RTI)"
+      },
+      "keywords": [
+        "rti",
+        "right to information",
+        "தகவல் அறியும்",
+        "आरटीआई",
+        "सूचना का अधिकार"
+      ],
+      "form": null,
+      "knowledge": [
+        "grievance_rti"
+      ]
+    },
+    {
+      "id": "patta",
+      "title": {
+        "en": "Patta transfer",
+        "ta": "பட்டா மாற்றம்",
+        "hi": "पट्टा नामांतरण"
+      },
+      "keywords": [
+        "patta",
+        "பட்டா",
+        "पट्टा",
+        "land record"
+      ],
+      "form": null,
+      "knowledge": [
+        "patta_transfer"
+      ]
+    },
+    {
+      "id": "ration_card",
+      "title": {
+        "en": "Ration card",
+        "ta": "குடும்ப அட்டை",
+        "hi": "राशन कार्ड"
+      },
+      "keywords": [
+        "ration card",
+        "smart card",
+        "family card",
+        "ரேஷன் கார்டு",
+        "குடும்ப அட்டை",
+        "राशन कार्ड"
+      ],
+      "form": null,
+      "knowledge": [
+        "ration_card"
+      ]
+    },
+    {
+      "id": "community_cert",
+      "title": {
+        "en": "Community certificate",
+        "ta": "சாதிச் சான்றிதழ்",
+        "hi": "जाति प्रमाणपत्र"
+      },
+      "keywords": [
+        "community certificate",
+        "caste certificate",
+        "சாதிச் சான்று",
+        "சாதிச் சான்றிதழ்",
+        "ஜாதி",
+        "जाति प्रमाणपत्र"
+      ],
+      "form": null,
+      "knowledge": [
+        "community_certificate"
+      ]
+    },
+    {
+      "id": "birth_death",
+      "title": {
+        "en": "Birth / death certificate",
+        "ta": "பிறப்பு / இறப்புச் சான்றிதழ்",
+        "hi": "जन्म / मृत्यु प्रमाणपत्र"
+      },
+      "keywords": [
+        "birth certificate",
+        "death certificate",
+        "பிறப்புச் சான்று",
+        "இறப்புச் சான்று",
+        "பிறப்பு",
+        "இறப்பு",
+        "जन्म प्रमाणपत्र",
+        "मृत्यु प्रमाणपत्र"
+      ],
+      "form": null,
+      "knowledge": [
+        "birth_death_certificate"
+      ]
+    },
+    {
+      "id": "legal_heir",
+      "title": {
+        "en": "Legal heir certificate",
+        "ta": "வாரிசுச் சான்றிதழ்",
+        "hi": "उत्तराधिकार प्रमाणपत्र"
+      },
+      "keywords": [
+        "legal heir",
+        "heir",
+        "வாரிசு",
+        "वारिस",
+        "उत्तराधिकार"
+      ],
+      "form": null,
+      "knowledge": [
+        "legal_heir_certificate"
+      ]
+    }
   ]
 }

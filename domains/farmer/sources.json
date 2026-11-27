@@ -1,11 +1,107 @@
 {
   "_note": "Official pages each article depends on. The rule watcher (scripts/watch_rules.py) checks them and queues any change for human review. Confirm each URL is still the right page when you review.",
-  "pm_kisan": [{"name": "PM-KISAN portal", "url": "https://pmkisan.gov.in/"}],
-  "pmfby": [{"name": "PMFBY portal", "url": "https://pmfby.gov.in/"}],
-  "pmksy_micro_irrigation": [{"name": "PMKSY portal", "url": "https://pmksy.gov.in/"}, {"name": "TN Horticulture", "url": "https://tnhorticulture.tn.gov.in/"}],
-  "pm_kusum": [{"name": "PM-KUSUM (MNRE)", "url": "https://pmkusum.mnre.gov.in/"}],
-  "soil_health_card": [{"name": "Soil Health Card portal", "url": "https://soilhealth.dac.gov.in/"}],
-  "tn_cropping_seasons": [{"name": "TNAU Agritech portal", "url": "https://agritech.tnau.ac.in/"}],
-  "grain_storage_pledge": [{"name": "eNAM", "url": "https://enam.gov.in/web/"}],
-  "organic_inputs": [{"name": "TNAU Agritech portal", "url": "https://agritech.tnau.ac.in/"}]
+  "pm_kisan": [
+    {
+      "name": "PM-KISAN portal",
+      "url": "https://pmkisan.gov.in/"
+    }
+  ],
+  "pmfby": [
+    {
+      "name": "PMFBY portal",
+      "url": "https://pmfby.gov.in/"
+    }
+  ],
+  "pmksy_micro_irrigation": [
+    {
+      "name": "PMKSY portal",
+      "url": "https://pmksy.gov.in/"
+    },
+    {
+      "name": "TN Horticulture",
+      "url": "https://tnhorticulture.tn.gov.in/"
+    }
+  ],
+  "pm_kusum": [
+    {
+      "name": "PM-KUSUM (MNRE)",
+      "url": "https://pmkusum.mnre.gov.in/"
+    }
+  ],
+  "soil_health_card": [
+    {
+      "name": "Soil Health Card portal",
+      "url": "https://soilhealth.dac.gov.in/"
+    }
+  ],
+  "tn_cropping_seasons": [
+    {
+      "name": "TNAU Agritech portal",
+      "url": "https://agritech.tnau.ac.in/"
+    }
+  ],
+  "grain_storage_pledge": [
+    {
+      "name": "eNAM",
+      "url": "https://enam.gov.in/web/"
+    }
+  ],
+  "organic_inputs": [
+    {
+      "name": "TNAU Agritech portal",
+      "url": "https://agritech.tnau.ac.in/"
+    }
+  ],
+  "coconut_cultivation": [
+    {
+      "name": "TNAU Agritech",
+      "url": "https://agritech.tnau.ac.in/"
+    },
+    {
+      "name": "Coconut Development Board",
+      "url": "https://coconutboard.gov.in/"
+    }
+  ],
+  "banana_cultivation": [
+    {
+      "name": "TNAU Agritech",
+      "url": "https://agritech.tnau.ac.in/"
+    }
+  ],
+  "grapes_cumbum": [
+    {
+      "name": "TNAU Agritech",
+      "url": "https://agritech.tnau.ac.in/"
+    }
+  ],
+  "paddy_sri": [
+    {
+      "name": "TNAU Agritech",
+      "url": "https://agritech.tnau.ac.in/"
+    }
+  ],
+  "vegetables_tomato_brinjal": [
+    {
+      "name": "TNAU Agritech",
+      "url": "https://agritech.tnau.ac.in/"
+    }
+  ],
+  "millets_rainfed": [
+    {
+      "name": "TNAU Agritech",
+      "url": "https://agritech.tnau.ac.in/"
+    }
+  ],
+  "selling_produce": [
+    {
+      "name": "eNAM",
+      "url": "https://enam.gov.in/web/"
+    }
+  ],
+  "farm_machinery_subsidy": [
+    {
+      "name": "Farm mechanisation (agrimachinery)",
+      "url": "https://agrimachinery.nic.in/"
+    }
+  ]
 }
