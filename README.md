@@ -175,7 +175,7 @@ question (so "தென்னைக்கு எவ்வளவு உரம்"
 
 ## Knowledge base
 
-38 articles: 17 subsidy, credit and insurance articles; season, seed, organic and pest guides; crop
+40 articles: subsidy, credit and insurance articles; season, seed, organic and pest guides; crop
 guides for coconut, banana, Cumbum grapes, paddy (SRI), tomato and brinjal, and millets; dairy,
 goats, poultry and native breeds; selling produce and farm machinery; and citizen services (income,
 community, birth and death, legal heir certificates, patta transfer, ration card, pensions,
