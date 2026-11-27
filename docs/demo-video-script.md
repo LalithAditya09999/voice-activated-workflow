@@ -1,5 +1,9 @@
 # Velan: demo video script (target 2:50, limit 3:00)
 
+> **Updated:** the video now follows a farmer's everyday tasks rather than a crop-loss claim. See
+> `demo-video-voiceover.md` for the current story, timings and footage list; the generator is in
+> `tools/demo-video/`. The shot list below is the earlier, crop-loss version.
+
 **Format:** a screen recording of the app with your voiceover in English. You speak to the app in
 Tamil on camera. Add English captions for every Tamil line.
 

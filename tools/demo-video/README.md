@@ -1,6 +1,6 @@
 # Demo video generator
 
-`record.js` records the **real Velan app** going through the crop-loss flow, inside `stage.html`
+`record.js` records the **real Velan app** through a farmer’s everyday tasks (season planning, scheme finder, drip subsidy application, farming advice, a pension for a parent), inside `stage.html`
 (a phone frame on the kolam background, with captions and title cards). The voice input is
 simulated: the script shows the mic listening and the words appearing, then sends that text. The
 video says so in the corner. Splice in a short real-voice clip before you submit.
