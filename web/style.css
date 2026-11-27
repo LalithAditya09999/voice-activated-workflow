@@ -320,3 +320,35 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .follow { margin: 0 0 8px; color: var(--muted); font-size: 15px; }
 .extra summary { cursor: pointer; color: var(--leaf); font-weight: 600; font-size: 15px; margin-top: 4px; }
 .extra p { font-size: 15px; }
+
+/* ---------- simplest layout ---------- */
+.home { align-items: center; text-align: center; padding-top: 8vh; gap: 4px; }
+.hello { font-size: 34px; font-weight: 500; }
+.hello-sub { margin-bottom: 28px; }
+.tiles { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 460px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; border: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
+  background: color-mix(in srgb, var(--card) 80%, transparent); border-radius: 999px; padding: 8px 16px 8px 8px; font-size: 16px; color: var(--ink);
+  box-shadow: 0 10px 24px -20px rgba(21, 60, 37, .5); animation: rise .8s var(--ease-out) both; }
+.chip .ico { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-size: 16px; background: color-mix(in srgb, var(--turmeric-soft) 70%, transparent); }
+.chip.main { background: color-mix(in srgb, var(--turmeric-soft) 75%, var(--card)); border-color: color-mix(in srgb, var(--turmeric) 40%, transparent); font-weight: 600; }
+.chip:nth-child(2) { animation-delay: .06s; } .chip:nth-child(3) { animation-delay: .12s; } .chip:nth-child(4) { animation-delay: .18s; }
+.chip:nth-child(5) { animation-delay: .24s; } .chip:nth-child(6) { animation-delay: .30s; } .chip:nth-child(7) { animation-delay: .36s; }
+
+.said { font-size: 14px; padding: 6px 12px; max-width: 80%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; background: transparent; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; }
+.said::before { content: none; }
+.reply { padding: 20px 52px 20px 22px; }
+.reply .replay { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; }
+.reply-text { font-size: 22px; }
+
+.task { grid-template-columns: 1fr auto; padding: 10px 12px; gap: 10px; }
+.task .steps { grid-column: auto; }
+.task-open { min-height: 30px; padding: 2px 10px; font-size: 13px; }
+
+.live { text-align: center; }
+.live-row { grid-template-columns: 1fr; min-height: 22px; }
+.side-btn { min-width: 52px; width: 52px; min-height: 52px; border-radius: 50%; }
+.side-btn svg { width: 22px; height: 22px; }
+.dock-row { grid-template-columns: 1fr auto 1fr; }
+
+.settings { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.settings .mode-chip { align-self: auto; }

@@ -55,7 +55,6 @@
     <section id="task" class="task" hidden></section>
 
     <main class="stage" id="stage">
-      <button id="modeChip" class="mode-chip" hidden></button>
 
       <div id="home" class="home">
         <p class="hello" data-i18n="helloTitle">வணக்கம்!</p>
@@ -67,15 +66,10 @@
         <div class="said" id="said" hidden></div>
         <div id="cards" class="cards"></div>
         <article class="reply" aria-live="polite">
-          <div class="reply-head">
-            <span class="avatar" aria-hidden="true">வே</span>
-            <span class="reply-name">Velan</span>
-            <button id="replay" class="replay" data-i18n-aria="replay" aria-label="Play again">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 9v6h4l5 5V4L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
-            </button>
-          </div>
+          <button id="replay" class="replay" data-i18n-aria="replay" aria-label="Play again">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 9v6h4l5 5V4L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
+          </button>
           <p id="replyText" class="reply-text"></p>
-          <p id="sources" class="sources" hidden></p>
         </article>
         <div id="after" class="cards"></div>
         <div id="confirm" class="confirm" hidden></div>
@@ -85,13 +79,11 @@
     <footer class="dock">
       <div class="live-row">
         <p id="live" class="live" aria-live="polite"></p>
-        <button id="speakToggle" class="speak-toggle" aria-pressed="true"></button>
       </div>
       <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
       <div class="dock-row">
         <button id="historyBtn" class="side-btn" data-i18n-aria="history" aria-label="History">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13 3a9 9 0 0 0-9 9H1l4 4 4-4H6a7 7 0 1 1 2.05 4.95l-1.42 1.42A9 9 0 1 0 13 3zm-1 5v5l4.25 2.52.77-1.28-3.52-2.09V8H12z"/></svg>
-          <span data-i18n="historyShort">History</span>
         </button>
         <button id="mic" class="mic" data-i18n-aria="speak" aria-label="Speak">
           <svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56"/></svg>
@@ -99,7 +91,6 @@
         </button>
         <button id="kbBtn" class="side-btn" data-i18n-aria="type" aria-label="Type">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 5H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-3H5V8h2v2zm9 7H8v-2h8v2zm0-4h-2v-2h2v2zm0-3h-2V8h2v2zm3 3h-2v-2h2v2zm0-3h-2V8h2v2z"/></svg>
-          <span data-i18n="typeShort">Type</span>
         </button>
       </div>
       <form id="textForm" class="text-form" hidden>
@@ -116,6 +107,10 @@
         <button class="close" data-close="history" aria-label="Close">✕</button>
       </div>
       <div id="historyList" class="history-list"></div>
+      <div class="settings">
+        <button id="speakToggle" class="speak-toggle" aria-pressed="true"></button>
+        <button id="modeChip" class="mode-chip" hidden></button>
+      </div>
       <div class="sheet-actions">
         <button id="myAppsBtn" class="btn ghost" data-i18n="myApps">My applications</button>
         <button id="newChat" class="btn ghost" data-i18n="newChat">Start again</button>

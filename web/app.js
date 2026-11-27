@@ -38,6 +38,7 @@ const UI = {
   apply: { en: "Apply", ta: "விண்ணப்பி", hi: "आवेदन करें" },
   applyFor: { en: "I want to apply for", ta: "நான் விண்ணப்பிக்க வேண்டும்:", hi: "मुझे आवेदन करना है:" },
   findSchemes: { en: "Which schemes can I get?", ta: "எனக்கு எந்தத் திட்டங்கள் கிடைக்கும்?", hi: "मुझे कौन सी योजनाएँ मिल सकती हैं?" },
+  schemesChip: { en: "My schemes", ta: "எனக்கான திட்டங்கள்", hi: "मेरी योजनाएँ" },
   findSchemesSub: { en: "Find out in 9 questions", ta: "9 கேள்விகளில் தெரிந்துகொள்ளுங்கள்", hi: "9 सवालों में जानिए" },
   myApps: { en: "My applications", ta: "என் விண்ணப்பங்கள்", hi: "मेरे आवेदन" },
   sources: { en: "From", ta: "ஆதாரம்", hi: "स्रोत" },
@@ -91,7 +92,7 @@ function localGet(k) { try { return localStorage.getItem(k); } catch { return nu
 function localSet(k, v) { try { localStorage.setItem(k, v); } catch { /* private mode */ } }
 function tr(key) { const v = UI[key]; return v ? (v[state.lang] || v.en) : key; }
 function bcp47() { return state.config?.languages?.[state.lang]?.bcp47 || "ta-IN"; }
-function setLive(key, raw) { live.textContent = raw ?? tr(key); }
+function setLive(key, raw) { live.textContent = key === "tap" ? "" : (raw ?? tr(key)); }
 function el(tag, attrs = {}, ...kids) {
   const n = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) {
@@ -139,13 +140,11 @@ async function loadServices() {
 
 function renderTiles() {
   const box = $("#tiles");
+  const chip = (ico, label, say, cls = "") => el("button", { class: `chip ${cls}`, onclick: () => sendText(say) },
+    el("span", { class: "ico", "aria-hidden": "true" }, ico), el("span", {}, label));
   box.replaceChildren(
-    el("button", { class: "tile wide", onclick: () => sendText(tr("findSchemes")) },
-      el("span", { class: "ico", "aria-hidden": "true" }, "✨"),
-      el("span", { class: "t-text" }, el("span", { class: "t-name" }, tr("findSchemes")), el("span", { class: "t-say" }, tr("findSchemesSub")))),
-    ...TILES.map((t) => el("button", { class: "tile", onclick: () => sendText(pick(t.say)) },
-      el("span", { class: "ico", "aria-hidden": "true" }, t.ico),
-      el("span", { class: "t-name" }, pick(t.label)))));
+    chip("✨", tr("schemesChip"), tr("findSchemes"), "main"),
+    ...TILES.slice(0, 6).map((t) => chip(t.ico, pick(t.label), pick(t.say))));
 }
 
 function showHome(on) {
@@ -164,11 +163,11 @@ function showReply(text, { thinking = false, full = null } = {}) {
   const box = $("#replyText");
   box.replaceChildren();
   const parts = sentences(text);
-  if (parts.length <= 2 || thinking) {
+  if (parts.length <= 1 || thinking) {
     box.textContent = text;
   } else {
-    // keep the screen light: two sentences, the rest behind "Read more"
-    const shortText = parts.slice(0, 2).join(" ");
+    // keep the screen light: one sentence, the rest behind "Read more" (all of it is spoken)
+    const shortText = parts[0];
     const more = el("button", { class: "more" }, tr("more"));
     let open = false;
     more.onclick = () => { open = !open; box.firstChild.textContent = open ? text : shortText; more.textContent = open ? tr("less") : tr("more"); };
@@ -187,6 +186,7 @@ function showSaid(text) {
 
 function renderSources(srcs) {
   const box = $("#sources");
+  if (!box) return;
   if (!srcs?.length) { box.hidden = true; return; }
   box.hidden = false;
   box.textContent = `${tr("sources")}: ` + srcs.map((s) => s.title + (s.verified ? "" : ` (${tr("unverified")})`)).join(" · ");
@@ -215,11 +215,9 @@ function renderTask(form) {
     steps.append(el("i", { class: at < form.progress.done ? "done" : (at === form.progress.done && !form.awaiting_confirmation ? "now" : "") }));
   }
   const parts = [
-    el("div", { class: "task-title" }, form.title),
-    el("button", { class: "task-open", onclick: openFormSheet }, `${form.progress.done}/${form.progress.total} · ${tr("details")}`),
     steps,
+    el("button", { class: "task-open", onclick: openFormSheet }, `${form.progress.done}/${form.progress.total}`),
   ];
-  if (current) parts.push(el("div", { class: "task-now" }, `${tr("next")}: ${current.label}`));
   bar.replaceChildren(...parts);
   if (!$("#formSheet").hidden) renderFormSheet();
 }
@@ -309,6 +307,7 @@ async function sendText(text) {
   $("#after").replaceChildren();
   renderConfirm(null);
   renderSources(null);
+  $(".reply").hidden = false;
   showReply(tr("thinking"), { thinking: true });
   state.busy = true;
   app.classList.add("busy");
@@ -323,6 +322,7 @@ async function sendText(text) {
     else if (res.form?.awaiting_confirmation) display = tr("checkDetails");
     else if (evs("eligibility").length) display = tr("schemesFound");
     showReply(display);
+    $(".reply").hidden = evs("application").length > 0;   // the receipt card says it all
     state.lastReply = res.reply;   // the full reply is what gets spoken
     remember("bot", res.reply);
     renderSources(res.events.filter((ev) => ev.type === "sources").pop()?.data);
