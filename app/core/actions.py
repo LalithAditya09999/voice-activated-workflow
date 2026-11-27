@@ -19,12 +19,20 @@ class Session:
     form: FormSession | None = None
     profile: dict = field(default_factory=dict)
     pending_service: str | None = None   # service we offered to start, awaiting yes/no
+    request_text: str = ""                # the sentence that started the current request (for prefilling)
     farming_style: str = "both"           # "organic" | "conventional" | "both" — what advice to lead with
     messages: list = field(default_factory=list)  # Claude conversation history
     events: list = field(default_factory=list)    # UI events for the current turn
 
     def emit(self, kind: str, data) -> None:
         self.events.append({"type": kind, "data": data})
+
+
+def spoken_digits(value) -> str:
+    """'9876543210' -> '9 8 7 6 5, 4 3 2 1 0' so a voice reads it digit by digit."""
+    chars = [c for c in str(value).replace("XXXX-XXXX-", "") if c.isalnum() or c in "/-"]
+    groups = [" ".join(chars[i:i + 5]) for i in range(0, len(chars), 5)]
+    return ", ".join(groups)
 
 
 class Actions:
@@ -67,6 +75,7 @@ class Actions:
             "documents": [t(x, s.lang) for x in form.get("documents", [])] if form else [],
             "submit_to": t(form.get("submit_to", ""), s.lang) if form else "",
             "form_id": svc.form,
+            "deadline_note": t(form.get("deadline_note", ""), s.lang) if form else "",
         }
 
     # ---------------- forms ----------------
@@ -101,6 +110,11 @@ class Actions:
         s.emit("form", s.form.to_state(s.lang))
         out = self.form_status(s)
         out.update({"saved": saved, "errors": errors})
+        digits = {fid: spoken_digits(v) for fid, v in saved.items() if s.form.field(fid).get("confirm_digits")}
+        if digits:
+            out["confirm_digits"] = digits
+            out["instruction"] = ("Read these values back digit by digit and ask the user to confirm before "
+                                  "moving on; if they say it is wrong, ask for it again.")
         return out
 
     def form_status(self, s: Session) -> dict:

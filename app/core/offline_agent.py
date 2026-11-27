@@ -6,8 +6,9 @@ exercises the same Actions as the Claude agent, so the demo never dies on bad Wi
 from __future__ import annotations
 
 from .actions import Actions, Session
-from .forms import t
-from .text import is_cancel, is_no, is_yes, tokens
+from .forms import FieldError, coerce, display_value, t
+from .actions import spoken_digits
+from .text import first_number, is_cancel, is_no, is_yes, normalize, tokens
 
 S = {
     "greeting": {
@@ -61,6 +62,9 @@ S = {
         "en": "Say the scheme name to start its application.", "ta": "விண்ணப்பிக்க திட்டத்தின் பெயரைச் சொல்லுங்கள்.", "hi": "आवेदन शुरू करने के लिए योजना का नाम बोलिए।",
     },
     "also": {"en": "I can also explain: {topics}.", "ta": "இவற்றையும் விளக்க முடியும்: {topics}.", "hi": "मैं ये भी बता सकता हूँ: {topics}।"},
+    "confirm_digits": {"en": "I heard {digits}. Is that right?", "ta": "நான் கேட்டது: {digits}. சரியா?", "hi": "मैंने सुना: {digits}। सही है?"},
+    "heard_nothing": {"en": "Sorry, I didn't catch that. Please say it again.", "ta": "மன்னிக்கவும், சரியாகக் கேட்கவில்லை. மீண்டும் சொல்லுங்கள்.", "hi": "माफ़ कीजिए, ठीक से सुनाई नहीं दिया। फिर से बोलिए।"},
+    "noted": {"en": "I've noted: {items}.", "ta": "குறித்துக்கொண்டேன்: {items}.", "hi": "मैंने नोट किया: {items}।"},
     "apps": {"en": "Your applications: {list}.", "ta": "உங்கள் விண்ணப்பங்கள்: {list}.", "hi": "आपके आवेदन: {list}।"},
     "no_apps": {"en": "You have no applications yet.", "ta": "இன்னும் விண்ணப்பம் எதுவும் இல்லை.", "hi": "अभी कोई आवेदन नहीं है।"},
     "verify": {
@@ -94,6 +98,8 @@ class OfflineAgent:
         lang = s.lang
         if not text.strip():
             return s_("greeting", lang)
+        if not tokens(text):  # noise, coughs, punctuation only
+            return s_("heard_nothing", lang)
 
         if s.form:
             return self._continue_form(s, text)
@@ -116,6 +122,7 @@ class OfflineAgent:
         if svc and not svc.form:
             return self._advise(s, svc, text)
         if svc:
+            s.request_text = text
             return self._explain(s, svc.id)
 
         if toks & ELIGIBILITY_WORDS:
@@ -133,8 +140,11 @@ class OfflineAgent:
     # ---------------------------------------------------------------
     def _explain(self, s: Session, service_id: str) -> str:
         info = self.a.explain_service(s, service_id)
-        parts = [info["title"] + "."]
-        parts += info["summary"]
+        parts = [info["deadline_note"]] if info.get("deadline_note") else []
+        parts.append(info["title"] + ".")
+        if not info.get("deadline_note"):
+            # urgent services skip the background so the spoken reply stays short
+            parts += info["summary"]
         if info["documents"]:
             parts.append(s_("documents", s.lang, docs=", ".join(info["documents"])))
         if info["form_id"]:
@@ -157,7 +167,54 @@ class OfflineAgent:
 
     def _begin_form(self, s: Session, form_id: str) -> str:
         self.a.start_form(s, form_id)
-        return s_("starting", s.lang, title=t(s.form.form["title"], s.lang)) + " " + self._ask_next(s)
+        out = s_("starting", s.lang, title=t(s.form.form["title"], s.lang))
+        noted = self._prefill(s, s.request_text)
+        if noted:
+            out += " " + s_("noted", s.lang, items=", ".join(noted))
+        return out + " " + self._ask_next(s)
+
+    # words that mean the speaker gave a date ("yesterday", "today", or a dd-mm-yyyy date)
+    _DATE_HINTS = ("today", "yesterday", "aaj", "kal", "parson", "आज", "कल", "परसों", "இன்று", "இன்னைக்கு", "நேற்று", "நேத்து", "முந்தாநாள்")
+
+    def _prefill(self, s: Session, text: str) -> list[str]:
+        """Keep details already said in the first sentence, so the farmer isn't asked twice.
+
+        Only unambiguous kinds are taken: a choice whose option word was said, a date when a
+        date word was said, and a number spoken right next to its unit ("2 acres", "5 HP").
+        Everything is read back before submission anyway."""
+        if not text or s.form.form.get("kind") == "profile":
+            return []
+        low = normalize(text).lower()
+        toks = tokens(text)
+        noted = []
+        for f in s.form.fields:
+            if f["id"] in s.form.values:
+                continue
+            value = None
+            try:
+                if f.get("type") == "choice":
+                    value = coerce(f, text, s.lang)
+                elif f.get("type") == "date" and (any(w in low for w in self._DATE_HINTS) or any(c.isdigit() for c in low)):
+                    value = coerce(f, text, s.lang)
+                elif f.get("type") == "number":
+                    units = {a.lower() for a in f.get("aliases", [])}
+                    for i, tok in enumerate(toks):
+                        if tok in units or any(not u.isascii() and tok.startswith(u.rstrip("\u0bcd")) for u in units):
+                            for near in (toks[i - 1] if i else "", toks[i + 1] if i + 1 < len(toks) else ""):
+                                n = first_number(near) if near else None
+                                if n is not None:
+                                    value = coerce(f, n, s.lang)
+                                    break
+                        if value is not None:
+                            break
+            except FieldError:
+                value = None
+            if value is not None:
+                s.form.values[f["id"]] = value
+                noted.append(f"{t(f.get('label', f['id']), s.lang)}: {display_value(f, value, s.lang)}")
+        if noted:
+            s.emit("form", s.form.to_state(s.lang))
+        return noted
 
     def _ask_next(self, s: Session) -> str:
         nxt = s.form.next_field()
@@ -185,10 +242,26 @@ class OfflineAgent:
                 return self.a.edit_field(s, f["id"])["ask"]
             return s_("which_wrong", lang)
 
-        nxt = s.form.next_field()
-        res = self.a.set_form_fields(s, {nxt["id"]: text})
+        if s.form.confirming:
+            fid = s.form.confirming
+            if is_yes(text):
+                s.form.confirming = None
+                return self._ask_next(s)
+            s.form.confirming = None
+            if any(c.isdigit() for c in normalize(text)):
+                # they simply repeated the number: take the corrected value
+                return self._save_answer(s, s.form.field(fid), text)
+            return self.a.edit_field(s, fid)["ask"]
+
+        return self._save_answer(s, s.form.next_field(), text)
+
+    def _save_answer(self, s: Session, field: dict, text: str) -> str:
+        res = self.a.set_form_fields(s, {field["id"]: text})
         if res["errors"]:
-            return f"{next(iter(res['errors'].values()))} {s.form.question(nxt, lang)}"
+            return f"{next(iter(res['errors'].values()))} {s.form.question(field, s.lang)}"
+        if field.get("confirm_digits"):
+            s.form.confirming = field["id"]
+            return s_("confirm_digits", s.lang, digits=spoken_digits(s.form.values[field["id"]]))
         return self._ask_next(s)
 
     def _eligibility_summary(self, results: list[dict], lang: str) -> str:

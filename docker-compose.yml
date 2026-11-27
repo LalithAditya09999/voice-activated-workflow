@@ -1,0 +1,19 @@
+services:
+  velan:
+    build: .
+    ports:
+      - "3000:3000"
+    # All keys are optional. Without them Velan runs in offline mode and uses the
+    # browser's own speech recognition and voices. Put real values in a .env file
+    # next to this one (see .env.example); docker compose reads it automatically.
+    environment:
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      VELAN_MODEL: ${VELAN_MODEL:-claude-opus-5-5}
+      SARVAM_API_KEY: ${SARVAM_API_KEY:-}
+      VELAN_DOMAINS: ${VELAN_DOMAINS:-farmer,citizen}
+    volumes:
+      - velan-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  velan-data:

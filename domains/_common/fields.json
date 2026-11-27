@@ -1,86 +1,384 @@
 {
   "name": {
-    "type": "text", "min_length": 2,
-    "label": {"en": "Applicant name", "ta": "விண்ணப்பதாரர் பெயர்", "hi": "आवेदक का नाम"},
-    "question": {"en": "What is your full name, as on your Aadhaar?", "ta": "ஆதாரில் உள்ளபடி உங்கள் முழுப் பெயர் என்ன?", "hi": "आधार के अनुसार आपका पूरा नाम क्या है?"},
-    "aliases": ["name", "peyar", "naam", "பெயர்", "नाम"]
+    "type": "text",
+    "min_length": 2,
+    "label": {
+      "en": "Applicant name",
+      "ta": "விண்ணப்பதாரர் பெயர்",
+      "hi": "आवेदक का नाम"
+    },
+    "question": {
+      "en": "What is your full name, as on your Aadhaar?",
+      "ta": "ஆதாரில் உள்ளபடி உங்கள் முழுப் பெயர் என்ன?",
+      "hi": "आधार के अनुसार आपका पूरा नाम क्या है?"
+    },
+    "aliases": [
+      "name",
+      "peyar",
+      "naam",
+      "பெயர்",
+      "नाम"
+    ]
   },
   "father_or_spouse": {
-    "type": "text", "min_length": 2,
-    "label": {"en": "Father / spouse name", "ta": "தந்தை / கணவர் பெயர்", "hi": "पिता / पति का नाम"},
-    "question": {"en": "What is your father's or husband's name?", "ta": "உங்கள் தந்தை அல்லது கணவரின் பெயர் என்ன?", "hi": "आपके पिता या पति का नाम क्या है?"},
-    "aliases": ["father", "husband", "தந்தை", "கணவர்", "पिता", "पति"]
+    "type": "text",
+    "min_length": 2,
+    "label": {
+      "en": "Father / spouse name",
+      "ta": "தந்தை / கணவர் பெயர்",
+      "hi": "पिता / पति का नाम"
+    },
+    "question": {
+      "en": "What is your father's or husband's name?",
+      "ta": "உங்கள் தந்தை அல்லது கணவரின் பெயர் என்ன?",
+      "hi": "आपके पिता या पति का नाम क्या है?"
+    },
+    "aliases": [
+      "father",
+      "husband",
+      "தந்தை",
+      "கணவர்",
+      "पिता",
+      "पति"
+    ]
   },
   "phone": {
     "type": "phone",
-    "label": {"en": "Mobile number", "ta": "மொபைல் எண்", "hi": "मोबाइल नंबर"},
-    "question": {"en": "What is your mobile number?", "ta": "உங்கள் மொபைல் எண் என்ன?", "hi": "आपका मोबाइल नंबर क्या है?"},
-    "aliases": ["phone", "mobile", "number", "மொபைல்", "போன்", "मोबाइल", "फोन"]
+    "label": {
+      "en": "Mobile number",
+      "ta": "மொபைல் எண்",
+      "hi": "मोबाइल नंबर"
+    },
+    "question": {
+      "en": "What is your mobile number?",
+      "ta": "உங்கள் மொபைல் எண் என்ன?",
+      "hi": "आपका मोबाइल नंबर क्या है?"
+    },
+    "aliases": [
+      "phone",
+      "mobile",
+      "number",
+      "மொபைல்",
+      "போன்",
+      "मोबाइल",
+      "फोन"
+    ],
+    "confirm_digits": true
   },
   "aadhaar": {
     "type": "aadhaar",
-    "label": {"en": "Aadhaar (masked)", "ta": "ஆதார் (மறைக்கப்பட்டது)", "hi": "आधार (छिपा हुआ)"},
-    "question": {"en": "Please say your 12-digit Aadhaar number. I will only keep the last 4 digits.", "ta": "உங்கள் 12 இலக்க ஆதார் எண்ணைச் சொல்லுங்கள். கடைசி 4 இலக்கங்களை மட்டுமே வைத்துக்கொள்வேன்.", "hi": "अपना 12 अंकों का आधार नंबर बताइए। मैं सिर्फ़ आख़िरी 4 अंक रखूँगा।"},
-    "aliases": ["aadhaar", "aadhar", "ஆதார்", "आधार"]
+    "label": {
+      "en": "Aadhaar (masked)",
+      "ta": "ஆதார் (மறைக்கப்பட்டது)",
+      "hi": "आधार (छिपा हुआ)"
+    },
+    "question": {
+      "en": "Please say your 12-digit Aadhaar number. I will only keep the last 4 digits.",
+      "ta": "உங்கள் 12 இலக்க ஆதார் எண்ணைச் சொல்லுங்கள். கடைசி 4 இலக்கங்களை மட்டுமே வைத்துக்கொள்வேன்.",
+      "hi": "अपना 12 अंकों का आधार नंबर बताइए। मैं सिर्फ़ आख़िरी 4 अंक रखूँगा।"
+    },
+    "aliases": [
+      "aadhaar",
+      "aadhar",
+      "ஆதார்",
+      "आधार"
+    ],
+    "confirm_digits": true
   },
   "district": {
-    "type": "text", "min_length": 3,
-    "label": {"en": "District", "ta": "மாவட்டம்", "hi": "ज़िला"},
-    "question": {"en": "Which district do you live in?", "ta": "நீங்கள் எந்த மாவட்டத்தில் இருக்கிறீர்கள்?", "hi": "आप किस ज़िले में रहते हैं?"},
-    "aliases": ["district", "மாவட்டம்", "ज़िला", "जिला"]
+    "type": "text",
+    "min_length": 3,
+    "label": {
+      "en": "District",
+      "ta": "மாவட்டம்",
+      "hi": "ज़िला"
+    },
+    "question": {
+      "en": "Which district do you live in?",
+      "ta": "நீங்கள் எந்த மாவட்டத்தில் இருக்கிறீர்கள்?",
+      "hi": "आप किस ज़िले में रहते हैं?"
+    },
+    "aliases": [
+      "district",
+      "மாவட்டம்",
+      "ज़िला",
+      "जिला"
+    ]
   },
   "taluk": {
-    "type": "text", "min_length": 2,
-    "label": {"en": "Taluk / block", "ta": "வட்டம் / ஒன்றியம்", "hi": "तहसील / ब्लॉक"},
-    "question": {"en": "Which taluk or block?", "ta": "எந்த வட்டம் அல்லது ஒன்றியம்?", "hi": "कौन सी तहसील या ब्लॉक?"},
-    "aliases": ["taluk", "block", "வட்டம்", "ஒன்றியம்", "तहसील", "ब्लॉक"]
+    "type": "text",
+    "min_length": 2,
+    "label": {
+      "en": "Taluk / block",
+      "ta": "வட்டம் / ஒன்றியம்",
+      "hi": "तहसील / ब्लॉक"
+    },
+    "question": {
+      "en": "Which taluk or block?",
+      "ta": "எந்த வட்டம் அல்லது ஒன்றியம்?",
+      "hi": "कौन सी तहसील या ब्लॉक?"
+    },
+    "aliases": [
+      "taluk",
+      "block",
+      "வட்டம்",
+      "ஒன்றியம்",
+      "तहसील",
+      "ब्लॉक"
+    ]
   },
   "village": {
-    "type": "text", "min_length": 2,
-    "label": {"en": "Village", "ta": "கிராமம்", "hi": "गाँव"},
-    "question": {"en": "What is your village name?", "ta": "உங்கள் கிராமத்தின் பெயர் என்ன?", "hi": "आपके गाँव का नाम क्या है?"},
-    "aliases": ["village", "ooru", "gaon", "கிராமம்", "ஊர்", "गाँव", "गांव"]
+    "type": "text",
+    "min_length": 2,
+    "label": {
+      "en": "Village",
+      "ta": "கிராமம்",
+      "hi": "गाँव"
+    },
+    "question": {
+      "en": "What is your village name?",
+      "ta": "உங்கள் கிராமத்தின் பெயர் என்ன?",
+      "hi": "आपके गाँव का नाम क्या है?"
+    },
+    "aliases": [
+      "village",
+      "ooru",
+      "gaon",
+      "கிராமம்",
+      "ஊர்",
+      "गाँव",
+      "गांव"
+    ]
   },
   "survey_number": {
-    "type": "text", "min_length": 1,
-    "label": {"en": "Land survey number", "ta": "நில சர்வே எண்", "hi": "भूमि सर्वे / खसरा नंबर"},
-    "question": {"en": "What is the survey number of your land? It is on your patta or chitta.", "ta": "உங்கள் நிலத்தின் சர்வே எண் என்ன? பட்டா அல்லது சிட்டாவில் இருக்கும்.", "hi": "आपकी ज़मीन का सर्वे या खसरा नंबर क्या है? यह ज़मीन के कागज़ पर होता है।"},
-    "aliases": ["survey", "சர்வே", "सर्वे", "खसरा"]
+    "type": "text",
+    "min_length": 1,
+    "label": {
+      "en": "Land survey number",
+      "ta": "நில சர்வே எண்",
+      "hi": "भूमि सर्वे / खसरा नंबर"
+    },
+    "question": {
+      "en": "What is the survey number of your land? It is on your patta or chitta.",
+      "ta": "உங்கள் நிலத்தின் சர்வே எண் என்ன? பட்டா அல்லது சிட்டாவில் இருக்கும்.",
+      "hi": "आपकी ज़मीन का सर्वे या खसरा नंबर क्या है? यह ज़मीन के कागज़ पर होता है।"
+    },
+    "aliases": [
+      "survey",
+      "சர்வே",
+      "सर्वे",
+      "खसरा"
+    ],
+    "confirm_digits": true
   },
   "land_acres": {
-    "type": "number", "min": 0.05, "max": 500,
-    "label": {"en": "Land area (acres)", "ta": "நிலப் பரப்பு (ஏக்கர்)", "hi": "ज़मीन (एकड़)"},
-    "question": {"en": "How many acres of land do you have?", "ta": "உங்களிடம் எத்தனை ஏக்கர் நிலம் உள்ளது?", "hi": "आपके पास कितने एकड़ ज़मीन है?"},
-    "aliases": ["acre", "acres", "land", "ஏக்கர்", "நிலம்", "एकड़", "ज़मीन"]
+    "type": "number",
+    "min": 0.05,
+    "max": 500,
+    "label": {
+      "en": "Land area (acres)",
+      "ta": "நிலப் பரப்பு (ஏக்கர்)",
+      "hi": "ज़मीन (एकड़)"
+    },
+    "question": {
+      "en": "How many acres of land do you have?",
+      "ta": "உங்களிடம் எத்தனை ஏக்கர் நிலம் உள்ளது?",
+      "hi": "आपके पास कितने एकड़ ज़मीन है?"
+    },
+    "aliases": [
+      "acre",
+      "acres",
+      "land",
+      "ஏக்கர்",
+      "நிலம்",
+      "एकड़",
+      "ज़मीन"
+    ]
   },
   "water_source": {
     "type": "choice",
-    "label": {"en": "Water source", "ta": "நீர் ஆதாரம்", "hi": "पानी का स्रोत"},
-    "question": {"en": "What is your water source?", "ta": "உங்கள் நீர் ஆதாரம் என்ன?", "hi": "आपके पानी का स्रोत क्या है?"},
+    "label": {
+      "en": "Water source",
+      "ta": "நீர் ஆதாரம்",
+      "hi": "पानी का स्रोत"
+    },
+    "question": {
+      "en": "What is your water source?",
+      "ta": "உங்கள் நீர் ஆதாரம் என்ன?",
+      "hi": "आपके पानी का स्रोत क्या है?"
+    },
     "options": [
-      {"value": "borewell", "label": {"en": "Borewell", "ta": "ஆழ்துளைக் கிணறு", "hi": "बोरवेल"}, "aliases": ["bore", "borewell", "போர்", "போர்வெல்", "बोर", "ट्यूबवेल", "tubewell"]},
-      {"value": "open_well", "label": {"en": "Open well", "ta": "திறந்த கிணறு", "hi": "कुआँ"}, "aliases": ["well", "கிணறு", "கிணத்து", "कुआं", "kuan"]},
-      {"value": "canal", "label": {"en": "Canal / river", "ta": "கால்வாய் / ஆறு", "hi": "नहर / नदी"}, "aliases": ["canal", "river", "கால்வாய்", "ஆறு", "வாய்க்கால்", "नहर", "नदी"]},
-      {"value": "tank", "label": {"en": "Tank / pond", "ta": "ஏரி / குளம்", "hi": "तालाब"}, "aliases": ["tank", "pond", "lake", "ஏரி", "குளம்", "तालाब"]},
-      {"value": "rainfed", "label": {"en": "Rain only", "ta": "மழை மட்டும்", "hi": "सिर्फ़ बारिश"}, "aliases": ["rain", "rainfed", "மழை", "बारिश", "वर्षा"]}
+      {
+        "value": "borewell",
+        "label": {
+          "en": "Borewell",
+          "ta": "ஆழ்துளைக் கிணறு",
+          "hi": "बोरवेल"
+        },
+        "aliases": [
+          "bore",
+          "borewell",
+          "போர்",
+          "போர்வெல்",
+          "बोर",
+          "ट्यूबवेल",
+          "tubewell"
+        ]
+      },
+      {
+        "value": "open_well",
+        "label": {
+          "en": "Open well",
+          "ta": "திறந்த கிணறு",
+          "hi": "कुआँ"
+        },
+        "aliases": [
+          "well",
+          "கிணறு",
+          "கிணத்து",
+          "कुआं",
+          "kuan"
+        ]
+      },
+      {
+        "value": "canal",
+        "label": {
+          "en": "Canal / river",
+          "ta": "கால்வாய் / ஆறு",
+          "hi": "नहर / नदी"
+        },
+        "aliases": [
+          "canal",
+          "river",
+          "கால்வாய்",
+          "ஆறு",
+          "வாய்க்கால்",
+          "नहर",
+          "नदी"
+        ]
+      },
+      {
+        "value": "tank",
+        "label": {
+          "en": "Tank / pond",
+          "ta": "ஏரி / குளம்",
+          "hi": "तालाब"
+        },
+        "aliases": [
+          "tank",
+          "pond",
+          "lake",
+          "ஏரி",
+          "குளம்",
+          "तालाब"
+        ]
+      },
+      {
+        "value": "rainfed",
+        "label": {
+          "en": "Rain only",
+          "ta": "மழை மட்டும்",
+          "hi": "सिर्फ़ बारिश"
+        },
+        "aliases": [
+          "rain",
+          "rainfed",
+          "மழை",
+          "बारिश",
+          "वर्षा"
+        ]
+      }
     ],
-    "aliases": ["water", "நீர்", "தண்ணீர்", "पानी"]
+    "aliases": [
+      "water",
+      "நீர்",
+      "தண்ணீர்",
+      "पानी"
+    ]
   },
   "crop": {
-    "type": "text", "min_length": 2,
-    "label": {"en": "Crop", "ta": "பயிர்", "hi": "फसल"},
-    "question": {"en": "Which crop are you growing?", "ta": "நீங்கள் என்ன பயிர் செய்கிறீர்கள்?", "hi": "आप कौन सी फसल उगा रहे हैं?"},
-    "aliases": ["crop", "பயிர்", "फसल"]
+    "type": "text",
+    "min_length": 2,
+    "label": {
+      "en": "Crop",
+      "ta": "பயிர்",
+      "hi": "फसल"
+    },
+    "question": {
+      "en": "Which crop are you growing?",
+      "ta": "நீங்கள் என்ன பயிர் செய்கிறீர்கள்?",
+      "hi": "आप कौन सी फसल उगा रहे हैं?"
+    },
+    "aliases": [
+      "crop",
+      "பயிர்",
+      "फसल"
+    ]
   },
   "farmer_category": {
     "type": "choice",
-    "label": {"en": "Farmer category", "ta": "விவசாயி வகை", "hi": "किसान श्रेणी"},
-    "question": {"en": "Are you a small farmer (up to 5 acres), a marginal farmer (up to 2.5 acres), or other?", "ta": "நீங்கள் சிறு விவசாயியா (5 ஏக்கர் வரை), குறு விவசாயியா (2.5 ஏக்கர் வரை), அல்லது மற்றவரா?", "hi": "आप लघु किसान (5 एकड़ तक), सीमांत किसान (2.5 एकड़ तक) या अन्य हैं?"},
+    "label": {
+      "en": "Farmer category",
+      "ta": "விவசாயி வகை",
+      "hi": "किसान श्रेणी"
+    },
+    "question": {
+      "en": "Are you a small farmer (up to 5 acres), a marginal farmer (up to 2.5 acres), or other?",
+      "ta": "நீங்கள் சிறு விவசாயியா (5 ஏக்கர் வரை), குறு விவசாயியா (2.5 ஏக்கர் வரை), அல்லது மற்றவரா?",
+      "hi": "आप लघु किसान (5 एकड़ तक), सीमांत किसान (2.5 एकड़ तक) या अन्य हैं?"
+    },
     "options": [
-      {"value": "marginal", "label": {"en": "Marginal", "ta": "குறு", "hi": "सीमांत"}, "aliases": ["marginal", "குறு", "சீமாந்த", "सीमांत"]},
-      {"value": "small", "label": {"en": "Small", "ta": "சிறு", "hi": "लघु"}, "aliases": ["small", "சிறு", "சின்ன", "लघु", "छोटा"]},
-      {"value": "other", "label": {"en": "Other", "ta": "மற்றவர்", "hi": "अन्य"}, "aliases": ["other", "big", "large", "மற்ற", "பெரிய", "अन्य", "बड़ा"]}
+      {
+        "value": "marginal",
+        "label": {
+          "en": "Marginal",
+          "ta": "குறு",
+          "hi": "सीमांत"
+        },
+        "aliases": [
+          "marginal",
+          "குறு",
+          "சீமாந்த",
+          "सीमांत"
+        ]
+      },
+      {
+        "value": "small",
+        "label": {
+          "en": "Small",
+          "ta": "சிறு",
+          "hi": "लघु"
+        },
+        "aliases": [
+          "small",
+          "சிறு",
+          "சின்ன",
+          "लघु",
+          "छोटा"
+        ]
+      },
+      {
+        "value": "other",
+        "label": {
+          "en": "Other",
+          "ta": "மற்றவர்",
+          "hi": "अन्य"
+        },
+        "aliases": [
+          "other",
+          "big",
+          "large",
+          "மற்ற",
+          "பெரிய",
+          "अन्य",
+          "बड़ा"
+        ]
+      }
     ],
-    "aliases": ["category", "வகை", "श्रेणी"]
+    "aliases": [
+      "category",
+      "வகை",
+      "श्रेणी"
+    ]
   }
 }

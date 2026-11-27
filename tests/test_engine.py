@@ -85,8 +85,9 @@ def test_full_drip_application_in_tamil(agent):
     assert "ஆவணங்கள்" in reply and s.pending_service == "drip_irrigation"
     agent.respond(s, "ஆமாம்")
     assert s.form and s.form.id == "drip_irrigation"
-    answers = ["முருகன்", "ராமசாமி", "98765 43210", "1234 5678 9012", "தஞ்சாவூர்", "ஒரத்தநாடு",
-               "பாப்பாநாடு", "123/4", "2", "போர்வெல்", "தென்னை", "சிறு"]
+    # "ஆமாம்" after the phone, Aadhaar and survey number confirms their digit-by-digit read-back
+    answers = ["முருகன்", "ராமசாமி", "98765 43210", "ஆமாம்", "1234 5678 9012", "ஆமாம்", "மதுரை", "மேலூர்",
+               "கொட்டாம்பட்டி", "123/4", "ஆமாம்", "2", "போர்வெல்", "தென்னை", "சிறு"]
     reply = ""
     for a in answers:
         reply = agent.respond(s, a)
@@ -97,7 +98,9 @@ def test_full_drip_application_in_tamil(agent):
     reply = agent.respond(s, "இல்லை, மொபைல் எண் தவறு")
     assert "மொபைல்" in reply
     reply = agent.respond(s, "91234 56789")
-    assert "9123456789"[:5] in reply.replace(" ", "")
+    assert "9 1 2 3 4, 5 6 7 8 9" in reply  # read back digit by digit
+    reply = agent.respond(s, "சரி")         # digits confirmed -> full read-back again
+    assert s.form.awaiting_confirmation and "சரியா" in reply
     reply = agent.respond(s, "சரி")
     assert s.form is None
     app = [e for e in s.events if e["type"] == "application"][0]["data"]
@@ -114,6 +117,36 @@ def test_invalid_answer_reasks(agent):
     agent.respond(s, "Lakshmi")
     reply = agent.respond(s, "12345")
     assert "10 digits" in reply and s.form.next_field()["id"] == "phone"
+
+
+def test_digit_confirmation_no_and_repeat(agent):
+    s = Session(lang="en")
+    agent.respond(s, "solar pump")
+    agent.respond(s, "yes")
+    agent.respond(s, "Lakshmi")
+    reply = agent.respond(s, "98765 43210")
+    assert reply == "I heard 9 8 7 6 5, 4 3 2 1 0. Is that right?"
+    reply = agent.respond(s, "no")                      # wrong -> asked again
+    assert "mobile number" in reply.lower() and "phone" not in s.form.values
+    agent.respond(s, "98765 43211")
+    reply = agent.respond(s, "no it is 98765 43219")    # repeated number replaces it
+    assert "4 3 2 1 9" in reply and s.form.values["phone"] == "9876543219"
+
+
+def test_noise_is_not_guessed(agent):
+    s = Session(lang="ta")
+    assert "சரியாகக் கேட்கவில்லை" in agent.respond(s, " ... ?? ")
+
+
+def test_crop_loss_deadline_first_and_details_reused(agent):
+    s = Session(lang="ta")
+    reply = agent.respond(s, "நேற்று மழையில் என் நெல் சேதமானது, ரெண்டு ஏக்கர்")
+    assert reply.startswith("சேதம் நடந்த 72 மணி நேரத்துக்குள்")   # the deadline is said first
+    reply = agent.respond(s, "ஆமாம்")
+    v = s.form.values
+    assert v["loss_cause"] == "flood" and v["area_affected"] == 2
+    assert v["loss_date"] == (date.today() - timedelta(days=1)).isoformat()
+    assert "குறித்துக்கொண்டேன்" in reply and "crop" == s.form.next_field()["id"]
 
 
 def test_cancel(agent):

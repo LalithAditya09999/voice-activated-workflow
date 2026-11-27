@@ -18,7 +18,7 @@ def test_chat_roundtrip_and_print():
     assert "Shall I fill" in r["reply"]
     r = client.post("/api/chat", json={"session_id": sid, "text": "yes"}).json()
     assert r["form"]["form_id"] == "grievance"
-    for text in ["water", "No drinking water supply in our street", "two weeks", "Selvi", "9876543210", "Madurai", "Melur"]:
+    for text in ["water", "No drinking water supply in our street", "two weeks", "Selvi", "9876543210", "yes", "Madurai", "Melur"]:
         r = client.post("/api/chat", json={"session_id": sid, "text": text}).json()
     assert r["form"]["awaiting_confirmation"]
     r = client.post("/api/chat", json={"session_id": sid, "text": "yes"}).json()

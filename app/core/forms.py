@@ -171,6 +171,7 @@ class FormSession:
     values: dict = field(default_factory=dict)
     awaiting_confirmation: bool = False
     editing_field: str | None = None
+    confirming: str | None = None  # field whose digits were just read back, awaiting yes/no
 
     @property
     def id(self) -> str:

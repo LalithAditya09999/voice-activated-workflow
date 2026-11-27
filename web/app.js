@@ -32,6 +32,8 @@ const UI = {
   sources: { en: "From", ta: "ஆதாரம்", hi: "स्रोत" },
   unverified: { en: "verify at office", ta: "அலுவலகத்தில் உறுதி செய்யவும்", hi: "कार्यालय में पुष्टि करें" },
   offline: { en: "offline mode", ta: "ஆஃப்லைன்", hi: "ऑफ़लाइन" },
+  keyNotSet: { en: "Basic mode: AI key not set. The main services still work; free-form questions are understood better with the key.", ta: "அடிப்படை முறை: AI சாவி அமைக்கப்படவில்லை. முக்கிய சேவைகள் வேலை செய்யும்; சாவியுடன் இயல்பான பேச்சை இன்னும் நன்றாகப் புரிந்துகொள்ளும்.", hi: "बेसिक मोड: AI कुंजी सेट नहीं है। मुख्य सेवाएँ काम करती हैं; कुंजी के साथ खुली बातचीत बेहतर समझी जाती है।" },
+  speechKeyNotSet: { en: "Speech key not set: using this phone's own voice recognition.", ta: "பேச்சு சாவி அமைக்கப்படவில்லை: இந்த போனின் குரல் அறிதல் பயன்படுத்தப்படுகிறது.", hi: "स्पीच कुंजी सेट नहीं है: फ़ोन की अपनी आवाज़ पहचान इस्तेमाल हो रही है।" },
 };
 
 const state = {
@@ -73,12 +75,23 @@ async function api(path, body) {
 }
 
 // ---------------- language ----------------
+function renderModeNote() {
+  const note = $("#modeNote");
+  if (!note || !state.config) return;
+  const lines = [];
+  if (state.config.agent === "offline") lines.push(tr("keyNotSet"));
+  if (!state.config.server_speech) lines.push(tr("speechKeyNotSet"));
+  note.textContent = lines.join(" ");
+  note.hidden = !lines.length;
+}
+
 function applyLang() {
   document.documentElement.lang = state.lang;
   document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === state.lang)));
   document.querySelectorAll("[data-i18n]").forEach((n) => { n.textContent = tr(n.dataset.i18n); });
   document.querySelectorAll("[data-i18n-ph]").forEach((n) => { n.placeholder = tr(n.dataset.i18nPh); });
   renderChips();
+  renderModeNote();
 }
 
 document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", async () => {
@@ -284,19 +297,24 @@ function startBrowserRecognition() {
   recognizer.interimResults = true;
   recognizer.maxAlternatives = 1;
   let finalText = "";
+  let lowConfidence = false;
   recognizer.onresult = (e) => {
     let interim = "";
     for (let i = e.resultIndex; i < e.results.length; i++) {
       const r = e.results[i];
-      if (r.isFinal) finalText += r[0].transcript; else interim += r[0].transcript;
+      if (r.isFinal) {
+        finalText += r[0].transcript;
+        // Chrome reports 0 when it has no estimate; only a real, very low score counts
+        if (r[0].confidence > 0 && r[0].confidence < 0.35) lowConfidence = true;
+      } else interim += r[0].transcript;
     }
     setStatus(null, interim || finalText || tr("listening"));
   };
-  recognizer.onerror = () => { stopListening(); setStatus("heardNothing"); };
+  recognizer.onerror = () => { stopListening(); didNotCatch(); };
   recognizer.onend = () => {
     const text = finalText.trim();
     stopListening();
-    if (text) sendText(text); else setStatus("heardNothing");
+    if (!text || lowConfidence) didNotCatch(); else sendText(text);
   };
   recognizer.start();
 }
@@ -316,10 +334,15 @@ async function startServerRecording() {
     try {
       const res = await fetch("/api/stt", { method: "POST", body: fd });
       const { text } = await res.json();
-      if (text) sendText(text); else setStatus("heardNothing");
-    } catch { setStatus("heardNothing"); }
+      if (text) sendText(text); else didNotCatch();
+    } catch { didNotCatch(); }
   };
   recorder.start();
+}
+
+function didNotCatch() {
+  addMsg(tr("heardNothing"), "bot");
+  speak(tr("heardNothing"));
 }
 
 function stopListening() {
@@ -372,7 +395,7 @@ $("#textForm").addEventListener("submit", (e) => {
   $("#speakToggle").setAttribute("aria-pressed", String(state.speakReplies));
   if ("speechSynthesis" in window) speechSynthesis.getVoices();
   state.config = await api("/api/config");
-  if (state.config.agent === "offline") $(".brand-sub").title = tr("offline");
+  renderModeNote();
   applyLang();
   await newSession();
   if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});

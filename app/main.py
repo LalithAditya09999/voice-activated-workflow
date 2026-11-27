@@ -1,6 +1,6 @@
 """HTTP API + static web app.
 
-Run:  uvicorn app.main:app --reload --port 8000
+Run:  uvicorn app.main:app --reload --port 3000   (or: docker compose up --build)
 """
 from __future__ import annotations
 
@@ -102,7 +102,8 @@ def chat(body: ChatIn):
             agent_used = "claude"
         else:
             reply = offline_agent.respond(s, body.text)
-    except (anthropic.APIConnectionError, anthropic.RateLimitError, anthropic.InternalServerError) as e:
+    except (anthropic.APIConnectionError, anthropic.RateLimitError, anthropic.InternalServerError,
+            anthropic.AuthenticationError, anthropic.PermissionDeniedError) as e:
         # keep the conversation alive on flaky networks: answer this turn offline
         log.warning("Claude unavailable (%s); answering offline", type(e).__name__)
         reply = offline_agent.respond(s, body.text)

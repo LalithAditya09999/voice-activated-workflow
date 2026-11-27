@@ -10,14 +10,33 @@ domain pack, not a rewrite.
 
 ## Run it
 
+With Docker (no keys and no `.env` file needed):
+
 ```bash
-pip install -r requirements.txt
-cp .env.example .env          # optional: add ANTHROPIC_API_KEY / SARVAM_API_KEY
-uvicorn app.main:app --reload --port 8000
+docker compose up --build
 ```
 
-Open http://localhost:8000 on a phone (Chrome on Android has the best Tamil/Hindi speech
-recognition). Tap the mic, speak, tap again to stop.
+Open **http://localhost:3000** in Chrome. Tap the mic, speak, tap again to stop. Without keys
+Velan runs in basic offline mode and says so on screen; the main services work fully.
+
+Optional keys: copy `.env.example` to `.env` and fill in only what you have, then run
+`docker compose up --build` again.
+
+Without Docker (Python 3.10+):
+
+```bash
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 3000
+```
+
+Voice input needs Chrome (best on Android for Tamil/Hindi) and a page served from `localhost`
+or HTTPS, because browsers only allow the microphone there.
+
+**Try this first (the core flow):** choose தமிழ் and say *"நேற்று மழையில் என் நெல் சேதமானது,
+ரெண்டு ஏக்கர்"* ("rain damaged my paddy yesterday, two acres"). Velan says the 72-hour
+insurance deadline first, keeps the date, cause and acreage you already gave, asks the rest one
+question at a time, reads numbers back digit by digit, reads the whole claim back, and only then
+prepares it with a reference number and a printable form.
 
 ```bash
 python -m pytest -q

@@ -26,12 +26,18 @@ WEB_DIR = ROOT / "web"
 DATA_DIR = Path(os.environ.get("VELAN_DATA_DIR", ROOT / "data"))
 DB_PATH = DATA_DIR / "velan.db"
 
-ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+def _secret(name: str) -> str:
+    """Empty or placeholder values (copied from .env.example) count as "not set"."""
+    value = os.environ.get(name, "").strip()
+    return "" if not value or value.lower().startswith("your-") else value
+
+
+ANTHROPIC_API_KEY = _secret("ANTHROPIC_API_KEY")
 MODEL = os.environ.get("VELAN_MODEL", "claude-opus-5-5")
 # "claude" uses the Claude API; "offline" uses the rule-based agent; "auto" picks.
 AGENT_MODE = os.environ.get("VELAN_AGENT", "auto")
 
-SARVAM_API_KEY = os.environ.get("SARVAM_API_KEY", "")
+SARVAM_API_KEY = _secret("SARVAM_API_KEY")
 
 ENABLED_DOMAINS = [
     d.strip() for d in os.environ.get("VELAN_DOMAINS", "farmer,citizen").split(",") if d.strip()
