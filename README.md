@@ -144,3 +144,27 @@ describing their practices (by voice) and add them as knowledge articles; the de
   so these are thin adapters.
 - Document photo → OCR check (name/survey number match) is not built yet.
 - Sessions are in memory; use Redis or the DB if you run more than one server process.
+
+## Keeping rules up to date
+
+Government rules change, so Velan doesn't rely on a model's memory. Every fact lives in a knowledge
+article with its sources, and a watcher keeps those in step with the official pages, with a person
+approving each change.
+
+1. **Sources:** `domains/<pack>/sources.json` lists the official pages each article depends on.
+2. **Daily check:** `python scripts/watch_rules.py check`, run on a machine with normal internet
+   (for example a cron job: `15 6 * * * cd /app && python scripts/watch_rules.py check`). It
+   fetches each page, compares it with the last snapshot and queues any change. With an Anthropic
+   key it adds an AI summary of what changed (rule, old value, new value, effective date).
+3. **Review:** `python scripts/watch_rules.py review`, then `approve <id> --by "Name"` or
+   `reject <id> --by "Name"`. Approving records the change under "Rule updates" in the article and
+   stamps `last_checked`. Nothing reaches farmers without approval.
+
+**Search** combines keyword matching with a machine-learning retriever (character n-gram TF-IDF,
+`app/core/semantic.py`) that copes with misspellings, Tamil and Hindi written in English letters,
+and word endings. `tests/search_eval.json` holds 51 realistic questions:
+
+| | Clear questions | Hard questions |
+|---|---|---|
+| Combined search | 33 of 35 | 14 of 16 |
+| Keyword search alone | 33 of 35 | 13 of 16 |

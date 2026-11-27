@@ -47,7 +47,8 @@ class Actions:
         return {
             "results": [
                 {"id": d.id, "title": d.title, "summary": t(d.summary, s.lang) if d.summary else "",
-                 "content": d.body, "source": d.source, "verified": d.verified}
+                 "content": d.body, "source": d.source, "verified": d.verified,
+                 "last_checked": d.last_checked or "not yet checked against the official source"}
                 for d, _ in hits
             ]
         }
