@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Velan design profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@400;500;600&family=Noto+Serif+Tamil:wght@400;500&family=Public+Sans:wght@400;500;600&family=Spectral:ital,wght@0,400;1,400&display=swap">
+<style>
+/* =========================================================================
+   VELAN DESIGN PROFILE
+   Calm editorial paper-and-ink (after trycontour.com) + layered depth
+   (after the layered web style guide) + Tamil heritage (kolam, turmeric).
+   Techniques are borrowed; no logos, artwork or copy are reused.
+   ========================================================================= */
+
+/* ---------- Colour stories: one data attribute changes the mood ---------- */
+:root, [data-story="dawn"] {          /* Turmeric dawn: the default */
+  --paper: #F5F0E6;   --paper-2: #FBF8F1;  --sand: #E8E0CF;
+  --ink: #153C25;     --ink-deep: #00321C; --sage: #5E6D63;  --mist: #DCE5DA;
+  --accent: #D9952B;  /* turmeric, used sparingly */
+  --signal: #20A04E;  /* live, done */
+  --alert: #B23A2A;   /* kumkum: deadlines, errors */
+  --line: rgba(21, 60, 37, .11);  /* kolam line art */
+  --glow: #F6D9A3;
+}
+[data-story="monsoon"] {              /* Leaf monsoon: cooler, greener */
+  --paper: #EEF2EA; --paper-2: #F8FAF5; --sand: #DCE6D6;
+  --ink: #12382A; --ink-deep: #082A1D; --sage: #56695D; --mist: #D6E6DA;
+  --accent: #2F8F6A; --signal: #1F9A55; --alert: #B23A2A; --line: rgba(18, 56, 42, .12); --glow: #CDE8D6;
+}
+[data-story="temple"] {               /* Temple night: dark, lamp-lit */
+  --paper: #10190F; --paper-2: #16231A; --sand: #1E2E22;
+  --ink: #F3ECDC; --ink-deep: #FFF8E8; --sage: #A9B5A6; --mist: #233528;
+  --accent: #F0B54A; --signal: #6FCB95; --alert: #FF8C78; --line: rgba(240, 181, 74, .13); --glow: #5A4217;
+}
+
+:root {
+  --font-ui: "Public Sans", "Hind Madurai", system-ui, sans-serif;
+  --font-ta: "Hind Madurai", "Noto Sans Tamil", system-ui, sans-serif;
+  --font-serif: "Spectral", "Noto Serif Tamil", Georgia, serif;
+  --ease-out: cubic-bezier(.16, 1, .3, 1);      /* calm arrival */
+  --ease-swoop: cubic-bezier(.2, .85, .45, .95); /* hero entrance */
+  --shadow-float: 0 30px 60px -40px color-mix(in srgb, var(--ink) 55%, transparent);
+  --shadow-card: 0 24px 48px -32px color-mix(in srgb, var(--ink) 45%, transparent);
+  --radius-panel: 14px; --radius-ctl: 4px; --radius-pill: 999px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 var(--font-ui); letter-spacing: -.01em; transition: background-color .5s, color .5s; }
+h1, h2, h3 { font-weight: 500; letter-spacing: -.025em; line-height: 1.08; margin: 0; }
+.soft { color: var(--sage); }               /* the second, quieter line of a headline */
+code, pre { font: 13px/1.55 ui-monospace, "SF Mono", Consolas, monospace; }
+a { color: inherit; }
+.wrap { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+
+/* ---------- Kolam line art: the signature texture (our 'contour lines') ---------- */
+.kolam-field { position: absolute; inset: 0; z-index: -3; color: var(--line); }
+.kolam-field svg { width: 100%; height: 100%; display: block; }
+.grain { position: absolute; inset: 0; z-index: -2; opacity: .18; mix-blend-mode: multiply; pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+[data-story="temple"] .grain { mix-blend-mode: screen; opacity: .08; }
+.scrim { position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(ellipse 62% 58% at 30% 50%, var(--paper) 34%, color-mix(in srgb, var(--paper) 70%, transparent) 60%, transparent 82%),
+    radial-gradient(60% 70% at 80% 40%, color-mix(in srgb, var(--glow) 55%, transparent), transparent 70%),
+    linear-gradient(180deg, transparent 70%, var(--paper) 100%); }
+
+/* ---------- Announcement + glass nav ---------- */
+.ribbon { background: var(--ink-deep); color: var(--paper-2); text-align: center; font-size: 14px; padding: 9px 16px; }
+[data-story="temple"] .ribbon { color: #10190F; }
+.nav { position: sticky; top: 10px; z-index: 20; margin: 10px auto 0; width: min(1160px, calc(100% - 20px));
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 12px 10px 18px;
+  border-radius: var(--radius-panel); border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  background: color-mix(in srgb, var(--paper) 82%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  animation: fly-in .95s var(--ease-out) both; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -.02em; }
+.brand .ta { font-family: var(--font-ta); font-size: 21px; }
+.brand .en { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--sage); }
+.mark { width: 30px; height: 30px; color: var(--accent); }
+.links { display: flex; gap: 26px; font-size: 15px; color: var(--sage); }
+
+/* ---------- Buttons: square, quiet, with an arrow box ---------- */
+.btn { display: inline-flex; align-items: center; gap: 14px; padding: 12px 12px 12px 18px; border-radius: var(--radius-ctl);
+  font: 500 16px var(--font-ui); text-decoration: none; border: 0; cursor: pointer; background: var(--ink-deep); color: var(--paper-2); transition: transform .3s var(--ease-out); }
+[data-story="temple"] .btn { color: #10190F; }
+.btn:hover { transform: translateY(-1px); }
+.btn .arrow { width: 26px; height: 26px; display: grid; place-items: center; border: 1px solid color-mix(in srgb, currentColor 45%, transparent); border-radius: 2px; font-size: 14px; }
+.btn.line { background: transparent; color: var(--ink); border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); }
+.field { min-width: 0; flex: 1; padding: 13px 16px; border-radius: var(--radius-ctl); border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); background: var(--paper-2); color: var(--ink); font: inherit; }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; isolation: isolate; overflow: hidden; min-height: 88vh; display: flex; align-items: center; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; padding: 10vh 0 14vh; }
+.hero h1 { font-size: clamp(2.6rem, 3.6vw + 1rem, 4.6rem); animation: rise 1.05s var(--ease-swoop) .3s both; }
+.hero h1 .ta { display: block; font-family: var(--font-ta); font-weight: 600; letter-spacing: 0; font-size: .78em; margin-bottom: .18em; }
+.hero p.lede { max-width: 46ch; font-size: 19px; color: var(--sage); margin: 22px 0 28px; animation: rise 1.05s var(--ease-swoop) .45s both; }
+.hero .cta { display: flex; gap: 10px; max-width: 480px; animation: rise 1.05s var(--ease-swoop) .6s both; }
+
+/* the live transcript card: the product shown as a conversation */
+.call { background: var(--paper-2); border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent); border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-float); overflow: hidden; animation: rise-card 1.2s var(--ease-out) .7s both; font-size: 15px; }
+.call-head { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; border-bottom: 1px solid color-mix(in srgb, var(--ink) 8%, transparent); font-weight: 500; }
+.live { display: inline-flex; align-items: center; gap: 8px; color: var(--sage); font-weight: 400; }
+.ping { width: 8px; height: 8px; border-radius: 50%; background: var(--signal); position: relative; }
+.ping::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--signal); animation: ping 1.8s cubic-bezier(0,0,.2,1) infinite; }
+.turns { padding: 6px 18px 14px; display: grid; grid-template-columns: 70px 1fr; gap: 10px 14px; }
+.who { color: var(--sage); font-size: 14px; padding-top: 2px; }
+.said-ta { font-family: var(--font-ta); }
+.said-en { display: block; color: var(--sage); font-size: 13px; }
+.typing { display: inline-block; width: 92px; height: 14px; border-radius: 3px; background: var(--sand); animation: shimmer 1.6s ease-in-out infinite; }
+.call-foot { display: flex; align-items: center; gap: 10px; padding: 12px 18px; background: var(--mist); color: var(--ink); font-size: 14px; }
+
+/* ---------- Story switcher ---------- */
+.stories { position: relative; z-index: 30; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; padding: 10px 16px;
+  background: color-mix(in srgb, var(--paper) 86%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid color-mix(in srgb, var(--ink) 10%, transparent); }
+.stories button { font: 13px var(--font-ui); padding: 6px 12px; border-radius: var(--radius-pill); border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); background: transparent; color: var(--ink); cursor: pointer; display: flex; align-items: center; gap: 8px; }
+.stories button[aria-pressed="true"] { border-color: var(--ink); background: var(--paper-2); }
+.sw { width: 14px; height: 14px; border-radius: 50%; }
+
+/* ---------- Guide sections ---------- */
+section.band { padding: 88px 0; border-top: 1px solid color-mix(in srgb, var(--ink) 8%, transparent); }
+section.band.sand { background: var(--sand); }
+.sec-head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin-bottom: 44px; }
+.sec-head h2 { font-size: clamp(2rem, 2.1vw + .9rem, 3rem); }
+.sec-head p { color: var(--sage); max-width: 52ch; margin: 0; }
+.num { font: 13px ui-monospace, Consolas, monospace; color: var(--accent); display: block; margin-bottom: 14px; }
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity .9s var(--ease-out), transform .9s var(--ease-out); }
+.reveal.in { opacity: 1; transform: none; }
+
+/* palette */
+.swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.swatch { border-radius: var(--radius-panel); overflow: hidden; border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent); background: var(--paper-2); }
+.swatch .chip { height: 86px; }
+.swatch .meta { padding: 10px 12px; font-size: 14px; }
+.swatch .meta b { display: block; font-weight: 500; }
+.swatch .meta span { color: var(--sage); font-size: 13px; }
+
+/* type */
+.type-row { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid color-mix(in srgb, var(--ink) 8%, transparent); align-items: baseline; }
+.type-row .label { color: var(--sage); font-size: 14px; }
+
+/* layer stack demo */
+.layers { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.stack { position: relative; height: 360px; perspective: 1000px; display: grid; place-items: center; }
+.plane { position: absolute; width: 66%; height: 56%; border-radius: 12px; display: flex; align-items: flex-end; padding: 10px 12px; font: 12px ui-monospace, Consolas, monospace; color: var(--ink);
+  transform: rotateX(55deg) rotateZ(-32deg) translateZ(calc(var(--z) * 1px)); transition: transform .9s var(--ease-out); box-shadow: 0 18px 30px -18px rgba(0,0,0,.35); }
+.stack:hover .plane { transform: rotateX(55deg) rotateZ(-32deg) translateZ(calc(var(--z) * 2.1px)); }
+.p1 { --z: -66; background: var(--paper); border: 1px solid color-mix(in srgb, var(--ink) 15%, transparent); }
+.p2 { --z: -22; color: var(--ink); border: 1px dashed color-mix(in srgb, var(--ink) 30%, transparent); background-image: radial-gradient(color-mix(in srgb, var(--ink) 35%, transparent) 1.4px, transparent 1.6px); background-size: 16px 16px; }
+.p3 { --z: 22; background: radial-gradient(ellipse 60% 60% at 40% 50%, var(--paper) 30%, transparent 80%); border: 1px dashed color-mix(in srgb, var(--ink) 30%, transparent); }
+.p4 { --z: 66; background: color-mix(in srgb, var(--paper-2) 70%, transparent); backdrop-filter: blur(6px); border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); }
+.list { padding-left: 18px; color: var(--sage); }
+.list li { margin-bottom: 8px; }
+.list b { color: var(--ink); font-weight: 500; }
+
+/* components */
+.comps { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.comp { background: var(--paper-2); border: 1px solid color-mix(in srgb, var(--ink) 9%, transparent); border-radius: var(--radius-panel); padding: 22px; box-shadow: var(--shadow-card); display: flex; flex-direction: column; gap: 14px; }
+.comp h3 { font-size: 18px; }
+.comp .note { color: var(--sage); font-size: 14px; margin: 0; }
+.mic { position: relative; width: 104px; height: 104px; border-radius: 50%; border: 0; align-self: center; margin: 10px 0;
+  background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--ink) 70%, #fff), var(--ink-deep) 75%); color: var(--paper-2);
+  box-shadow: var(--shadow-float), inset 0 0 0 5px var(--accent); display: grid; place-items: center; cursor: pointer; }
+.mic svg.icon { width: 40px; height: 40px; }
+.mic .ring { position: absolute; inset: -12px; width: calc(100% + 24px); height: calc(100% + 24px); }
+.mic .ring circle { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-dasharray: 2 9; stroke-linecap: round; transform-origin: 60px 60px; animation: spin 42s linear infinite; }
+.mic.on { background: radial-gradient(circle at 35% 30%, #D25A46, #7E2216 78%); }
+.mic.on .ring circle { stroke: var(--alert); animation-duration: 6s; }
+.reply { position: relative; background: var(--paper); border-radius: 12px; padding: 14px 16px 14px 20px; }
+.reply::before { content: ""; position: absolute; left: 0; top: 14px; bottom: 14px; width: 3px; border-radius: 0 3px 3px 0; background: var(--accent); }
+.reply .who { font-size: 13px; }
+.reply p { margin: 4px 0 0; font-family: var(--font-ta); font-size: 20px; line-height: 1.45; }
+.steps { display: flex; gap: 5px; } .steps i { flex: 1; height: 6px; border-radius: 3px; background: color-mix(in srgb, var(--ink) 12%, transparent); }
+.steps i.d { background: var(--ink); } .steps i.n { background: var(--accent); }
+.tile { display: flex; gap: 12px; align-items: center; padding: 14px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent); background: var(--paper); }
+.tile svg { width: 40px; height: 40px; flex-shrink: 0; color: var(--ink); }
+.tile b { display: block; font-weight: 500; font-family: var(--font-ta); }
+.tile span { color: var(--sage); font-size: 13px; }
+.deadline { border-left: 3px solid var(--alert); padding: 6px 12px; color: var(--alert); font-weight: 500; font-family: var(--font-ta); }
+.ref { font-family: var(--font-serif); font-size: 34px; letter-spacing: .02em; }
+
+/* motion */
+.motion { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.mo { background: var(--paper-2); border: 1px solid color-mix(in srgb, var(--ink) 9%, transparent); border-radius: var(--radius-panel); padding: 18px; min-height: 170px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; }
+.mo b { font-weight: 500; } .mo span { color: var(--sage); font-size: 14px; }
+.wave { display: flex; gap: 4px; align-items: center; height: 30px; }
+.wave i { width: 5px; height: 8px; border-radius: 3px; background: var(--alert); animation: bar .9s ease-in-out infinite; }
+.wave i:nth-child(2){animation-delay:.1s}.wave i:nth-child(3){animation-delay:.2s}.wave i:nth-child(4){animation-delay:.3s}.wave i:nth-child(5){animation-delay:.2s}.wave i:nth-child(6){animation-delay:.1s}
+.draw path { stroke-dasharray: 420; stroke-dashoffset: 420; animation: draw 4s var(--ease-swoop) infinite alternate; }
+.marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.marquee .track { display: flex; gap: 34px; width: max-content; animation: marquee 48s linear infinite; font-family: var(--font-ta); color: var(--sage); }
+
+/* outro seam */
+.outro { position: relative; padding: 96px 0 110px; color: var(--paper-2);
+  background: radial-gradient(50% 70% at 82% 10%, color-mix(in srgb, var(--accent) 35%, transparent), transparent 70%), linear-gradient(180deg, var(--paper) 0%, var(--ink) 18%, var(--ink-deep) 100%); }
+[data-story="temple"] .outro { color: var(--paper); background: linear-gradient(180deg, var(--paper) 0%, #2A3A22 22%, #3B2B10 100%); }
+.outro h2 { font-size: clamp(2rem, 2.1vw + .9rem, 3rem); margin-top: 60px; }
+.outro h2 .soft { color: color-mix(in srgb, var(--paper-2) 65%, transparent); }
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 32px; }
+.rule { padding: 18px 20px; border-radius: var(--radius-panel); background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16); backdrop-filter: blur(10px); font-size: 15px; }
+.rule b { display: block; font-weight: 500; font-size: 17px; margin-bottom: 4px; }
+.credit { margin-top: 40px; font-size: 13px; opacity: .75; }
+
+/* ---------- Keyframes ---------- */
+@keyframes fly-in  { from { opacity: 0; translate: 0 -40px; } }
+@keyframes rise    { from { opacity: 0; transform: translateY(18px); } }
+@keyframes rise-card { from { opacity: 0; transform: translateY(26px) scale(.98); } }
+@keyframes spin    { to { transform: rotate(360deg); } }
+@keyframes ping    { 75%, 100% { opacity: 0; transform: scale(2.6); } }
+@keyframes shimmer { 50% { opacity: .45; } }
+@keyframes bar     { 50% { height: 28px; } }
+@keyframes draw    { to { stroke-dashoffset: 0; } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes kolam-draw { from { stroke-dashoffset: 1600; } to { stroke-dashoffset: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+@media (max-width: 860px) {
+  .hero-grid, .sec-head, .layers { grid-template-columns: 1fr; }
+  .links { display: none; }
+  .type-row { grid-template-columns: 1fr; gap: 4px; }
+  .hero .cta { flex-direction: column; }
+}
+</style>
+</head>
+<body data-story="dawn">
+
+<div class="ribbon">Velan design profile · voice-first, Tamil-first, calm on paper</div>
+<nav class="nav" aria-label="Demo navigation">
+  <div class="brand">
+    <svg class="mark" viewBox="0 0 48 48" aria-hidden="true"><g fill="currentColor"><circle cx="12" cy="12" r="2.4"/><circle cx="24" cy="12" r="2.4"/><circle cx="36" cy="12" r="2.4"/><circle cx="12" cy="24" r="2.4"/><circle cx="24" cy="24" r="2.4"/><circle cx="36" cy="24" r="2.4"/><circle cx="12" cy="36" r="2.4"/><circle cx="24" cy="36" r="2.4"/><circle cx="36" cy="36" r="2.4"/></g><path d="M24 4c6 4 6 12 0 16-6-4-6-12 0-16zM24 28c6 4 6 12 0 16-6-4-6-12 0-16zM4 24c4-6 12-6 16 0-4 6-12 6-16 0zM28 24c4-6 12-6 16 0-4 6-12 6-16 0z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    <span class="ta">வேலன்</span><span class="en">Velan</span>
+  </div>
+  <div class="links"><span>Foundations</span><span>Layers</span><span>Components</span><span>Motion</span></div>
+  <a class="btn" href="#rules">House rules <span class="arrow" aria-hidden="true">→</span></a>
+</nav>
+
+<header class="hero">
+  <!-- Layer 1: kolam line art (our contour lines) -->
+  <div class="kolam-field" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="pulli" width="64" height="64" patternUnits="userSpaceOnUse">
+          <circle cx="32" cy="32" r="1.8" fill="currentColor"/>
+          <path d="M32 6 C46 18 46 46 32 58 C18 46 18 18 32 6Z M6 32 C18 18 46 18 58 32 C46 46 18 46 6 32Z" fill="none" stroke="currentColor" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="1200" height="800" fill="url(#pulli)"/>
+      <g fill="none" stroke="currentColor" stroke-width="1.4" style="stroke-dasharray:1600;animation:kolam-draw 6s var(--ease-swoop) both">
+        <circle cx="930" cy="400" r="120"/><circle cx="930" cy="400" r="190"/><circle cx="930" cy="400" r="270"/>
+        <path d="M930 130 C1010 230 1010 570 930 670 C850 570 850 230 930 130Z M660 400 C760 320 1100 320 1200 400 C1100 480 760 480 660 400Z"/>
+      </g>
+    </svg>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="wrap hero-grid">
+    <div>
+      <h1><span class="ta">பேசுங்கள். வேலை முடியும்.</span>Speak, and the<br><span class="soft">paperwork gets done.</span></h1>
+      <p class="lede">A voice-first helper for farmers in Tamil Nadu. One sentence in their own language becomes a checked, read-back application with a reference number.</p>
+      <div class="cta"><input class="field" placeholder="Try: நேற்று மழையில் நெல் சேதமானது" aria-label="Example request"><a class="btn" href="#components">See components <span class="arrow" aria-hidden="true">→</span></a></div>
+    </div>
+    <div class="call" aria-label="Example live conversation card">
+      <div class="call-head">Crop-loss claim, Theni <span class="live"><span class="ping" aria-hidden="true"></span>Live</span></div>
+      <div class="turns">
+        <span class="who">Farmer</span><span><span class="said-ta">நேற்று மழையில் என் நெல் சேதமானது, ரெண்டு ஏக்கர்</span><span class="said-en">Rain damaged my paddy yesterday, two acres.</span></span>
+        <span class="who">Velan</span><span><span class="said-ta">72 மணி நேரத்துக்குள் தெரிவிக்க வேண்டும். இப்போதே செய்யலாம்.</span><span class="said-en">Report within 72 hours. Let’s do it now.</span></span>
+        <span class="who">Farmer</span><span class="typing" aria-label="speaking"></span>
+      </div>
+      <div class="call-foot">✓ Date, cause and acres written to the claim</div>
+    </div>
+  </div>
+</header>
+
+<div class="stories" role="group" aria-label="Colour story">
+  <button data-set="dawn" aria-pressed="true"><span class="sw" style="background:linear-gradient(135deg,#F5F0E6,#D9952B,#153C25)"></span>Turmeric dawn</button>
+  <button data-set="monsoon" aria-pressed="false"><span class="sw" style="background:linear-gradient(135deg,#EEF2EA,#2F8F6A,#12382A)"></span>Leaf monsoon</button>
+  <button data-set="temple" aria-pressed="false"><span class="sw" style="background:linear-gradient(135deg,#10190F,#F0B54A,#F3ECDC)"></span>Temple night</button>
+</div>
+
+<main>
+  <section class="band" id="foundations"><div class="wrap">
+    <div class="sec-head reveal"><div><span class="num">01 · FOUNDATIONS</span><h2>Paper and ink,<br><span class="soft">a pinch of turmeric.</span></h2></div>
+      <p>Calm warm paper, deep forest ink, sage for quiet words. Turmeric is the one accent and appears in small doses: the mic rim, the reply thread, the current step. Kumkum red is reserved for deadlines and errors; green for live and done.</p></div>
+    <p style="color:var(--sage);font-size:14px;margin:-24px 0 18px">Hex values are for the default story, Turmeric dawn; the swatches follow the story you pick above.</p>
+    <div class="swatches reveal">
+      <div class="swatch"><div class="chip" style="background:var(--paper)"></div><div class="meta"><b>Paper</b><span>page · #F5F0E6</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--paper-2)"></div><div class="meta"><b>Paper 2</b><span>cards · #FBF8F1</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--sand)"></div><div class="meta"><b>Sand</b><span>alt bands · #E8E0CF</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ink)"></div><div class="meta"><b>Ink</b><span>text, buttons · #153C25</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--sage)"></div><div class="meta"><b>Sage</b><span>second lines, labels · #5E6D63</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--accent)"></div><div class="meta"><b>Turmeric</b><span>one accent · #D9952B</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--alert)"></div><div class="meta"><b>Kumkum</b><span>deadlines, errors · #B23A2A</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--signal)"></div><div class="meta"><b>Signal</b><span>live, done · #20A04E</span></div></div>
+    </div>
+  </div></section>
+
+  <section class="band sand" id="type"><div class="wrap">
+    <div class="sec-head reveal"><div><span class="num">02 · TYPE</span><h2>Two voices in<br><span class="soft">every headline.</span></h2></div>
+      <p>Public Sans for the interface, Hind Madurai for Tamil, Spectral for the few moments that deserve a printed feel (reference numbers, quotes). Headlines are weight 500 with −0.025em tracking: the first line in ink, the second in sage.</p></div>
+    <div class="reveal">
+      <div class="type-row"><span class="label">Display · 64–72 / 500</span><h2 style="font-size:clamp(2.4rem,3vw+1rem,4.2rem)">Claim it by voice. <span class="soft">Keep the receipt.</span></h2></div>
+      <div class="type-row"><span class="label">Tamil display · Hind Madurai 600</span><span style="font-family:var(--font-ta);font-weight:600;font-size:40px;line-height:1.3">உங்கள் மொபைல் எண் என்ன?</span></div>
+      <div class="type-row"><span class="label">Reply · 20–22 / 400</span><span style="font-family:var(--font-ta);font-size:21px">நான் கேட்டது: 9 8 7 6 5, 4 3 2 1 0. சரியா?</span></div>
+      <div class="type-row"><span class="label">Body · 17 / 400</span><span>Every answer is read back before anything is saved. Nothing is submitted without a spoken yes.</span></div>
+      <div class="type-row"><span class="label">Label · 13–14 / 400 sage</span><span style="color:var(--sage);font-size:14px">Next: Village · 4 of 10</span></div>
+      <div class="type-row"><span class="label">Receipt · Spectral</span><span class="ref">US-2611-32CBE4</span></div>
+    </div>
+  </div></section>
+
+  <section class="band" id="layers"><div class="wrap">
+    <div class="sec-head reveal"><div><span class="num">03 · LAYERS</span><h2>Kolam lines are<br><span class="soft">our contour lines.</span></h2></div>
+      <p>Rich surfaces are built in the same four layers, back to front. The art is always pulli kolam: dots and the loops drawn around them, faint enough to feel like texture, never like decoration competing with words.</p></div>
+    <div class="layers reveal">
+      <div class="stack" aria-label="Layer stack demo, hover to separate">
+        <div class="plane p1">1 · paper</div>
+        <div class="plane p2">2 · kolam lines + grain</div>
+        <div class="plane p3">3 · scrim behind words</div>
+        <div class="plane p4">4 · glass + content</div>
+      </div>
+      <ul class="list">
+        <li><b>Paper:</b> one flat warm tone per section; alternate paper and sand bands.</li>
+        <li><b>Kolam + grain:</b> line art at 10–13% ink, a fractal-noise grain at 18% <code>multiply</code> (8% <code>screen</code> at night).</li>
+        <li><b>Scrim:</b> a soft paper-coloured ellipse behind every headline and a fade into the next section’s colour, so text stays readable and sections meet in seams, not edges.</li>
+        <li><b>Glass:</b> the nav and floating cards blur what is behind them (<code>backdrop-filter: blur(12px)</code>, 82% paper).</li>
+        <li><b>Shadows:</b> long and soft, offset below the card: <code>0 30px 60px -40px</code> in ink. Never hard drop shadows.</li>
+      </ul>
+    </div>
+  </div></section>
+
+  <section class="band sand" id="components"><div class="wrap">
+    <div class="sec-head reveal"><div><span class="num">04 · COMPONENTS</span><h2>Built around<br><span class="soft">the spoken turn.</span></h2></div>
+      <p>The conversation is the interface. Every component either listens, answers, confirms or hands over a result. Controls are square and quiet; the mic is the one round, rich object on screen.</p></div>
+    <div class="comps reveal">
+      <div class="comp"><h3>The mic</h3>
+        <button class="mic" id="demoMic" aria-label="Toggle listening demo">
+          <svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 15a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-2.08A7 7 0 0 0 19 12h-2Z"/></svg>
+        </button>
+        <p class="note">104 px, ink with a turmeric rim and a dotted kolam ring that turns slowly (42 s). Listening: kumkum, ring speeds to 6 s. Tap to try.</p></div>
+      <div class="comp"><h3>Reply</h3>
+        <div class="reply"><span class="who">Velan</span><p>சேதம் நடந்த 72 மணி நேரத்துக்குள் தெரிவிக்க வேண்டும்.</p></div>
+        <p class="note">The latest reply is the largest text on screen (20–22 px Tamil), on paper with a turmeric thread at the left. Older turns live in History.</p></div>
+      <div class="comp"><h3>Live call card</h3>
+        <div class="call" style="animation:none;box-shadow:var(--shadow-card)"><div class="call-head">Drip subsidy <span class="live"><span class="ping"></span>Live</span></div><div class="call-foot">✓ Survey number confirmed</div></div>
+        <p class="note">Use to show the product in marketing and the demo: a head with a live dot, the turns, and a mist footer stating what was written.</p></div>
+      <div class="comp"><h3>Step tracker</h3>
+        <div class="steps" aria-hidden="true"><i class="d"></i><i class="d"></i><i class="d"></i><i class="n"></i><i></i><i></i><i></i><i></i></div>
+        <p class="note">Ink for done, turmeric for now, faint ink for later. Pair with a sage label: “Next: Village · 4 of 8”.</p></div>
+      <div class="comp"><h3>Service tile</h3>
+        <div class="tile"><svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 42V18"/><path d="M24 26c-7 0-11-5-11-12 7 0 11 5 11 12Zm0-6c0-7 4-12 11-12 0 7-4 12-11 12Z"/><circle cx="24" cy="42" r="1.5" fill="currentColor"/></svg><span><b>பயிர் காப்பீடு</b><span>“மழையில் நெல் சேதம்”</span></span></div>
+        <p class="note">Thin line icons (1.5 px stroke, ink), never emoji in the final product; a quoted example sentence teaches what to say.</p></div>
+      <div class="comp"><h3>Deadline &amp; receipt</h3>
+        <div class="deadline">⏱ 72 மணி நேரத்துக்குள் தெரிவிக்கவும்</div>
+        <div><span style="color:var(--sage);font-size:13px">Reference number</span><div class="ref">US-2611-32CBE4</div></div>
+        <p class="note">Kumkum rule on the left for anything time-critical. The receipt number in Spectral, so it reads like something printed.</p></div>
+      <div class="comp"><h3>Buttons</h3>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="#">ஆமாம், சரி <span class="arrow">✓</span></a><a class="btn line" href="#">மாற்ற வேண்டும்</a></div>
+        <p class="note">4 px corners, an arrow box on primary actions, 56 px tall in the app for thumbs. Confirmation always offers “change” beside “yes”.</p></div>
+    </div>
+  </div></section>
+
+  <section class="band" id="motion"><div class="wrap">
+    <div class="sec-head reveal"><div><span class="num">05 · MOTION</span><h2>Arrive once,<br><span class="soft">breathe slowly.</span></h2></div>
+      <p>Entrances play once with a long ease-out (<code>cubic-bezier(.16,1,.3,1)</code>): nav, headline, line, card, 150 ms apart. Ambient motion is slow enough to read as life. Only transform and opacity move. Reduced motion stops all of it.</p></div>
+    <div class="motion reveal">
+      <div class="mo"><b>Listening</b><div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><span>Kumkum bars, 0.9 s, only while the mic is open.</span></div>
+      <div class="mo"><b>Live ping</b><div style="display:flex;align-items:center;gap:10px"><span class="ping"></span><span>Live</span></div><span>A 1.8 s ping on the signal dot during a conversation.</span></div>
+      <div class="mo"><b>Kolam draws itself</b><svg class="draw" width="200" height="70" viewBox="0 0 200 70" aria-hidden="true"><path d="M10 35 C40 5 70 5 100 35 S160 65 190 35 C160 5 130 5 100 35 S40 65 10 35Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Line art traces in over 4 s on first view.</span></div>
+      <div class="mo"><b>Phrase marquee</b><div class="marquee"><div class="track"><span>பயிர் காப்பீடு</span><span>சொட்டு நீர்</span><span>சோலார் பம்ப்</span><span>ஓய்வூதியம்</span><span>பிஎம்-கிசான்</span><span>பயிர் காப்பீடு</span><span>சொட்டு நீர்</span><span>சோலார் பம்ப்</span><span>ஓய்வூதியம்</span><span>பிஎம்-கிசான்</span></div></div><span>48 s, faded edges, for landing pages only.</span></div>
+    </div>
+  </div></section>
+</main>
+
+<section class="outro" id="rules"><div class="wrap reveal">
+  <h2>House rules<br><span class="soft">for every Velan screen.</span></h2>
+  <div class="rules">
+    <div class="rule"><b>Tamil first</b>Tamil leads, English follows smaller. Write how people speak, not how forms read.</div>
+    <div class="rule"><b>One accent</b>Turmeric in small doses. Red only for deadlines and errors; green only for live and done.</div>
+    <div class="rule"><b>Two-tone headlines</b>Ink line, then sage line. Weight 500, tight tracking, never all caps.</div>
+    <div class="rule"><b>Kolam is texture</b>Faint line art under a scrim. Never behind body text without one.</div>
+    <div class="rule"><b>The turn is the layout</b>Latest reply largest, results above it, history tucked away, mic always in reach.</div>
+    <div class="rule"><b>Calm motion</b>Entrances once, ambient slow, transform and opacity only, reduced motion honoured.</div>
+    <div class="rule"><b>Readable outdoors</b>4.5:1 contrast for text, 56 px touch targets, 20 px+ for anything spoken.</div>
+    <div class="rule"><b>Borrow, don’t copy</b>Techniques from trycontour.com and the layered guide; none of their logos, art or words.</div>
+  </div>
+  <p class="credit">Inspired by the calm paper-and-ink editorial style of trycontour.com and the layered web style guide (art, grain, scrim, glass, seams, slow motion). Rebuilt for Velan with kolam line art and a Tamil Nadu palette.</p>
+</div></section>
+
+<script>
+  const buttons = document.querySelectorAll('.stories button');
+  function setStory(name) {
+    document.body.dataset.story = name;
+    buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.set === name)));
+    try { localStorage.setItem('velan-story', name); } catch (e) {}
+  }
+  buttons.forEach((b) => b.addEventListener('click', () => setStory(b.dataset.set)));
+  try { const saved = localStorage.getItem('velan-story'); if (saved) setStory(saved); } catch (e) {}
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  document.getElementById('demoMic').addEventListener('click', (e) => e.currentTarget.classList.toggle('on'));
+</script>
+</body>
+</html>
